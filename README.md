@@ -29,13 +29,13 @@ cp -r chinese-baby-naming ~/.config/opencode/skills/
 ```
 chinese-baby-naming/
 ├── SKILL.md               # 起名九步法流程 + 评分 + 反馈迭代
-├── ganzhi.md              # 天干地支五行 + 四柱排盘 + 纳音五行
-├── xiyongshen.md          # 定喜用神方法（三得法判旺衰）
-├── zodiac-radicals.md     # 十二生肖宜忌部首 + 六冲六害三合六合
-├── wuge-81.md             # 五格计算 + 数理转五行 + 81数理完整表 + 姓氏笔画
-├── phonetics.md           # 音律搭配规则 + 五行用字参照 + 谐音审查
-├── popularity-avoid.md    # 2010-2025烂大街字清单 + 替代字表
-├── wuxing-char-lib.md     # 188字五行参考字库（校准用，非限制选字范围）
+├── references/ganzhi.md              # 天干地支五行 + 四柱排盘 + 纳音五行
+├── references/xiyongshen.md          # 定喜用神方法（三得法判旺衰）
+├── references/zodiac-radicals.md     # 十二生肖宜忌部首 + 六冲六害三合六合
+├── references/wuge-81.md             # 五格计算 + 数理转五行 + 81数理完整表 + 姓氏笔画
+├── references/phonetics.md           # 音律搭配规则 + 五行用字参照 + 谐音审查
+├── references/popularity-avoid.md    # 2010-2025烂大街字清单 + 替代字表
+├── references/wuxing-char-lib.md     # 188字五行参考字库（校准用，非限制选字范围）
 └── README.md
 ```
 

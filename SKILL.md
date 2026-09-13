@@ -55,7 +55,7 @@ Ask the user for these inputs in this order. Mark optional with [opt]:
 
 ### Step 2: 排八字 (Four Pillars Chart)
 
-Use `ganzhi.md` reference:
+Use `references/ganzhi.md` reference:
 
 1. **算年柱** — 以立春为界（非正月初一）
 2. **算月柱** — 以节气为界，月干用"五虎遁"口诀推算
@@ -69,7 +69,7 @@ Use `ganzhi.md` reference:
 
 ### Step 3: 定喜用神 (Determine Favorable Elements)
 
-Use `xiyongshen.md` reference:
+Use `references/xiyongshen.md` reference:
 
 1. 确定日主（日柱天干）
 2. 用"三得法"判断日主旺衰：得令（月令）、得地（地支有根）、得势（天干有生扶）
@@ -79,7 +79,7 @@ Use `xiyongshen.md` reference:
 
 ### Step 4: 生肖适配 (Zodiac Compatibility)
 
-Use `zodiac-radicals.md` reference:
+Use `references/zodiac-radicals.md` reference:
 
 1. 根据出生年确定生肖
 2. 列出宜用部首和忌讳部首
@@ -87,7 +87,7 @@ Use `zodiac-radicals.md` reference:
 
 ### Step 5: 选字组名 (Character Selection)
 
-**字库参考**：`wuxing-char-lib.md` 收录了188个起名常用字作为**校准参考**（五行归属、繁体笔画、分歧标注、烂大街标注）。但选字**不限于此188字** — 不在字库里的字按以下方法自行判断。
+**字库参考**：`references/wuxing-char-lib.md` 收录了188个起名常用字作为**校准参考**（五行归属、繁体笔画、分歧标注、烂大街标注）。但选字**不限于此188字** — 不在字库里的字按以下方法自行判断。
 
 #### 5.0 自判字五行方法（字库未收录的字用此规则）
 
@@ -101,7 +101,7 @@ Use `zodiac-radicals.md` reference:
 
 #### 5.1 五行判定遇到分歧时
 
-查 `wuxing-char-lib.md` 的**易误判五行表** + **繁简笔画差异表** 校准。该字库的核心价值不是限制选字范围，而是：
+查 `references/wuxing-char-lib.md` 的**易误判五行表** + **繁简笔画差异表** 校准。该字库的核心价值不是限制选字范围，而是：
 1. 校准笔画（康熙vs简体差异）
 2. 预警分歧字（※标记）
 3. 预警烂大街字（◆标记）
@@ -132,7 +132,7 @@ Use `zodiac-radicals.md` reference:
 
 **这是很多用户隐性的核心需求** — 名字好听但不想跟别人重名。选字时必须主动规避近10年（2015-2025年）高频流行字。
 
-**必读参考**：`popularity-avoid.md`（完整清单：女孩TOP20、男孩TOP15、通用12字、泛滥组合TOP10、替代字表）
+**必读参考**：`references/popularity-avoid.md`（完整清单：女孩TOP20、男孩TOP15、通用12字、泛滥组合TOP10、替代字表）
 
 **快速检查规则**：
 1. **单字检查** — 名字每个字是否在烂大街清单中 → 在则淘汰或替换
@@ -151,7 +151,7 @@ Use `zodiac-radicals.md` reference:
 
 ### Step 6: 算五格 (Five-Grid Numerology)
 
-Use `wuge-81.md` reference:
+Use `references/wuge-81.md` reference:
 
 #### 6.1 笔画匹配策略（先框范围再选字）
 
@@ -189,7 +189,7 @@ Use `wuge-81.md` reference:
 
 ### Step 7: 验音律 (Phonetic Validation)
 
-Use `phonetics.md` reference:
+Use `references/phonetics.md` reference:
 
 检查三个维度：
 1. **声调搭配** — 平仄交错，抑扬顿挫

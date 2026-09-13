@@ -1,0 +1,4 @@
+# Sensitive
+.env
+*.token
+*secret*

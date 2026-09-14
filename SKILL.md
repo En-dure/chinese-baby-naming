@@ -108,8 +108,6 @@ Use `references/zodiac-radicals.md` reference:
 
 ### Step 5: 选字组名 (Character Selection)
 
-### Step 5: 选字组名 (Character Selection)
-
 #### 5.0 名字构思法则（先构思，后审查）
 
 **这是整个 skill 最核心的一步**。不要先想规则再选字——**先想意境，再找字，最后用规则核验**。
@@ -371,7 +369,7 @@ Use `references/phonetics.md` reference:
 ## 评分规则
 
 | 维度 | 权重 | 评分依据 |
-|---|---|---|---|
+|---|---|---|
 | 八字喜用神匹配 | 30% | 名字五行是否补喜用神 |
 | 生肖适配 | 20% | 部首是否宜用，有无忌讳 |
 | 五格数理 | 25% | 人格+总格吉数，三才相生 |

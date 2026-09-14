@@ -20,7 +20,7 @@ Traditional Chinese name selection that combines **Ba Zi (八字)** birth chart 
 
 ## Core Principle
 
-**起名八步法 (Eight-Step Naming Method)**
+**起名九步法 (Nine-Step Naming Method)**
 
 ```
 信息收集 → 排八字 → 定喜用神 → 生肖适配
@@ -269,7 +269,7 @@ Use `references/wuge-81.md` reference:
 
 ### Step 7: 验音律 (Phonetic Validation)
 
-Use `references/phonetics.md` reference:
+Use `references/phonetics.md` reference（方言谐音专项查 `references/dialect-homophones.md`）：
 
 检查三个维度：
 1. **声调搭配** — 平仄交错，抑扬顿挫
@@ -313,7 +313,7 @@ Use `references/phonetics.md` reference:
 | 《周易》 | "谦益"(谦谦君子，卑以自牧) |
 | 唐诗宋词 | "清梦"(醉后不知天在水，满船清梦压星河) |
 
-**查询方法**：搜索"XXX 出自 诗词/典故"核实。如果确实有出处，在推荐报告中明确引用原文。
+**查询方法**：先查 `references/classical-origins.md`（典故出处速查库，收录诗经/楚辞/论语/周易/道德经/唐诗宋词高频典故字及原文），库中未收录的再搜索"XXX 出自 诗词/典故"核实。如果确实有出处，在推荐报告中明确引用原文。
 
 #### 8.4 父母期许
 
@@ -460,7 +460,7 @@ Use `references/phonetics.md` reference:
 | 用简体字笔画算五格 | 必须用《康熙字典》繁体笔画 |
 | 忽略生肖相冲 | 子午冲、卯酉冲等必须检查 |
 | 只看人格不看三才 | 三才相克能抵消人格吉数 |
-| 忽略地方方言谐音 | 粤语/闽南语等方言谐音也要考虑 |
+| 忽略地方方言谐音 | 粤语/闽南语等方言谐音也要考虑，查 `references/dialect-homophones.md` |
 | 追求全吉数导致选字牵强 | 吉数优先，但寓意和音律也很重要 |
 | 用户缺信息就不做 | 缺信息按多可能性推演，继续推进 |
 | 寓意只说"寓意好"不深入 | 必须拆解单字溯源+整体意象+典故出处+父母期许四层 |

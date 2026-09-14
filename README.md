@@ -11,6 +11,8 @@
 - **音律寓意** — 平仄搭配、谐音审查、典故溯源、寓意解析
 - **避开烂大街字** — 公安部近年姓名统计数据，避开梓涵/宇轩等泛滥字
 - **五行参考字库** — 188字校准库，含笔画/五行/分歧/烂大街标注，选字可扩展
+- **方言谐音审查** — 粵语/闽南语/吴语/客家话/四川话六大方言区谐音避坑
+- **典故出处速查** — 诗经/楚辞/论语/周易/道德经/唐诗宋词高频典故字及原文出处
 
 ## 使用方式
 
@@ -31,11 +33,13 @@ chinese-baby-naming/
 ├── SKILL.md               # 起名九步法流程 + 评分 + 反馈迭代
 ├── references/ganzhi.md              # 天干地支五行 + 四柱排盘 + 纳音五行
 ├── references/xiyongshen.md          # 定喜用神方法（三得法判旺衰）
-├── references/zodiac-radicals.md     # 十二生肖宜忌部首 + 六冲六害三合六合
+├── references/zodiac-radicals.md     # 十二生肖宜忌部首 + 六冲六害三合六合 + 喜忌字例
 ├── references/wuge-81.md             # 五格计算 + 数理转五行 + 81数理完整表 + 姓氏笔画
 ├── references/phonetics.md           # 音律搭配规则 + 五行用字参照 + 谐音审查
 ├── references/popularity-avoid.md    # 2010-2025烂大街字清单 + 替代字表
 ├── references/wuxing-char-lib.md     # 188字五行参考字库（校准用，非限制选字范围）
+├── references/dialect-homophones.md  # 六大方言区谐音审查 + 高危字总清单
+├── references/classical-origins.md  # 诗经/楚辞/论语/周易等典故出处速查库
 └── README.md
 ```
 

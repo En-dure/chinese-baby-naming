@@ -16,15 +16,27 @@
 
 ## 使用方式
 
-将 `chinese-baby-naming/` 放入 opencode 的 skills 目录：
+本 skill 遵循通用 Agent Skill 规范（`SKILL.md` + `references/` 目录），兼容所有支持该规范的 AI 编码助手，包括但不限于 **pi、opencode** 等。
+
+### 安装
+
+将 `chinese-baby-naming/` 复制到你的 AI 助手的全局 skills 目录：
 
 ```bash
+# pi / 通用全局目录（所有 agent 共享）
+cp -r chinese-baby-naming ~/.agents/skills/
+
+# 或 opencode 专属目录
 cp -r chinese-baby-naming ~/.config/opencode/skills/
 ```
 
-然后向 opencode 提问即可自动加载：
+### 使用
+
+安装后直接用自然语言提问，skill 会根据描述自动加载：
 
 > "帮我给孩子起个名字，姓刘，2027年1月2日预产期，女娃"
+
+> "分析一下'刘芷宁'这个名字好不好"
 
 ## Skill 文件结构
 

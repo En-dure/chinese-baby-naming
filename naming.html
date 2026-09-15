@@ -266,7 +266,6087 @@ select.bz-input{cursor:pointer;appearance:none;background-image:linear-gradient(
 <div class="detail-overlay" id="detailOverlay" onclick="closeDetail(event)"><div class="detail-box" id="detailBox"></div></div>
 
 <script>
-const DATA = [{"c":"川","s":3,"w":"","p":"chuān","m":"","src":"天保定尔，以莫不兴。如山如阜，如冈如陵， — 《诗经·天保》","star":2,"fenqi":false,"landajie":false,"tags":["天地"],"gender":"通","freq":1},{"c":"山","s":3,"w":"土","p":"shān","m":"山岳；稳重如山（放宽）","src":"陟彼南山，言采其蕨。未见君子，忧心惙惙。 — 《诗经·草虫》","star":2,"fenqi":false,"landajie":false,"tags":["自然","大气"],"gender":"男","freq":1},{"c":"土","s":3,"w":"土","p":"tǔ","m":"大地；厚德载物（少直用）","src":"日居月诸，照临下土。乃如之人兮，逝不古处 — 《诗经·日月》","star":3,"fenqi":false,"landajie":false,"tags":["自然","大气"],"gender":"通用","freq":1},{"c":"义","s":3,"w":"","p":"yì","m":"","src":"命之不易，无遏尔躬。宣昭义问，有虞殷自天 — 《诗经·文王》","star":2,"fenqi":false,"landajie":false,"tags":["德慧"],"gender":"通","freq":1},{"c":"丹","s":4,"w":"火","p":"dān","m":"朱砂；丹心赤忱","src":"终南何有？有条有梅。君子至止，锦衣狐裘。 — 《诗经·终南》","star":2,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"火","s":4,"w":"火","p":"huǒ","m":"火焰；光明炽热（少直用）","src":"叔于田，乘乘马。执辔如组，两骖如舞。叔在 — 《诗经·大叔于田》","star":3,"fenqi":false,"landajie":false,"tags":["自然","大气"],"gender":"通用","freq":1},{"c":"木","s":4,"w":"木","p":"mù","m":"树木；质朴生机（少直用）","src":"葛之覃兮，施于中谷，维叶萋萋。黄鸟于飞， — 《诗经·葛覃》","star":3,"fenqi":false,"landajie":false,"tags":["自然"],"gender":"通用","freq":1},{"c":"仁","s":4,"w":"","p":"rén","m":"","src":"叔于田，巷无居人。岂无居人？不如叔也。洵 — 《诗经·叔于田》","star":2,"fenqi":false,"landajie":false,"tags":["德慧"],"gender":"通","freq":1},{"c":"书","s":4,"w":"","p":"shū","m":"","src":"昔我往矣，黍稷方华。今我来思，雨雪载途。 — 《诗经·出车》","star":2,"fenqi":false,"landajie":false,"tags":["雅韵"],"gender":"通","freq":1},{"c":"水","s":4,"w":"水","p":"shuǐ","m":"水流；上善若水（少直用）","src":"毖彼泉水，亦流于淇。有怀于卫，靡日不思。 — 《诗经·泉水》","star":3,"fenqi":false,"landajie":false,"tags":["自然"],"gender":"通用","freq":1},{"c":"文","s":4,"w":"","p":"wén","m":"","src":"小戎俴收，五楘梁辀。游环胁驱，阴靷鋈续。 — 《诗经·小戎》","star":2,"fenqi":false,"landajie":false,"tags":["雅韵"],"gender":"通","freq":1},{"c":"月","s":4,"w":"","p":"yuè","m":"","src":"日居月诸，胡迭而微？心之忧矣，如匪浣衣。 — 《诗经·柏舟》","star":2,"fenqi":false,"landajie":false,"tags":["天地"],"gender":"通","freq":1},{"c":"云","s":4,"w":"水","p":"yún","m":"云彩；云淡风轻（繁简差8画）","src":"陟彼砠矣，我马瘏矣，我仆痡矣，云何吁矣。 — 《诗经·卷耳》","star":4,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"兰","s":5,"w":"","p":"lán","m":"","src":"芄兰之支，童子佩觿。虽则佩觿，能不我知。 — 《诗经·芄兰》","star":3,"fenqi":false,"landajie":false,"tags":["花草"],"gender":"女","freq":1},{"c":"让","s":5,"w":"","p":"ràng","m":"","src":"民之无良，相怨一方。受爵不让，至于已斯亡 — 《诗经·角弓》","star":2,"fenqi":false,"landajie":false,"tags":["德慧"],"gender":"通","freq":1},{"c":"石","s":5,"w":"土","p":"shí","m":"石头；坚如磐石（此字典列金）","src":"我心匪石，不可转也。我心匪席，不可卷也。 — 《诗经·柏舟》","star":2,"fenqi":true,"landajie":false,"tags":["自然","大气"],"gender":"男","freq":1},{"c":"田","s":5,"w":"土","p":"tián","m":"田地；耕耘收获（此字典列火）","src":"灵雨既零，命彼倌人，星言夙驾，说于桑田。 — 《诗经·定之方中》","star":3,"fenqi":true,"landajie":false,"tags":["自然","大气"],"gender":"通用","freq":1},{"c":"玉","s":5,"w":"土","p":"yù","m":"玉石；温润如玉（此字典列木）","src":"林有朴樕，野有死鹿。白茅纯束，有女如玉。 — 《诗经·野有死麕》","star":4,"fenqi":true,"landajie":false,"tags":["温婉","大气"],"gender":"女","freq":1},{"c":"安","s":6,"w":"土","p":"ān","m":"平安；安居乐业","src":"岂曰无衣七兮？不如子之衣，安且吉兮！ — 《诗经·无衣》","star":3,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"通用","freq":1},{"c":"冰","s":6,"w":"水","p":"bīng","m":"冰晶；冰雪聪明","src":"雍雍鸣雁，旭日始旦。士如归妻，迨冰未泮。 — 《诗经·匏有苦叶》","star":4,"fenqi":false,"landajie":false,"tags":["温婉","大气"],"gender":"女","freq":1},{"c":"光","s":6,"w":"火","p":"guāng","m":"光明；光风霁月","src":"东方明矣，朝既昌矣。匪东方则明，月出之光 — 《诗经·鸡鸣》","star":2,"fenqi":false,"landajie":false,"tags":["自然","大气"],"gender":"男","freq":1},{"c":"圭","s":6,"w":"土","p":"guī","m":"玉圭；圭璋特达","src":"瞻彼淇奥，绿竹如箦。有匪君子，如金如锡， — 《诗经·淇奥》","star":3,"fenqi":false,"landajie":false,"tags":[],"gender":"通用","freq":1},{"c":"芍","s":6,"w":"","p":"sháo","m":"","src":"相次牡丹芍药，王孙谁道多情。 — 《宋词·河满子》","star":3,"fenqi":false,"landajie":false,"tags":["花草"],"gender":"女","freq":1},{"c":"旭","s":6,"w":"火","p":"xù","m":"旭日；旭日东升（主流列木！）","src":"雍雍鸣雁，旭日始旦。士如归妻，迨冰未泮。 — 《诗经·匏有苦叶》","star":2,"fenqi":true,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"屹","s":6,"w":"土","p":"yì","m":"屹立；屹然不动","src":"玉花卻在御榻上，榻上庭前屹相向。 — 《唐诗·undefined》","star":2,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"宇","s":6,"w":"土","p":"yǔ","m":"宇宙；气宇轩昂（重名极高）","src":"五月斯螽动股，六月莎鸡振羽。七月在野，八 — 《诗经·七月》","star":2,"fenqi":false,"landajie":true,"tags":["大气"],"gender":"男","freq":1},{"c":"芝","s":6,"w":"","p":"zhī","m":"","src":"拔搴玄芝兮，列树芋荷。 — 《楚辞·谬谏》","star":3,"fenqi":false,"landajie":false,"tags":["花草"],"gender":"女","freq":1},{"c":"灿","s":7,"w":"","p":"càn","m":"","src":"九枝擎烛灿繁星，百和焚香抽翠缕。 — 《宋词·玉楼春》","star":2,"fenqi":false,"landajie":false,"tags":["光影"],"gender":"通","freq":1},{"c":"辰","s":7,"w":"土","p":"chén","m":"星辰；星辰良辰","src":"折柳樊圃，狂夫瞿瞿。不能辰夜，不夙则莫。 — 《诗经·东方未明》","star":2,"fenqi":false,"landajie":true,"tags":["知性","大气"],"gender":"男","freq":1},{"c":"成","s":7,"w":"金","p":"chéng","m":"完成；大器晚成","src":"南有樛木，葛藟萦之。乐只君子，福履成之。 — 《诗经·樛木》","star":2,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"芬","s":7,"w":"","p":"fēn","m":"","src":"我孔戁矣，式礼莫愆。工祝致告，徂赉孝孙。 — 《诗经·楚茨》","star":3,"fenqi":false,"landajie":false,"tags":["花草"],"gender":"女","freq":1},{"c":"芙","s":7,"w":"","p":"fú","m":"","src":"制芰荷以为衣兮，集芙蓉以为裳。 — 《楚辞·离骚》","star":3,"fenqi":false,"landajie":false,"tags":["花草"],"gender":"女","freq":1},{"c":"谷","s":7,"w":"","p":"gǔ","m":"","src":"葛之覃兮，施于中谷，维叶萋萋。黄鸟于飞， — 《诗经·葛覃》","star":2,"fenqi":false,"landajie":false,"tags":["天地"],"gender":"通","freq":1},{"c":"江","s":7,"w":"水","p":"jiāng","m":"江河；江流浩荡","src":"南有乔木，不可休息。汉有游女，不可求思。 — 《诗经·汉广》","star":2,"fenqi":false,"landajie":false,"tags":["自然","大气"],"gender":"男","freq":1},{"c":"均","s":7,"w":"土","p":"jūn","m":"均匀；均衡公正","src":"我马维骃，六辔既均。载驰载驱，周爰咨询。 — 《诗经·皇皇者华》","star":2,"fenqi":false,"landajie":false,"tags":["知性","大气"],"gender":"男","freq":1},{"c":"丽","s":7,"w":"","p":"lì","m":"","src":"鱼丽于罶，鲿鲨。君子有酒，旨且多。 — 《诗经·鱼丽》","star":3,"fenqi":false,"landajie":false,"tags":["明丽"],"gender":"女","freq":1},{"c":"良","s":7,"w":"","p":"liáng","m":"","src":"日居月诸，出自东方。乃如之人兮，德音无良 — 《诗经·日月》","star":2,"fenqi":false,"landajie":false,"tags":["德慧"],"gender":"通","freq":1},{"c":"妙","s":7,"w":"","p":"miào","m":"","src":"躬纯粹而罔愆兮，承皇考之妙仪。 — 《楚辞·远逝》","star":3,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"汝","s":7,"w":"水","p":"rǔ","m":"汝水；古典雅致","src":"遵彼汝坟，伐其条枚。未见君子，惄如调饥。 — 《诗经·汝坟》","star":4,"fenqi":false,"landajie":false,"tags":["知性"],"gender":"女","freq":1},{"c":"彤","s":7,"w":"火","p":"tóng","m":"红色；彤管炜煌（女宝重名极高）","src":"静女其娈，贻我彤管。彤管有炜，说怿女美。 — 《诗经·静女》","star":4,"fenqi":false,"landajie":true,"tags":["温婉"],"gender":"女","freq":1},{"c":"汶","s":7,"w":"","p":"wèn","m":"","src":"汶水汤汤，行人彭彭。鲁道有荡，齐子翱翔。 — 《诗经·载驱》","star":3,"fenqi":false,"landajie":false,"tags":["清泠"],"gender":"女","freq":1},{"c":"妩","s":7,"w":"","p":"wǔ","m":"","src":"","star":3,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"汐","s":7,"w":"水","p":"xī","m":"晚潮；潮汐浪漫","src":"","star":4,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"辛","s":7,"w":"金","p":"xīn","m":"辛苦；天干；坚韧自砺","src":"十月之交，朔月辛卯。日有食之，亦孔之丑。 — 《诗经·十月之交》","star":3,"fenqi":false,"landajie":false,"tags":[],"gender":"通用","freq":1},{"c":"杏","s":7,"w":"木","p":"xìng","m":"杏树；杏花春雨","src":"孤村芳草远，斜日杏花飞。 — 《宋词·江南春・秋风清》","star":4,"fenqi":false,"landajie":false,"tags":["温婉","自然"],"gender":"女","freq":1},{"c":"秀","s":7,"w":"金","p":"xiù","m":"谷物抽穗；清秀才秀","src":"瞻彼淇奥，绿竹青青。有匪君子，充耳秀莹， — 《诗经·淇奥》","star":4,"fenqi":true,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"沂","s":7,"w":"","p":"yí","m":"","src":"子路、曾皙、冉有、公西华侍坐，子曰：“以 — 《论语》","star":3,"fenqi":false,"landajie":false,"tags":["清泠"],"gender":"女","freq":1},{"c":"沅","s":7,"w":"","p":"yuán","m":"","src":"济沅、湘以南征兮，就重华而敶词： — 《楚辞·离骚》","star":3,"fenqi":false,"landajie":false,"tags":["清泠"],"gender":"女","freq":1},{"c":"远","s":7,"w":"","p":"yuǎn","m":"","src":"燕燕于飞，差池其羽。之子于归，远送于野。 — 《诗经·燕燕》","star":2,"fenqi":false,"landajie":false,"tags":["天地"],"gender":"通","freq":1},{"c":"昌","s":8,"w":"火","p":"chāng","m":"昌盛；繁荣昌盛（此字典列金）","src":"子之昌兮，俟我乎堂兮，悔予不将兮。 — 《诗经·丰》","star":2,"fenqi":true,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"诚","s":8,"w":"","p":"chéng","m":"","src":"申伯信迈，王饯于郿。申伯还南，谢于诚归。 — 《诗经·崧高》","star":2,"fenqi":false,"landajie":false,"tags":["德慧"],"gender":"通","freq":1},{"c":"东","s":8,"w":"木","p":"dōng","m":"东方；旭日东升（方位属木）","src":"嘒彼小星，三五在东。肃肃宵征，夙夜在公。 — 《诗经·小星》","star":2,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"庚","s":8,"w":"金","p":"gēng","m":"年庚；刚健端正","src":"七月流火，九月授衣。春日载阳，有鸣仓庚。 — 《诗经·七月》","star":2,"fenqi":false,"landajie":false,"tags":[],"gender":"男","freq":1},{"c":"昊","s":8,"w":"火","p":"hào","m":"广阔；昊天罔极","src":"尹氏大师，维周之氐；秉国之钧，四方是维。 — 《诗经·节南山》","star":2,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"和","s":8,"w":"","p":"hé","m":"","src":"萚兮萚兮，风其吹女。叔兮伯兮，倡予和女。 — 《诗经·萚兮》","star":2,"fenqi":false,"landajie":false,"tags":["祥和"],"gender":"通","freq":1},{"c":"佳","s":8,"w":"木","p":"jiā","m":"美好；佳人美好","src":"登白薠兮骋望，与佳期兮夕张 — 《楚辞·湘夫人》","star":4,"fenqi":false,"landajie":true,"tags":["温婉"],"gender":"女","freq":1},{"c":"杰","s":8,"w":"木","p":"jié","m":"杰出；才智过人（灬勿判火）","src":"有厌其杰，厌厌其苗，绵绵其麃。载获济济， — 《诗经·载芟》","star":2,"fenqi":true,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"金","s":8,"w":"金","p":"jīn","m":"金属；坚贞贵重","src":"陟彼崔嵬，我马虺隤。我姑酌彼金罍，维以不 — 《诗经·卷耳》","star":3,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"通用","freq":1},{"c":"坤","s":8,"w":"土","p":"kūn","m":"大地；乾坤厚德","src":"吳楚東南坼，乾坤日夜浮。 — 《唐诗·undefined》","star":4,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"女","freq":1},{"c":"林","s":8,"w":"木","p":"lín","m":"树林；众木成林","src":"肃肃免罝，施于中林。赳赳武夫，公侯腹心。 — 《诗经·兔罝》","star":3,"fenqi":false,"landajie":false,"tags":["自然","大气"],"gender":"通用","freq":1},{"c":"泠","s":8,"w":"","p":"líng","m":"","src":"上葳蕤而防露兮，下泠泠而来风。 — 《楚辞·初放》","star":3,"fenqi":false,"landajie":false,"tags":["清泠"],"gender":"女","freq":1},{"c":"岭","s":8,"w":"","p":"lǐng","m":"","src":"朝发兮葱岭，夕至兮明光。 — 《楚辞·通路》","star":2,"fenqi":false,"landajie":false,"tags":["天地"],"gender":"通","freq":1},{"c":"旻","s":8,"w":"","p":"mín","m":"","src":"浩浩昊天，不骏其德。降丧饥馑，斩伐四国。 — 《诗经·雨无正》","star":2,"fenqi":false,"landajie":false,"tags":["天地"],"gender":"通","freq":1},{"c":"明","s":8,"w":"火","p":"míng","m":"光明；明德惟馨（主流列水！）","src":"女曰鸡鸣，士曰昧旦。子兴视夜，明星有烂。 — 《诗经·女曰鸡鸣》","star":3,"fenqi":true,"landajie":false,"tags":["知性","大气"],"gender":"通用","freq":1},{"c":"茉","s":8,"w":"","p":"mò","m":"","src":"","star":3,"fenqi":false,"landajie":false,"tags":["花草"],"gender":"女","freq":1},{"c":"沐","s":8,"w":"水","p":"mù","m":"沐洗；如沐春风（含木勿判）","src":"自伯之东，首如飞蓬。岂无膏沐？谁适为容！ — 《诗经·伯兮》","star":3,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"通用","freq":1},{"c":"念","s":8,"w":"","p":"niàn","m":"","src":"我有旨蓄，亦以御冬。宴尔新婚，以我御穷。 — 《诗经·谷风》","star":2,"fenqi":false,"landajie":false,"tags":["德慧"],"gender":"通","freq":1},{"c":"沛","s":8,"w":"水","p":"pèi","m":"充沛；精力丰沛","src":"文王曰咨，咨女殷商。人亦有言：颠沛之揭， — 《诗经·荡》","star":2,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"沁","s":8,"w":"水","p":"qìn","m":"沁润；沁人心脾","src":"损眉尖、泪痕红沁。 — 《宋词·夜行船》","star":4,"fenqi":false,"landajie":false,"tags":["温婉","自然"],"gender":"女","freq":1},{"c":"松","s":8,"w":"木","p":"sōng","m":"松树；坚贞高洁","src":"淇水滺滺，桧楫松舟。驾言出游，以写我忧。 — 《诗经·竹竿》","star":2,"fenqi":false,"landajie":false,"tags":["自然","大气"],"gender":"男","freq":1},{"c":"贤","s":8,"w":"","p":"xián","m":"","src":"溥天之下，莫非王土；率土之滨，莫非王臣。 — 《诗经·北山》","star":2,"fenqi":false,"landajie":false,"tags":["德慧"],"gender":"通","freq":1},{"c":"昕","s":8,"w":"火","p":"xīn","m":"黎明；晨光初现","src":"","star":2,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"欣","s":8,"w":"木","p":"xīn","m":"欣欣；欢欣喜悦","src":"凫鹥在亹，公尸来止熏熏。旨酒欣欣，燔炙芬 — 《诗经·凫鹥》","star":4,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"岫","s":8,"w":"土","p":"xiù","m":"峰峦；云无心出岫","src":"银塘静、鱼鳞簟展，烟岫翠、龟甲屏开。 — 《宋词·玉蝴蝶》","star":4,"fenqi":false,"landajie":false,"tags":["自然"],"gender":"女","freq":1},{"c":"岩","s":8,"w":"土","p":"yán","m":"岩石；磊落如山","src":"节彼南山，维石岩岩。赫赫师尹，民具尔瞻。 — 《诗经·节南山》","star":2,"fenqi":false,"landajie":false,"tags":["自然","大气"],"gender":"男","freq":1},{"c":"泱","s":8,"w":"","p":"yāng","m":"","src":"瞻彼洛矣，维水泱泱。君子至止，福禄如茨。 — 《诗经·瞻彼洛矣》","star":3,"fenqi":false,"landajie":false,"tags":["清泠"],"gender":"女","freq":1},{"c":"咏","s":8,"w":"","p":"yǒng","m":"","src":"混并寰宇，休牛归马，销金偃革，蹈咏庆昌期 — 《宋词·六州》","star":2,"fenqi":false,"landajie":false,"tags":["雅韵"],"gender":"通","freq":1},{"c":"苑","s":8,"w":"","p":"yuàn","m":"","src":"俴驷孔群，厹矛鋈錞。蒙伐有苑，虎韔镂膺。 — 《诗经·小戎》","star":3,"fenqi":false,"landajie":false,"tags":["花草"],"gender":"女","freq":1},{"c":"岳","s":8,"w":"土","p":"yuè","m":"高山；五岳之尊（此字典列木）","src":"崧高维岳，骏极于天。维岳降神，生甫及申。 — 《诗经·崧高》","star":2,"fenqi":true,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"玥","s":8,"w":"土","p":"yuè","m":"神珠；掌上明珠","src":"","star":4,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"昀","s":8,"w":"","p":"yún","m":"","src":"","star":2,"fenqi":false,"landajie":false,"tags":["光影"],"gender":"通","freq":1},{"c":"宙","s":8,"w":"","p":"zhòu","m":"","src":"諸葛大名垂宇宙，宗臣遺像肅清高。 — 《唐诗·undefined》","star":2,"fenqi":false,"landajie":false,"tags":["天地"],"gender":"通","freq":1},{"c":"柏","s":9,"w":"木","p":"bǎi bó","m":"柏树；苍劲正直","src":"泛彼柏舟，亦泛其流。耿耿不寐，如有隐忧。 — 《诗经·柏舟》","star":2,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"炳","s":9,"w":"火","p":"bǐng","m":"光明；炳焕昭彰","src":"望太微兮穆穆，睨三阶兮炳分。 — 《楚辞·守志》","star":2,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"波","s":9,"w":"水","p":"bō","m":"波浪；波澜壮阔","src":"有豕白蹢，烝涉波矣。月离于毕，俾滂沱矣。 — 《诗经·渐渐之石》","star":2,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"昶","s":9,"w":"","p":"chǎng","m":"","src":"","star":2,"fenqi":false,"landajie":false,"tags":["光影"],"gender":"通","freq":1},{"c":"春","s":9,"w":"火","p":"chūn","m":"春季；春风化雨","src":"野有死麕，白茅包之。有女怀春，吉士诱之。 — 《诗经·野有死麕》","star":3,"fenqi":true,"landajie":false,"tags":["温婉","大气"],"gender":"通用","freq":1},{"c":"河","s":9,"w":"水","p":"hé","m":"河流；河清海晏","src":"关关雎鸠，在河之洲。窈窕淑女，君子好逑。 — 《诗经·关雎》","star":3,"fenqi":false,"landajie":false,"tags":["自然","大气"],"gender":"通用","freq":1},{"c":"洹","s":9,"w":"","p":"huán","m":"","src":"","star":3,"fenqi":false,"landajie":false,"tags":["清泠"],"gender":"女","freq":1},{"c":"姣","s":9,"w":"","p":"jiāo","m":"","src":"灵偃蹇兮姣服，芳菲菲兮满堂 — 《楚辞·东皇太一》","star":3,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"娇","s":9,"w":"","p":"jiāo","m":"","src":"慢舞萦回，娇鬟低亸，腰肢纤细困无力。 — 《宋词·多丽》","star":3,"fenqi":false,"landajie":false,"tags":["明丽"],"gender":"女","freq":1},{"c":"洁","s":9,"w":"","p":"jié","m":"","src":"屈原曰：“吾宁悃悃款款，朴以忠乎，将送往 — 《楚辞·卜居》","star":3,"fenqi":false,"landajie":false,"tags":["清泠"],"gender":"女","freq":1},{"c":"俊","s":9,"w":"火","p":"jùn","m":"才俊；俊才英杰","src":"非俊疑杰兮，固庸态也。 — 《楚辞·怀沙》","star":2,"fenqi":false,"landajie":false,"tags":["知性","大气"],"gender":"男","freq":1},{"c":"珂","s":9,"w":"","p":"kē","m":"","src":"不寢聽金鑰，因風想玉珂。 — 《唐诗·undefined》","star":2,"fenqi":false,"landajie":false,"tags":["宝玉"],"gender":"通","freq":1},{"c":"烂","s":9,"w":"","p":"làn","m":"","src":"女曰鸡鸣，士曰昧旦。子兴视夜，明星有烂。 — 《诗经·女曰鸡鸣》","star":3,"fenqi":false,"landajie":false,"tags":["明丽"],"gender":"女","freq":1},{"c":"亮","s":9,"w":"火","p":"liàng","m":"明亮；明亮爽朗","src":"昔皇考之嘉志兮，喜登能而亮贤。 — 《楚辞·愍命》","star":2,"fenqi":false,"landajie":false,"tags":["大气","现代"],"gender":"男","freq":1},{"c":"玲","s":9,"w":"","p":"líng","m":"","src":"青槐夾馳道，宮館何玲瓏。(館 一作：觀) — 《唐诗·undefined》","star":2,"fenqi":false,"landajie":false,"tags":["宝玉"],"gender":"通","freq":1},{"c":"柳","s":9,"w":"木","p":"liǔ","m":"柳树；婀娜柔美","src":"折柳樊圃，狂夫瞿瞿。不能辰夜，不夙则莫。 — 《诗经·东方未明》","star":4,"fenqi":false,"landajie":false,"tags":["温婉","自然"],"gender":"女","freq":1},{"c":"珑","s":9,"w":"","p":"lóng","m":"","src":"玲珑绣扇花藏语。 — 《宋词·木兰花・玉楼春》","star":2,"fenqi":false,"landajie":false,"tags":["宝玉"],"gender":"通","freq":1},{"c":"洛","s":9,"w":"","p":"luò","m":"","src":"瞻彼洛矣，维水泱泱。君子至止，福禄如茨。 — 《诗经·瞻彼洛矣》","star":3,"fenqi":false,"landajie":false,"tags":["清泠"],"gender":"女","freq":1},{"c":"茗","s":9,"w":"","p":"míng","m":"","src":"","star":3,"fenqi":false,"landajie":false,"tags":["花草"],"gender":"女","freq":1},{"c":"娜","s":9,"w":"","p":"nà","m":"","src":"见羞容敛翠，嫩脸匀红，素腰袅娜。 — 《宋词·醉蓬莱》","star":3,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"南","s":9,"w":"火","p":"nán","m":"南方；温暖如南（**易误判水！**）","src":"南有樛木，葛藟累之。乐只君子，福履绥之。 — 《诗经·樛木》","star":3,"fenqi":true,"landajie":false,"tags":["大气"],"gender":"通用","freq":1},{"c":"茜","s":9,"w":"","p":"qiàn","m":"","src":"茜罗揉出碎英繁，红蜡缕成香萼润。 — 《宋词·玉楼春》","star":3,"fenqi":false,"landajie":false,"tags":["花草"],"gender":"女","freq":1},{"c":"秋","s":9,"w":"金","p":"qiū","m":"秋天收获；秋高气爽","src":"氓之蚩蚩，抱布贸丝。匪来贸丝，来即我谋。 — 《诗经·氓》","star":3,"fenqi":false,"landajie":false,"tags":[],"gender":"通用","freq":1},{"c":"泉","s":9,"w":"水","p":"quán","m":"泉水；源头活水","src":"毖彼泉水，亦流于淇。有怀于卫，靡日不思。 — 《诗经·泉水》","star":3,"fenqi":false,"landajie":false,"tags":["温婉","自然"],"gender":"通用","freq":1},{"c":"娆","s":9,"w":"","p":"ráo","m":"","src":"陡顿今来，宫中第一妖娆，却道昭阳飞燕。 — 《宋词·斗百花》","star":3,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"茹","s":9,"w":"","p":"rú","m":"","src":"我心匪鉴，不可以茹。亦有兄弟，不可以据。 — 《诗经·柏舟》","star":3,"fenqi":false,"landajie":false,"tags":["花草"],"gender":"女","freq":1},{"c":"珊","s":9,"w":"","p":"shān","m":"","src":"鸞翔鳳翥衆仙下，珊瑚碧樹交枝柯。 — 《唐诗·undefined》","star":2,"fenqi":false,"landajie":false,"tags":["宝玉"],"gender":"通","freq":1},{"c":"姝","s":9,"w":"","p":"shū","m":"","src":"静女其姝，俟我于城隅。爱而不见，搔首踟蹰 — 《诗经·静女》","star":3,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"烁","s":9,"w":"","p":"shuò","m":"","src":"云蒙蒙兮电鯈烁，孤雌惊兮鸣呴呴。 — 《楚辞·悯上》","star":2,"fenqi":false,"landajie":false,"tags":["光影"],"gender":"通","freq":1},{"c":"思","s":9,"w":"金","p":"sī","m":"思考；深思明辨","src":"求之不得，寤寐思服。悠哉悠哉，辗转反侧。 — 《诗经·关雎》","star":3,"fenqi":true,"landajie":false,"tags":["知性"],"gender":"通用","freq":1},{"c":"恬","s":9,"w":"","p":"tián","m":"","src":"焉舒情而抽信兮，恬死亡而不聊。 — 《楚辞·惜往日》","star":2,"fenqi":false,"landajie":false,"tags":["祥和"],"gender":"通","freq":1},{"c":"信","s":9,"w":"金","p":"xìn","m":"诚信；言而有信","src":"于嗟阔兮，不我活兮。于嗟洵兮，不我信兮。 — 《诗经·击鼓》","star":2,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"星","s":9,"w":"","p":"xīng","m":"","src":"嘒彼小星，三五在东。肃肃宵征，夙夜在公。 — 《诗经·小星》","star":2,"fenqi":false,"landajie":false,"tags":["天地"],"gender":"通","freq":1},{"c":"宣","s":9,"w":"金","p":"xuān","m":"宣布；通达宣朗","src":"鸿雁于飞，哀鸣嗷嗷。维此哲人，谓我劬劳。 — 《诗经·鸿雁》","star":3,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"通用","freq":1},{"c":"炫","s":9,"w":"火","p":"xuàn","m":"光彩；炫目夺光","src":"妖夫曳炫，何号于市？ — 《楚辞·天问》","star":3,"fenqi":false,"landajie":false,"tags":["大气","现代"],"gender":"通用","freq":1},{"c":"绚","s":9,"w":"","p":"xuàn","m":"","src":"子夏问曰：“‘巧笑倩兮，美目盼兮，素以为 — 《论语》","star":2,"fenqi":false,"landajie":false,"tags":["光影"],"gender":"通","freq":1},{"c":"洵","s":9,"w":"","p":"xún","m":"","src":"于嗟阔兮，不我活兮。于嗟洵兮，不我信兮。 — 《诗经·击鼓》","star":3,"fenqi":false,"landajie":false,"tags":["清泠"],"gender":"女","freq":1},{"c":"妍","s":9,"w":"水","p":"yán","m":"美丽；妍丽动人（简7/康9）","src":"众芳摇落独鲜妍。 — 《宋词·瑞鹧鸪》","star":4,"fenqi":true,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"垚","s":9,"w":"土","p":"yáo","m":"山高；土厚德重","src":"","star":2,"fenqi":false,"landajie":false,"tags":["自然","大气"],"gender":"男","freq":1},{"c":"怡","s":9,"w":"土","p":"yí","m":"和悦；心旷神怡（五行各异）","src":"心不怡之长久兮，忧与愁其相接。 — 《楚辞·哀郢》","star":4,"fenqi":true,"landajie":true,"tags":["温婉"],"gender":"女","freq":1},{"c":"茵","s":9,"w":"","p":"yīn","m":"","src":"小戎俴收，五楘梁辀。游环胁驱，阴靷鋈续。 — 《诗经·小戎》","star":3,"fenqi":false,"landajie":false,"tags":["花草"],"gender":"女","freq":1},{"c":"宥","s":9,"w":"土","p":"yòu","m":"宽宥；宽厚包容","src":"昊天有成命，二后受之。成王不敢康，夙夜基 — 《诗经·昊天有成命》","star":2,"fenqi":true,"landajie":false,"tags":["知性","大气"],"gender":"男","freq":1},{"c":"昱","s":9,"w":"火","p":"yù","m":"日光；昱昱生辉","src":"","star":2,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"垣","s":9,"w":"土","p":"yuán","m":"墙垣；垣立稳固","src":"乘彼垝垣，以望复关。不见复关，泣涕涟涟。 — 《诗经·氓》","star":2,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"则","s":9,"w":"金","p":"zé","m":"法则；方正守则","src":"鲂鱼赪尾，王室如毁。虽则如毁，父母孔迩。 — 《诗经·汝坟》","star":2,"fenqi":false,"landajie":false,"tags":["知性"],"gender":"男","freq":1},{"c":"昭","s":9,"w":"火","p":"zhāo","m":"明亮；昭然日月","src":"呦呦鹿鸣，食野之蒿。我有嘉宾，德音孔昭。 — 《诗经·鹿鸣》","star":2,"fenqi":false,"landajie":false,"tags":["知性","大气"],"gender":"男","freq":1},{"c":"峥","s":9,"w":"","p":"zhēng","m":"","src":"下峥嵘而无地兮，上寥廓而无天。 — 《楚辞·远游》","star":2,"fenqi":false,"landajie":false,"tags":["天地"],"gender":"通","freq":1},{"c":"城","s":10,"w":"土","p":"chéng","m":"城池；众志成城（简9）","src":"肃肃兔罝，椓之丁丁。赳赳武夫，公侯干城。 — 《诗经·兔罝》","star":2,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"纯","s":10,"w":"金","p":"chún","m":"纯粹；纯净专注","src":"林有朴樕，野有死鹿。白茅纯束，有女如玉。 — 《诗经·野有死麕》","star":3,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"通用","freq":1},{"c":"珰","s":10,"w":"","p":"dāng","m":"","src":"玉珮玎珰，露滴寒如水。 — 《宋词·凤栖梧・蝶恋花》","star":2,"fenqi":false,"landajie":false,"tags":["宝玉"],"gender":"通","freq":1},{"c":"涤","s":10,"w":"","p":"dí","m":"","src":"二之日凿冰冲冲，三之日纳于凌阴。四之日其 — 《诗经·七月》","star":3,"fenqi":false,"landajie":false,"tags":["清泠"],"gender":"女","freq":1},{"c":"娥","s":10,"w":"","p":"é","m":"","src":"嫮目宜笑，娥眉曼只。 — 《楚辞·大招》","star":3,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"恩","s":10,"w":"土","p":"ēn","m":"恩惠；感恩载德","src":"鸱鸮鸱鸮，既取我子，无毁我室。恩斯勤斯， — 《诗经·鸱鸮》","star":2,"fenqi":false,"landajie":false,"tags":["知性","大气"],"gender":"男","freq":1},{"c":"芳","s":10,"w":"木","p":"fāng","m":"芬芳；芳华高洁","src":"昔三后之纯粹兮，固众芳之所在。 — 《楚辞·离骚》","star":4,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"峰","s":10,"w":"土","p":"fēng","m":"山峰；登峰造极","src":"终是欠峰峦。 — 《宋词·酒泉子》","star":2,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"刚","s":10,"w":"金","p":"gāng","m":"刚强；刚正不阿","src":"采薇采薇，薇亦刚止。曰归曰归，岁亦阳止。 — 《诗经·采薇》","star":2,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"桂","s":10,"w":"木","p":"guì","m":"桂树；蟾宫折桂","src":"杂申椒与菌桂兮，岂惟纫夫蕙茝！ — 《楚辞·离骚》","star":3,"fenqi":false,"landajie":false,"tags":["知性","大气"],"gender":"通用","freq":1},{"c":"珩","s":10,"w":"","p":"héng","m":"","src":"约軧错衡，八鸾玱玱。服其命服，朱芾斯皇， — 《诗经·采芑》","star":2,"fenqi":false,"landajie":false,"tags":["宝玉"],"gender":"通","freq":1},{"c":"洪","s":10,"w":"水","p":"hóng","m":"浩大；洪福齐天","src":"浚哲维商，长发其祥。洪水芒芒，禹敷下土方 — 《诗经·长发》","star":2,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"涣","s":10,"w":"","p":"huàn","m":"","src":"溱与洧，方涣涣兮。士与女，方秉蕳兮。女曰 — 《诗经·溱洧》","star":3,"fenqi":false,"landajie":false,"tags":["清泠"],"gender":"女","freq":1},{"c":"晖","s":10,"w":"","p":"huī","m":"","src":"对残晖、登临休叹，赏令节、酩酊方酬。 — 《宋词·玉蝴蝶》","star":2,"fenqi":false,"landajie":false,"tags":["光影"],"gender":"通","freq":1},{"c":"津","s":10,"w":"水","p":"jīn","m":"津润；津泽润物（简9）","src":"朝发轫于天津兮，夕余至乎西极。 — 《楚辞·离骚》","star":2,"fenqi":true,"landajie":false,"tags":["知性"],"gender":"男","freq":1},{"c":"晋","s":10,"w":"火","p":"jìn","m":"晋升；晋阶向上","src":"晋申生之孝子兮，父信谗而不好。 — 《楚辞·惜诵》","star":2,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"娟","s":10,"w":"","p":"juān","m":"","src":"雌蜺便娟以增挠兮，鸾鸟轩翥而翔飞。 — 《楚辞·远游》","star":3,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"峻","s":10,"w":"土","p":"jùn","m":"高峻；峻岭崇山（此字典列金）","src":"冀枝叶之峻茂兮，愿俟时乎吾将刈。 — 《楚辞·离骚》","star":2,"fenqi":true,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"涟","s":10,"w":"","p":"lián","m":"","src":"乘彼垝垣，以望复关。不见复关，泣涕涟涟。 — 《诗经·氓》","star":3,"fenqi":false,"landajie":false,"tags":["清泠"],"gender":"女","freq":1},{"c":"莲","s":10,"w":"","p":"lián","m":"","src":"严夜警，铜莲漏迟迟。 — 《宋词·六州》","star":3,"fenqi":false,"landajie":false,"tags":["花草"],"gender":"女","freq":1},{"c":"珞","s":10,"w":"","p":"luò","m":"","src":"","star":2,"fenqi":false,"landajie":false,"tags":["宝玉"],"gender":"通","freq":1},{"c":"娉","s":10,"w":"","p":"pīng","m":"","src":"娉娉嫋嫋十三餘，豆蔻梢頭二月初。 — 《唐诗·undefined》","star":3,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"芮","s":10,"w":"木","p":"ruì","m":"草木初生；稚嫩鲜活","src":"虞芮质厥成，文王蹶厥生。予曰有疏附，予曰 — 《诗经·绵》","star":4,"fenqi":true,"landajie":false,"tags":["温婉","自然"],"gender":"女","freq":1},{"c":"素","s":10,"w":"金","p":"sù","m":"白绢；纯洁素雅","src":"羔羊之皮，素丝五紽。退食自公，委蛇委蛇。 — 《诗经·羔羊》","star":4,"fenqi":false,"landajie":false,"tags":["温婉","知性"],"gender":"女","freq":1},{"c":"泰","s":10,"w":"","p":"tài","m":"","src":"泰山岩岩，鲁邦所詹。奄有龟蒙，遂荒大东。 — 《诗经·閟宫》","star":2,"fenqi":false,"landajie":false,"tags":["祥和"],"gender":"通","freq":1},{"c":"桃","s":10,"w":"","p":"táo","m":"","src":"桃之夭夭，灼灼其华。之子于归，宜其室家。 — 《诗经·桃夭》","star":3,"fenqi":false,"landajie":false,"tags":["花草"],"gender":"女","freq":1},{"c":"桐","s":10,"w":"木","p":"tóng","m":"梧桐；梧凤之鸣","src":"定之方中，作于楚宫。揆之以日，作于楚室。 — 《诗经·定之方中》","star":3,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"通用","freq":1},{"c":"娴","s":10,"w":"","p":"xián","m":"","src":"","star":3,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"祥","s":10,"w":"","p":"xiáng","m":"","src":"大人占之：维熊维罴，男子之祥；维虺维蛇， — 《诗经·斯干》","star":2,"fenqi":false,"landajie":false,"tags":["祥和"],"gender":"通","freq":1},{"c":"修","s":10,"w":"金","p":"xiū","m":"修养；修身养性","src":"中谷有蓷，暵其修矣。有女仳离，条其歗矣。 — 《诗经·中谷有蓷》","star":2,"fenqi":false,"landajie":false,"tags":["知性"],"gender":"男","freq":1},{"c":"晏","s":10,"w":"","p":"yàn","m":"","src":"及尔偕老，老使我怨。淇则有岸，隰则有泮。 — 《诗经·氓》","star":2,"fenqi":false,"landajie":false,"tags":["光影"],"gender":"通","freq":1},{"c":"艳","s":10,"w":"","p":"yàn","m":"","src":"长发曼鬋，艳陆离些。 — 《楚辞·招魂》","star":3,"fenqi":false,"landajie":false,"tags":["明丽"],"gender":"女","freq":1},{"c":"洋","s":10,"w":"水","p":"yáng","m":"海洋；广阔洋气","src":"河水洋洋，北流活活。施罛濊濊，鳣鲔发发。 — 《诗经·硕人》","star":3,"fenqi":false,"landajie":false,"tags":["大气","现代"],"gender":"通用","freq":1},{"c":"晔","s":10,"w":"","p":"yè","m":"","src":"恐天时之代序兮，耀灵晔而西征。 — 《楚辞·远游》","star":2,"fenqi":false,"landajie":false,"tags":["光影"],"gender":"通","freq":1},{"c":"烨","s":10,"w":"","p":"yè","m":"","src":"烨烨震电，不宁不令。百川沸腾，山冢崒崩。 — 《诗经·十月之交》","star":2,"fenqi":false,"landajie":false,"tags":["光影"],"gender":"通","freq":1},{"c":"莺","s":10,"w":"","p":"yīng","m":"","src":"交交桑扈，有莺其羽。君子乐胥，受天之祜。 — 《诗经·桑扈》","star":3,"fenqi":false,"landajie":false,"tags":["花草"],"gender":"女","freq":1},{"c":"悦","s":10,"w":"金","p":"yuè","m":"喜悦；心悦诚服","src":"心摇悦而日幸兮，然怊怅而无冀。 — 《楚辞·九辩》","star":4,"fenqi":true,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"钊","s":10,"w":"金","p":"zhāo","m":"勉励；自勉进取","src":"","star":2,"fenqi":false,"landajie":false,"tags":[],"gender":"男","freq":1},{"c":"哲","s":10,"w":"火","p":"zhé","m":"哲理；哲思睿智（有派列金）","src":"鸿雁于飞，哀鸣嗷嗷。维此哲人，谓我劬劳。 — 《诗经·鸿雁》","star":2,"fenqi":true,"landajie":false,"tags":["知性"],"gender":"男","freq":1},{"c":"芷","s":10,"w":"木","p":"zhǐ","m":"白芷；高洁清雅（屈原香草）","src":"扈江离与辟芷兮，纫秋兰以为佩。 — 《楚辞·离骚》","star":4,"fenqi":false,"landajie":false,"tags":["温婉","知性"],"gender":"女","freq":1},{"c":"珠","s":10,"w":"","p":"zhū","m":"","src":"鱼鳞屋兮龙堂，紫贝阙兮珠宫 — 《楚辞·河伯》","star":2,"fenqi":false,"landajie":false,"tags":["宝玉"],"gender":"通","freq":1},{"c":"彬","s":11,"w":"木","p":"bīn","m":"文质彬彬；文雅有礼","src":"子曰：“质胜文则野，文胜质则史。文质彬彬 — 《论语》","star":2,"fenqi":false,"landajie":false,"tags":["知性"],"gender":"男","freq":1},{"c":"彩","s":11,"w":"","p":"cǎi","m":"","src":"朝辭白帝彩雲間，千里江陵一日還。 — 《唐诗·undefined》","star":3,"fenqi":false,"landajie":false,"tags":["明丽"],"gender":"女","freq":1},{"c":"婵","s":11,"w":"","p":"chán","m":"","src":"女嬃之婵媛兮，申申其詈予，曰： — 《楚辞·离骚》","star":3,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"晟","s":11,"w":"火","p":"chéng","m":"光明；兴盛光明（简10）","src":"","star":2,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"崇","s":11,"w":"土","p":"chóng","m":"崇高；崇德尚善（此字典列金）","src":"朝隮于西，崇朝其雨。女子有行，远兄弟父母 — 《诗经·蝃蝀》","star":2,"fenqi":true,"landajie":false,"tags":["知性","大气"],"gender":"男","freq":1},{"c":"绸","s":11,"w":"","p":"chóu","m":"","src":"绸缪束薪，三星在天。今夕何夕，见此良人？ — 《诗经·绸缪》","star":2,"fenqi":false,"landajie":false,"tags":["光影"],"gender":"通","freq":1},{"c":"淙","s":11,"w":"","p":"cóng","m":"","src":"","star":3,"fenqi":false,"landajie":false,"tags":["清泠"],"gender":"女","freq":1},{"c":"淡","s":11,"w":"","p":"dàn","m":"","src":"卻嫌脂粉污顏色，淡掃蛾眉朝至尊。 — 《唐诗·undefined》","star":3,"fenqi":false,"landajie":false,"tags":["清泠"],"gender":"女","freq":1},{"c":"笛","s":11,"w":"","p":"dí","m":"","src":"豈無山歌與村笛？嘔啞嘲哳難爲聽。 — 《唐诗·undefined》","star":2,"fenqi":false,"landajie":false,"tags":["雅韵"],"gender":"通","freq":1},{"c":"海","s":11,"w":"水","p":"hǎi","m":"大海；海纳百川","src":"沔彼流水，朝宗于海。鴥彼飞隼，载飞载止。 — 《诗经·沔水》","star":2,"fenqi":false,"landajie":true,"tags":["大气"],"gender":"男","freq":1},{"c":"晗","s":11,"w":"火","p":"hán","m":"天将明；晗光初霁","src":"","star":2,"fenqi":false,"landajie":false,"tags":["温婉","大气"],"gender":"男","freq":1},{"c":"鸿","s":11,"w":"","p":"hóng","m":"","src":"鱼网之设，鸿则离之。燕婉之求，得此戚施。 — 《诗经·新台》","star":2,"fenqi":false,"landajie":false,"tags":["天地"],"gender":"通","freq":1},{"c":"焕","s":11,"w":"","p":"huàn","m":"","src":"嘉禾甘露登歌荐，云物焕祥经。 — 《宋词·导引》","star":2,"fenqi":false,"landajie":false,"tags":["光影"],"gender":"通","freq":1},{"c":"基","s":11,"w":"土","p":"jī","m":"基础；基业长青","src":"南山有台，北山有莱。乐只君子，邦家之基。 — 《诗经·南山有台》","star":2,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"婕","s":11,"w":"","p":"jié","m":"","src":"內府殷紅瑪瑙盤，婕妤傳詔才人索。 — 《唐诗·undefined》","star":3,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"婧","s":11,"w":"","p":"jìng","m":"","src":"","star":3,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"菊","s":11,"w":"","p":"jú","m":"","src":"朝饮木兰之坠露兮，夕餐秋菊之落英。 — 《楚辞·离骚》","star":3,"fenqi":false,"landajie":false,"tags":["花草"],"gender":"女","freq":1},{"c":"康","s":11,"w":"木","p":"kāng","m":"安康；健康安乐","src":"蟋蟀在堂，岁聿其莫。今我不乐，日月其除。 — 《诗经·蟋蟀》","star":2,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"琅","s":11,"w":"","p":"láng","m":"","src":"抚长剑兮玉珥，璆锵鸣兮琳琅 — 《楚辞·东皇太一》","star":2,"fenqi":false,"landajie":false,"tags":["宝玉"],"gender":"通","freq":1},{"c":"朗","s":11,"w":"火","p":"lǎng","m":"爽朗；开朗明亮（简10）","src":"昭明有融，高朗令终，令终有俶。公尸嘉告。 — 《诗经·既醉》","star":2,"fenqi":false,"landajie":false,"tags":["大气","现代"],"gender":"男","freq":1},{"c":"绫","s":11,"w":"","p":"líng","m":"","src":"红笺纸、小砑吴绫。 — 《宋词·愁倚阑令・春光好》","star":2,"fenqi":false,"landajie":false,"tags":["光影"],"gender":"通","freq":1},{"c":"琉","s":11,"w":"","p":"liú","m":"","src":"牙板数敲珠一串，梁尘暗落琉璃盏。 — 《宋词·凤栖梧・蝶恋花》","star":2,"fenqi":false,"landajie":false,"tags":["宝玉"],"gender":"通","freq":1},{"c":"梅","s":11,"w":"","p":"méi","m":"","src":"摽有梅，其实七兮。求我庶士，迨其吉兮。 — 《诗经·摽有梅》","star":3,"fenqi":false,"landajie":false,"tags":["花草"],"gender":"女","freq":1},{"c":"敏","s":11,"w":"","p":"mǐn","m":"","src":"尝其旨否。禾易长亩，终善且有。曾孙不怒， — 《诗经·甫田》","star":2,"fenqi":false,"landajie":false,"tags":["德慧"],"gender":"通","freq":1},{"c":"培","s":11,"w":"土","p":"péi","m":"培育；培育成材","src":"","star":2,"fenqi":false,"landajie":false,"tags":["知性","大气"],"gender":"男","freq":1},{"c":"淠","s":11,"w":"","p":"pì","m":"","src":"菀彼柳斯，鸣蜩嘒嘒，有漼者渊，萑苇淠淠。 — 《诗经·小弁》","star":3,"fenqi":false,"landajie":false,"tags":["清泠"],"gender":"女","freq":1},{"c":"萍","s":11,"w":"","p":"píng","m":"","src":"窃哀兮浮萍，汎淫兮无根。 — 《楚辞·尊嘉》","star":3,"fenqi":false,"landajie":false,"tags":["花草"],"gender":"女","freq":1},{"c":"绮","s":11,"w":"","p":"qǐ","m":"","src":"纂组绮缟，结琦璜些。 — 《楚辞·招魂》","star":2,"fenqi":false,"landajie":false,"tags":["光影"],"gender":"通","freq":1},{"c":"若","s":11,"w":"木","p":"ruò","m":"若木神木；灵气濯濯","src":"桑之未落，其叶沃若。于嗟鸠兮！无食桑葚。 — 《诗经·氓》","star":4,"fenqi":false,"landajie":false,"tags":["温婉","知性"],"gender":"女","freq":1},{"c":"绍","s":11,"w":"金","p":"shào","m":"继承；绍继先业","src":"月出照兮。佼人燎兮。舒夭绍兮。劳心惨兮。 — 《诗经·月出》","star":2,"fenqi":false,"landajie":false,"tags":["知性"],"gender":"男","freq":1},{"c":"笙","s":11,"w":"","p":"shēng","m":"","src":"呦呦鹿鸣，食野之苹。我有嘉宾，鼓瑟吹笙。 — 《诗经·鹿鸣》","star":2,"fenqi":false,"landajie":false,"tags":["雅韵"],"gender":"通","freq":1},{"c":"淞","s":11,"w":"","p":"sōng","m":"","src":"","star":3,"fenqi":false,"landajie":false,"tags":["清泠"],"gender":"女","freq":1},{"c":"婉","s":11,"w":"","p":"wǎn","m":"","src":"新台有泚，河水瀰瀰。燕婉之求，蘧篨不鲜。 — 《诗经·新台》","star":3,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"涴","s":11,"w":"","p":"wò","m":"","src":"素面翻嫌粉涴，洗妆不褪唇红。 — 《宋词·西江月》","star":3,"fenqi":false,"landajie":false,"tags":["清泠"],"gender":"女","freq":1},{"c":"晞","s":11,"w":"火","p":"xī","m":"破晓；晞发朝阳","src":"东方未晞，颠倒裳衣。倒之颠之，自公令之。 — 《诗经·东方未明》","star":3,"fenqi":false,"landajie":false,"tags":[],"gender":"通用","freq":1},{"c":"雪","s":11,"w":"水","p":"xuě","m":"白雪；冰清玉洁","src":"北风其凉，雨雪其雱。惠而好我，携手同行。 — 《诗经·北风》","star":4,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"逸","s":11,"w":"","p":"yì","m":"","src":"皎皎白驹，贲然来思。尔公尔侯，逸豫无期？ — 《诗经·白驹》","star":2,"fenqi":false,"landajie":false,"tags":["天地"],"gender":"通","freq":1},{"c":"莹","s":11,"w":"","p":"yíng","m":"","src":"瞻彼淇奥，绿竹青青。有匪君子，充耳秀莹， — 《诗经·淇奥》","star":2,"fenqi":false,"landajie":false,"tags":["宝玉"],"gender":"通","freq":1},{"c":"渊","s":11,"w":"","p":"yuān","m":"","src":"仲氏任只，其心塞渊。终温且惠，淑慎其身。 — 《诗经·燕燕》","star":3,"fenqi":false,"landajie":false,"tags":["清泠"],"gender":"女","freq":1},{"c":"章","s":11,"w":"","p":"zhāng","m":"","src":"玁狁匪茹，整居焦获。侵镐及方，至于泾阳。 — 《诗经·六月》","star":2,"fenqi":false,"landajie":false,"tags":["雅韵"],"gender":"通","freq":1},{"c":"梓","s":11,"w":"木","p":"zǐ","m":"梓树；故土深情（重名极高）","src":"定之方中，作于楚宫。揆之以日，作于楚室。 — 《诗经·定之方中》","star":3,"fenqi":false,"landajie":true,"tags":["大气"],"gender":"通用","freq":1},{"c":"博","s":12,"w":"水","p":"bó","m":"广博；博学多才","src":"角弓其觩。束矢其搜。戎车孔博。徒御无斁。 — 《诗经·泮水》","star":2,"fenqi":true,"landajie":true,"tags":["知性","大气"],"gender":"男","freq":1},{"c":"淳","s":12,"w":"水","p":"chún","m":"淳朴；淳厚质朴","src":"嗚呼聖王及聖相，相與烜赫流淳熙。 — 《唐诗·undefined》","star":2,"fenqi":false,"landajie":false,"tags":["知性","大气"],"gender":"男","freq":1},{"c":"琮","s":12,"w":"","p":"cóng","m":"","src":"重头歌韵响铮琮，入破舞腰红乱旋。 — 《宋词·木兰花・玉楼春》","star":2,"fenqi":false,"landajie":false,"tags":["宝玉"],"gender":"通","freq":1},{"c":"栋","s":12,"w":"木","p":"dòng","m":"栋梁；国之栋梁","src":"桂栋兮兰橑，辛夷楣兮药房 — 《楚辞·湘夫人》","star":2,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"赋","s":12,"w":"","p":"fù","m":"","src":"仲山甫之德，柔嘉维则。令仪令色。小心翼翼 — 《诗经·烝民》","star":2,"fenqi":false,"landajie":false,"tags":["雅韵"],"gender":"通","freq":1},{"c":"涵","s":12,"w":"水","p":"hán","m":"涵蓄；涵养深厚（重名极高）","src":"乱之初生，僭始既涵。乱之又生，君子信谗。 — 《诗经·巧言》","star":3,"fenqi":false,"landajie":true,"tags":["知性","大气"],"gender":"通用","freq":1},{"c":"惠","s":12,"w":"","p":"huì","m":"","src":"仲氏任只，其心塞渊。终温且惠，淑慎其身。 — 《诗经·燕燕》","star":2,"fenqi":false,"landajie":false,"tags":["德慧"],"gender":"通","freq":1},{"c":"湫","s":12,"w":"","p":"jiǎo","m":"","src":"风骚屑以摇木兮，云吸吸以湫戾。 — 《楚辞·思古》","star":3,"fenqi":false,"landajie":false,"tags":["清泠"],"gender":"女","freq":1},{"c":"琚","s":12,"w":"","p":"jū","m":"","src":"投我以木瓜，报之以琼琚。匪报也，永以为好 — 《诗经·木瓜》","star":2,"fenqi":false,"landajie":false,"tags":["宝玉"],"gender":"通","freq":1},{"c":"钧","s":12,"w":"金","p":"jūn","m":"三十斤；千钧沉稳","src":"尹氏大师，维周之氐；秉国之钧，四方是维。 — 《诗经·节南山》","star":2,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"葵","s":12,"w":"","p":"kuí","m":"","src":"六月食郁及薁，七月亨葵及菽。八月剥枣，十 — 《诗经·七月》","star":3,"fenqi":false,"landajie":false,"tags":["花草"],"gender":"女","freq":1},{"c":"岚","s":12,"w":"土","p":"lán","m":"山气；山岚氤氲（简7）","src":"岚影浮春，云容阁雨，澄泓碧展玻璃。 — 《宋词·满庭芳》","star":4,"fenqi":false,"landajie":false,"tags":["温婉","自然"],"gender":"女","freq":1},{"c":"琳","s":12,"w":"木","p":"lín","m":"美玉；琳琳如玉","src":"抚长剑兮玉珥，璆锵鸣兮琳琅 — 《楚辞·东皇太一》","star":4,"fenqi":true,"landajie":false,"tags":["温婉","大气"],"gender":"女","freq":1},{"c":"媚","s":12,"w":"","p":"mèi","m":"","src":"驷驖孔阜，六辔在手。公之媚子，从公于狩。 — 《诗经·驷驖》","star":3,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"淼","s":12,"w":"","p":"miǎo","m":"","src":"当陵阳之焉至兮，淼南渡之焉如？ — 《楚辞·哀郢》","star":3,"fenqi":false,"landajie":false,"tags":["清泠"],"gender":"女","freq":1},{"c":"淇","s":12,"w":"水","p":"qí","m":"淇水；淇奥绿竹","src":"毖彼泉水，亦流于淇。有怀于卫，靡日不思。 — 《诗经·泉水》","star":4,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"棋","s":12,"w":"木","p":"qí","m":"棋局；高瞻远瞩","src":"菎蔽象棋，有六簙些。 — 《楚辞·招魂》","star":2,"fenqi":false,"landajie":false,"tags":["知性"],"gender":"男","freq":1},{"c":"琦","s":12,"w":"","p":"qí","m":"","src":"纂组绮缟，结琦璜些。 — 《楚辞·招魂》","star":2,"fenqi":false,"landajie":false,"tags":["宝玉"],"gender":"通","freq":1},{"c":"琪","s":12,"w":"木","p":"qí","m":"美玉；琪树瑶花","src":"琪树罗三殿，金龙抱九关。 — 《宋词·巫山一段云》","star":4,"fenqi":true,"landajie":false,"tags":["温婉","大气"],"gender":"女","freq":1},{"c":"谦","s":12,"w":"","p":"qiān","m":"","src":"兢兢惕惕持谦德，未许禅云亭。 — 《宋词·导引》","star":2,"fenqi":false,"landajie":false,"tags":["德慧"],"gender":"通","freq":1},{"c":"钦","s":12,"w":"金","p":"qīn","m":"钦佩；受尊被敬","src":"鴥彼晨风，郁彼北林。未见君子，忧心钦钦。 — 《诗经·晨风》","star":2,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"琴","s":12,"w":"","p":"qín","m":"","src":"参差荇菜，左右采之。窈窕淑女，琴瑟友之。 — 《诗经·关雎》","star":2,"fenqi":false,"landajie":false,"tags":["雅韵"],"gender":"通","freq":1},{"c":"清","s":12,"w":"水","p":"qīng","m":"清澈；清正明朗","src":"瑳兮瑳兮，其之展也。蒙彼绉絺，是绁袢也。 — 《诗经·君子偕老》","star":3,"fenqi":false,"landajie":false,"tags":["知性","大气"],"gender":"通用","freq":1},{"c":"晴","s":12,"w":"火","p":"qíng","m":"晴空；云销雨霁","src":"分野中峯變，陰晴衆壑殊。 — 《唐诗·undefined》","star":4,"fenqi":false,"landajie":false,"tags":["温婉","大气"],"gender":"女","freq":1},{"c":"琼","s":12,"w":"","p":"qióng","m":"","src":"投我以木瓜，报之以琼琚。匪报也，永以为好 — 《诗经·木瓜》","star":2,"fenqi":false,"landajie":false,"tags":["宝玉"],"gender":"通","freq":1},{"c":"然","s":12,"w":"火","p":"rán","m":"\"燃\"本字；浩然正气（此字典列金！）","src":"终风且霾，惠然肯来，莫往莫来，悠悠我思。 — 《诗经·终风》","star":3,"fenqi":true,"landajie":true,"tags":["大气"],"gender":"通用","freq":1},{"c":"嵘","s":12,"w":"","p":"róng","m":"","src":"下峥嵘而无地兮，上寥廓而无天。 — 《楚辞·远游》","star":2,"fenqi":false,"landajie":false,"tags":["天地"],"gender":"通","freq":1},{"c":"森","s":12,"w":"木","p":"sēn","m":"森林；繁茂兴业","src":"丞相祠堂何處尋，錦官城外柏森森。 — 《唐诗·undefined》","star":2,"fenqi":false,"landajie":false,"tags":["自然","大气"],"gender":"男","freq":1},{"c":"善","s":12,"w":"","p":"shàn","m":"","src":"凯风自南，吹彼棘薪。母氏圣善，我无令人。 — 《诗经·凯风》","star":2,"fenqi":false,"landajie":false,"tags":["德慧"],"gender":"通","freq":1},{"c":"媞","s":12,"w":"","p":"shì","m":"","src":"西施媞媞而不得见兮，嫫母勃屑而日侍。 — 《楚辞·怨世》","star":3,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"淑","s":12,"w":"水","p":"shū","m":"善良；窈窕淑女","src":"关关雎鸠，在河之洲。窈窕淑女，君子好逑。 — 《诗经·关雎》","star":4,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"舒","s":12,"w":"金","p":"shū","m":"舒展；舒泰安逸","src":"舒而脱脱兮，无感我帨兮，无使尨也吠。 — 《诗经·野有死麕》","star":3,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"通用","freq":1},{"c":"斯","s":12,"w":"金","p":"sī","m":"斯文；斯文儒雅","src":"螽斯羽，诜诜兮。宜尔子孙，振振兮。 — 《诗经·螽斯》","star":3,"fenqi":false,"landajie":false,"tags":["知性"],"gender":"通用","freq":1},{"c":"棠","s":12,"w":"木","p":"táng","m":"海棠；海棠春睡","src":"蔽芾甘棠，勿翦勿伐，召伯所茇。 — 《诗经·甘棠》","star":4,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"缇","s":12,"w":"","p":"tí","m":"","src":"袭英衣兮缇[糹習]，披华裳兮芳芬。 — 《楚辞·昭世》","star":2,"fenqi":false,"landajie":false,"tags":["光影"],"gender":"通","freq":1},{"c":"婷","s":12,"w":"","p":"tíng","m":"","src":"好借月魂来，娉婷画烛旁。 — 《宋词·梅花曲》","star":3,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"琬","s":12,"w":"","p":"wǎn","m":"","src":"吸飞泉之微液兮，怀琬琰之华英。 — 《楚辞·远游》","star":2,"fenqi":false,"landajie":false,"tags":["宝玉"],"gender":"通","freq":1},{"c":"温","s":12,"w":"","p":"wēn","m":"","src":"仲氏任只，其心塞渊。终温且惠，淑慎其身。 — 《诗经·燕燕》","star":2,"fenqi":false,"landajie":false,"tags":["德慧"],"gender":"通","freq":1},{"c":"雯","s":12,"w":"水","p":"wén","m":"彩云；雯华云纹","src":"","star":4,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"湘","s":12,"w":"","p":"xiāng","m":"","src":"于以盛之？维筐及筥。于以湘之？维锜及釜。 — 《诗经·采蘋》","star":3,"fenqi":false,"landajie":false,"tags":["清泠"],"gender":"女","freq":1},{"c":"翔","s":12,"w":"","p":"xiáng","m":"","src":"清人在彭，驷介旁旁。二矛重英，河上乎翱翔 — 《诗经·清人》","star":2,"fenqi":false,"landajie":false,"tags":["天地"],"gender":"通","freq":1},{"c":"雅","s":12,"w":"","p":"yǎ","m":"","src":"鼓钟钦钦，鼓瑟鼓琴，笙磬同音。以雅以南， — 《诗经·鼓钟》","star":2,"fenqi":false,"landajie":false,"tags":["雅韵"],"gender":"通","freq":1},{"c":"琰","s":12,"w":"","p":"yǎn","m":"","src":"吸飞泉之微液兮，怀琬琰之华英。 — 《楚辞·远游》","star":2,"fenqi":false,"landajie":false,"tags":["宝玉"],"gender":"通","freq":1},{"c":"谣","s":12,"w":"","p":"yáo","m":"","src":"园有桃，其实之肴。心之忧矣，我歌且谣。不 — 《诗经·园有桃》","star":2,"fenqi":false,"landajie":false,"tags":["雅韵"],"gender":"通","freq":1},{"c":"瑛","s":12,"w":"","p":"yīng","m":"","src":"椒瑛兮湟汙，葈耳兮充房。 — 《楚辞·哀岁》","star":2,"fenqi":false,"landajie":false,"tags":["宝玉"],"gender":"通","freq":1},{"c":"愉","s":12,"w":"","p":"yú","m":"","src":"山有枢，隰有榆。子有衣裳，弗曳弗娄。子有 — 《诗经·山有枢》","star":2,"fenqi":false,"landajie":false,"tags":["祥和"],"gender":"通","freq":1},{"c":"媛","s":12,"w":"","p":"yuàn","m":"","src":"瑳兮瑳兮，其之展也。蒙彼绉絺，是绁袢也。 — 《诗经·君子偕老》","star":3,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"越","s":12,"w":"土","p":"yuè","m":"超越；卓越超群","src":"穀旦于逝，越以鬷迈。视尔如荍，贻我握椒。 — 《诗经·东门之枌》","star":2,"fenqi":false,"landajie":false,"tags":["大气","现代"],"gender":"男","freq":1},{"c":"湛","s":12,"w":"","p":"zhàn","m":"","src":"呦呦鹿鸣，食野之芩。我有嘉宾，鼓瑟鼓琴。 — 《诗经·鹿鸣》","star":3,"fenqi":false,"landajie":false,"tags":["清泠"],"gender":"女","freq":1},{"c":"筝","s":12,"w":"","p":"zhēng","m":"","src":"破伯牙之号钟兮，挟人筝而弹纬。 — 《楚辞·愍命》","star":2,"fenqi":false,"landajie":false,"tags":["雅韵"],"gender":"通","freq":1},{"c":"智","s":12,"w":"","p":"zhì","m":"","src":"詹尹乃释策而谢曰：“夫尺有所短，寸有所长 — 《楚辞·卜居》","star":2,"fenqi":false,"landajie":false,"tags":["德慧"],"gender":"通","freq":1},{"c":"嫒","s":13,"w":"","p":"ài","m":"","src":"","star":3,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"慈","s":13,"w":"","p":"cí","m":"","src":"众谗人之嫉妒兮，被以不慈之伪名。 — 《楚辞·哀郢》","star":2,"fenqi":false,"landajie":false,"tags":["德慧"],"gender":"通","freq":1},{"c":"辞","s":13,"w":"","p":"cí","m":"","src":"辞之辑矣，民之洽矣。辞之怿矣，民之莫矣。 — 《诗经·板》","star":2,"fenqi":false,"landajie":false,"tags":["雅韵"],"gender":"通","freq":1},{"c":"福","s":13,"w":"","p":"fú","m":"","src":"南有樛木，葛藟累之。乐只君子，福履绥之。 — 《诗经·樛木》","star":2,"fenqi":false,"landajie":false,"tags":["祥和"],"gender":"通","freq":1},{"c":"瑰","s":13,"w":"","p":"guī","m":"","src":"我送舅氏，悠悠我思。何以赠之？琼瑰玉佩。 — 《诗经·渭阳》","star":2,"fenqi":false,"landajie":false,"tags":["宝玉"],"gender":"通","freq":1},{"c":"荷","s":13,"w":"木","p":"hé","m":"荷花；出淤泥不染","src":"山有扶苏，隰有荷华。不见子都，乃见狂且。 — 《诗经·山有扶苏》","star":4,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"煌","s":13,"w":"火","p":"huáng","m":"明亮；辉煌璀璨","src":"东门之杨，其叶牂牂。昏以为期，明星煌煌。 — 《诗经·东门之杨》","star":2,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"靖","s":13,"w":"金","p":"jìng","m":"平安；靖宁四方","src":"嗟尔君子，无恒安处。靖共尔位，正直是与。 — 《诗经·小明》","star":2,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"楷","s":13,"w":"木","p":"kǎi","m":"楷模；方正楷模","src":"","star":2,"fenqi":false,"landajie":false,"tags":["知性"],"gender":"男","freq":1},{"c":"莉","s":13,"w":"木","p":"lì","m":"茉莉；茉莉清芬","src":"","star":4,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"铃","s":13,"w":"金","p":"líng","m":"铃铛；清脆悦耳","src":"载见辟王，曰求厥章。龙旂阳阳，和铃央央。 — 《诗经·载见》","star":4,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"溟","s":13,"w":"","p":"míng","m":"","src":"人在虚空，月生溟海，寒渔夜泛，游鳞可辨。 — 《宋词·倾杯・倾杯乐》","star":3,"fenqi":false,"landajie":false,"tags":["清泠"],"gender":"女","freq":1},{"c":"楠","s":13,"w":"木","p":"nán","m":"楠木；栋梁之材","src":"","star":2,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"瑟","s":13,"w":"","p":"sè","m":"","src":"参差荇菜，左右采之。窈窕淑女，琴瑟友之。 — 《诗经·关雎》","star":2,"fenqi":false,"landajie":false,"tags":["雅韵"],"gender":"通","freq":1},{"c":"莎","s":13,"w":"木","p":"shā","m":"莎草；轻柔飘逸","src":"五月斯螽动股，六月莎鸡振羽。七月在野，八 — 《诗经·七月》","star":4,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"诗","s":13,"w":"金","p":"shī","m":"诗歌；诗情画意","src":"杨园之道，猗于亩丘。寺人孟子，作为此诗。 — 《诗经·巷伯》","star":4,"fenqi":false,"landajie":true,"tags":["温婉","知性"],"gender":"女","freq":1},{"c":"嵩","s":13,"w":"土","p":"sōng","m":"嵩山；嵩岳崇高","src":"嵩雲秦樹久離居，雙鯉迢迢一紙書。 — 《唐诗·undefined》","star":2,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"炜","s":13,"w":"火","p":"wěi","m":"光明；炜烨生辉（简8）","src":"静女其娈，贻我彤管。彤管有炜，说怿女美。 — 《诗经·静女》","star":2,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"新","s":13,"w":"金","p":"xīn","m":"更新；日新其德","src":"行道迟迟，中心有违。不远伊迩，薄送我畿。 — 《诗经·谷风》","star":3,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"通用","freq":1},{"c":"钰","s":13,"w":"金","p":"yù","m":"珍宝；如金似玉","src":"","star":3,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"通用","freq":1},{"c":"煜","s":13,"w":"火","p":"yù","m":"照耀；煜煜生辉","src":"","star":2,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"瑗","s":13,"w":"","p":"yuàn","m":"","src":"","star":2,"fenqi":false,"landajie":false,"tags":["宝玉"],"gender":"通","freq":1},{"c":"韵","s":13,"w":"","p":"yùn","m":"","src":"少年风韵，自觉随春老。 — 《宋词·诉衷情近》","star":2,"fenqi":false,"landajie":false,"tags":["雅韵"],"gender":"通","freq":1},{"c":"照","s":13,"w":"火","p":"zhào","m":"照耀；光照四方","src":"日居月诸，照临下土。乃如之人兮，逝不古处 — 《诗经·日月》","star":2,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"碧","s":14,"w":"","p":"bì","m":"","src":"孤帆遠影碧空盡，唯見長江天際流。 (唯  — 《唐诗·undefined》","star":2,"fenqi":false,"landajie":false,"tags":["宝玉"],"gender":"通","freq":1},{"c":"嫦","s":14,"w":"","p":"cháng","m":"","src":"嫦娥應悔偷靈藥，碧海青天夜夜心。 — 《唐诗·undefined》","star":3,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"畅","s":14,"w":"火","p":"chàng","m":"畅通；顺畅通达（简8）","src":"小戎俴收，五楘梁辀。游环胁驱，阴靷鋈续。 — 《诗经·小戎》","star":3,"fenqi":false,"landajie":false,"tags":["大气","现代"],"gender":"通用","freq":1},{"c":"菲","s":14,"w":"木","p":"fēi","m":"芳菲；芳香馥郁","src":"习习谷风，以阴以雨。黾勉同心，不宜有怒。 — 《诗经·谷风》","star":4,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"歌","s":14,"w":"","p":"gē","m":"","src":"江有沱，之子归，不我过。不我过，其啸也歌 — 《诗经·江有汜》","star":2,"fenqi":false,"landajie":false,"tags":["雅韵"],"gender":"通","freq":1},{"c":"菡","s":14,"w":"木","p":"hàn","m":"荷花；淡雅高洁","src":"彼泽之陂，有蒲菡萏。有美一人，硕大且俨。 — 《诗经·泽陂》","star":4,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"华","s":14,"w":"木","p":"huá","m":"光华；才华横溢","src":"桃之夭夭，灼灼其华。之子于归，宜其室家。 — 《诗经·桃夭》","star":3,"fenqi":true,"landajie":false,"tags":["大气"],"gender":"通用","freq":1},{"c":"霁","s":14,"w":"","p":"jì","m":"","src":"春朝雨霁轻尘歇。 — 《宋词·阳关引》","star":2,"fenqi":false,"landajie":false,"tags":["天地"],"gender":"通","freq":1},{"c":"嘉","s":14,"w":"","p":"jiā","m":"","src":"既不我嘉，不能旋反。视尔不臧，我思不远。 — 《诗经·载驰》","star":2,"fenqi":false,"landajie":false,"tags":["祥和"],"gender":"通","freq":1},{"c":"菁","s":14,"w":"木","p":"jīng","m":"菁华；草木菁菁","src":"菁菁者莪，在彼中阿。既见君子，乐且有仪。 — 《诗经·菁菁者莪》","star":3,"fenqi":false,"landajie":false,"tags":["知性","自然"],"gender":"通用","freq":1},{"c":"静","s":14,"w":"","p":"jìng","m":"","src":"忧心悄悄，愠于群小。觏闵既多，受侮不少。 — 《诗经·柏舟》","star":2,"fenqi":false,"landajie":false,"tags":["祥和"],"gender":"通","freq":1},{"c":"潋","s":14,"w":"","p":"liàn","m":"","src":"金波银汉，潋滟无际。 — 《宋词·佳人醉》","star":3,"fenqi":false,"landajie":false,"tags":["清泠"],"gender":"女","freq":1},{"c":"缦","s":14,"w":"","p":"màn","m":"","src":"缦鬓小横波。 — 《宋词·菩萨蛮》","star":2,"fenqi":false,"landajie":false,"tags":["光影"],"gender":"通","freq":1},{"c":"萌","s":14,"w":"木","p":"méng","m":"萌芽；生机萌发","src":"厥萌在初，何所亿焉？ — 《楚辞·天问》","star":4,"fenqi":false,"landajie":false,"tags":["温婉","自然"],"gender":"女","freq":1},{"c":"铭","s":14,"w":"金","p":"míng","m":"铭刻；铭记声名","src":"","star":2,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"宁","s":14,"w":"火","p":"níng","m":"安宁；宁静致远（简5/繁14；金火分歧）","src":"言告师氏，言告言归。薄污我私，薄浣我衣。 — 《诗经·葛覃》","star":4,"fenqi":true,"landajie":false,"tags":["温婉","知性"],"gender":"女","freq":1},{"c":"蔷","s":14,"w":"","p":"qiáng","m":"","src":"衬琅玕锦院，竹外蔷薇。 — 《宋词·八声甘州》","star":3,"fenqi":false,"landajie":false,"tags":["花草"],"gender":"女","freq":1},{"c":"荣","s":14,"w":"木","p":"róng","m":"茂盛荣耀；荣光焕发（底部火勿判）","src":"及荣华之未落兮，相下女之可诒。 — 《楚辞·离骚》","star":3,"fenqi":true,"landajie":false,"tags":["大气"],"gender":"通用","freq":1},{"c":"瑞","s":14,"w":"金","p":"ruì","m":"祥瑞；瑞气盈门","src":"羡咎繇兮建典谟，懿风后兮受瑞图。 — 《楚辞·逢尤》","star":3,"fenqi":true,"landajie":false,"tags":["大气"],"gender":"通用","freq":1},{"c":"睿","s":14,"w":"金","p":"ruì","m":"睿智；睿智明达","src":"气和玉烛，睿化著鸿明。 — 《宋词·导引》","star":2,"fenqi":false,"landajie":true,"tags":["知性","大气"],"gender":"男","freq":1},{"c":"韶","s":14,"w":"","p":"sháo","m":"","src":"奏《九歌》而舞《韶》兮，聊假日以偷乐。 — 《楚辞·离骚》","star":2,"fenqi":false,"landajie":false,"tags":["雅韵"],"gender":"通","freq":1},{"c":"霆","s":14,"w":"","p":"tíng","m":"","src":"啴啴焞焞，如霆如雷。显允方叔，征伐玁狁， — 《诗经·采芑》","star":2,"fenqi":false,"landajie":false,"tags":["天地"],"gender":"通","freq":1},{"c":"溪","s":14,"w":"水","p":"xī","m":"溪流；溪水潺潺","src":"山气巄嵷兮石嵯峨，溪谷崭岩兮水曾波。 — 《楚辞·招隐士》","star":4,"fenqi":true,"landajie":false,"tags":["温婉","自然"],"gender":"女","freq":1},{"c":"潇","s":14,"w":"","p":"xiāo","m":"","src":"风雨潇潇，鸡鸣胶胶。既见君子，云胡不瘳？ — 《诗经·风雨》","star":3,"fenqi":false,"landajie":false,"tags":["清泠"],"gender":"女","freq":1},{"c":"箫","s":14,"w":"","p":"xiāo","m":"","src":"乃奏，箫管备举。喤喤厥声，肃雍和鸣，先祖 — 《诗经·有瞽》","star":2,"fenqi":false,"landajie":false,"tags":["雅韵"],"gender":"通","freq":1},{"c":"嫣","s":14,"w":"","p":"yān","m":"","src":"阳城下蔡困嫣然。 — 《宋词·浣溪沙》","star":3,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"漪","s":14,"w":"","p":"yī","m":"","src":"微动涟漪。 — 《宋词·采桑子》","star":3,"fenqi":false,"landajie":false,"tags":["清泠"],"gender":"女","freq":1},{"c":"银","s":14,"w":"金","p":"yín","m":"白银；银光素净","src":"真珠帘卷玉楼空，天淡银河垂地。 — 《宋词·御街行》","star":3,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"通用","freq":1},{"c":"瑜","s":14,"w":"土","p":"yú","m":"美玉；怀瑾握瑜","src":"怀瑾握瑜兮，穷不知所示。 — 《楚辞·怀沙》","star":3,"fenqi":true,"landajie":false,"tags":["温婉","大气"],"gender":"通用","freq":1},{"c":"源","s":14,"w":"水","p":"yuán","m":"源头；源远流长","src":"泉源在左，淇水在右。女子有行，远兄弟父母 — 《诗经·竹竿》","star":2,"fenqi":false,"landajie":false,"tags":["知性","大气"],"gender":"男","freq":1},{"c":"澈","s":15,"w":"","p":"chè","m":"","src":"君含怒而待臣兮，不清澈其然否。 — 《楚辞·惜往日》","star":3,"fenqi":false,"landajie":false,"tags":["清泠"],"gender":"女","freq":1},{"c":"聪","s":15,"w":"","p":"cōng","m":"","src":"有兔爰爰，雉离于罿。我生之初，尚无庸；我 — 《诗经·兔爰》","star":2,"fenqi":false,"landajie":false,"tags":["德慧"],"gender":"通","freq":1},{"c":"德","s":15,"w":"","p":"dé","m":"","src":"日居月诸，出自东方。乃如之人兮，德音无良 — 《诗经·日月》","star":2,"fenqi":false,"landajie":false,"tags":["德慧"],"gender":"通","freq":1},{"c":"锋","s":15,"w":"金","p":"fēng","m":"刀锋；锋芒锐气","src":"旦暮锋车命驾，重整济川舟。 — 《宋词·瑞鹧鸪》","star":2,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"篁","s":15,"w":"","p":"huáng","m":"","src":"余处幽篁兮终不见天，路险难兮独后来 — 《楚辞·山鬼》","star":2,"fenqi":false,"landajie":false,"tags":["雅韵"],"gender":"通","freq":1},{"c":"辉","s":15,"w":"火","p":"huī","m":"光辉；光辉灿烂（老一辈热门）","src":"夜如何其？夜乡晨，庭燎有辉。君子至止，言 — 《诗经·庭燎》","star":2,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"慧","s":15,"w":"水","p":"huì","m":"智慧；兰心蕙质","src":"揽慧星以为旍兮，举斗柄以为麾。 — 《楚辞·远游》","star":4,"fenqi":false,"landajie":false,"tags":["知性","大气"],"gender":"女","freq":1},{"c":"蕙","s":15,"w":"","p":"huì","m":"","src":"杂申椒与菌桂兮，岂惟纫夫蕙茝！ — 《楚辞·离骚》","star":3,"fenqi":false,"landajie":false,"tags":["花草"],"gender":"女","freq":1},{"c":"剑","s":15,"w":"金","p":"jiàn","m":"宝剑；剑气豪迈","src":"抚长剑兮玉珥，璆锵鸣兮琳琅 — 《楚辞·东皇太一》","star":2,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"槿","s":15,"w":"木","p":"jǐn","m":"木槿；坚韧柔美","src":"山中習靜觀朝槿，松下清齋折露葵。 — 《唐诗·undefined》","star":4,"fenqi":false,"landajie":false,"tags":["温婉","自然"],"gender":"女","freq":1},{"c":"澜","s":15,"w":"","p":"lán","m":"","src":"何青云之流澜兮，微霜降之蒙蒙。 — 《楚辞·自悲》","star":3,"fenqi":false,"landajie":false,"tags":["清泠"],"gender":"女","freq":1},{"c":"磊","s":15,"w":"土","p":"lěi","m":"众石；光明磊落","src":"采三秀兮于山间，石磊磊兮葛蔓蔓 — 《楚辞·山鬼》","star":2,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"漫","s":15,"w":"水","p":"màn","m":"烂漫；天真烂漫","src":"路漫漫其修远兮，吾将上下而求索。 — 《楚辞·离骚》","star":4,"fenqi":false,"landajie":false,"tags":["温婉","自然"],"gender":"女","freq":1},{"c":"墨","s":15,"w":"","p":"mò","m":"","src":"背绳墨以追曲兮，竞周容以为度。 — 《楚辞·离骚》","star":2,"fenqi":false,"landajie":false,"tags":["雅韵"],"gender":"通","freq":1},{"c":"磐","s":15,"w":"土","p":"pán","m":"磐石；坚如磐石","src":"請留磐石上，垂釣將已矣。(磐石 一作：盤 — 《唐诗·undefined》","star":2,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"蕊","s":15,"w":"","p":"ruǐ","m":"","src":"掔木根以结茞兮，贯薜荔之落蕊。 — 《楚辞·离骚》","star":3,"fenqi":false,"landajie":false,"tags":["花草"],"gender":"女","freq":1},{"c":"锐","s":15,"w":"金","p":"ruì","m":"锐利；锐意进取","src":"留思北顾涕渐渐兮，折锐摧矜凝氾滥兮， — 《楚辞·忧苦》","star":2,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"霄","s":15,"w":"","p":"xiāo","m":"","src":"譬若王侨之乘云兮，载赤霄而凌太清。 — 《楚辞·远游》","star":2,"fenqi":false,"landajie":false,"tags":["天地"],"gender":"通","freq":1},{"c":"萱","s":15,"w":"木","p":"xuān","m":"萱草；忘忧快乐（重名极高）","src":"碧砌红萱草。 — 《宋词·清平乐》","star":4,"fenqi":false,"landajie":true,"tags":["温婉"],"gender":"女","freq":1},{"c":"璇","s":15,"w":"","p":"xuán","m":"","src":"谣吟兮中野，上察兮璇玑。 — 《楚辞·怨上》","star":2,"fenqi":false,"landajie":false,"tags":["宝玉"],"gender":"通","freq":1},{"c":"瑶","s":15,"w":"土","p":"yáo","m":"美玉；瑶池仙品（重名极高）","src":"投我以木桃，报之以琼瑶。匪报也，永以为好 — 《诗经·木瓜》","star":4,"fenqi":true,"landajie":true,"tags":["温婉"],"gender":"女","freq":1},{"c":"熠","s":15,"w":"","p":"yì","m":"","src":"伊威在室，蠨蛸在户。町畽鹿场，熠耀宵行。 — 《诗经·东山》","star":2,"fenqi":false,"landajie":false,"tags":["光影"],"gender":"通","freq":1},{"c":"璠","s":16,"w":"","p":"fán","m":"","src":"","star":2,"fenqi":false,"landajie":false,"tags":["宝玉"],"gender":"通","freq":1},{"c":"霏","s":16,"w":"","p":"fēi","m":"","src":"北风其喈，雨雪其霏。惠而好我，携手同归。 — 《诗经·北风》","star":2,"fenqi":false,"landajie":false,"tags":["天地"],"gender":"通","freq":1},{"c":"翰","s":16,"w":"","p":"hàn","m":"","src":"宛彼鸣鸠，翰飞戾天。我心忧伤，念昔先人。 — 《诗经·小宛》","star":2,"fenqi":false,"landajie":false,"tags":["雅韵"],"gender":"通","freq":1},{"c":"寰","s":16,"w":"","p":"huán","m":"","src":"回頭下望人寰處，不見長安見塵霧。惟將舊物 — 《唐诗·undefined》","star":2,"fenqi":false,"landajie":false,"tags":["天地"],"gender":"通","freq":1},{"c":"锦","s":16,"w":"金","p":"jǐn","m":"锦绣；前程似锦","src":"硕人其颀，衣锦褧衣。齐侯之子，卫侯之妻。 — 《诗经·硕人》","star":3,"fenqi":false,"landajie":false,"tags":["温婉","大气"],"gender":"通用","freq":1},{"c":"瑾","s":16,"w":"土","p":"jǐn","m":"美玉；怀瑾握玉","src":"怀瑾握瑜兮，穷不知所示。 — 《楚辞·怀沙》","star":3,"fenqi":true,"landajie":false,"tags":["大气"],"gender":"通用","freq":1},{"c":"璟","s":16,"w":"","p":"jǐng","m":"","src":"","star":2,"fenqi":false,"landajie":false,"tags":["宝玉"],"gender":"通","freq":1},{"c":"霖","s":16,"w":"水","p":"lín","m":"甘霖；恩泽万物（升温中）","src":"皇天淫溢而秋霖兮，后土何时而得漧？ — 《楚辞·九辩》","star":2,"fenqi":false,"landajie":true,"tags":["自然","大气"],"gender":"男","freq":1},{"c":"霓","s":16,"w":"水","p":"ní","m":"霓虹；霓裳羽衣","src":"飘风屯其相离兮，帅云霓而来御。 — 《楚辞·离骚》","star":4,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"桥","s":16,"w":"木","p":"qiáo","m":"桥梁；通达开阔","src":"芰荷浦溆，杨柳汀洲，映虹桥倒影，兰舟飞棹 — 《宋词·早梅芳・喜迁莺》","star":2,"fenqi":false,"landajie":false,"tags":["大气","现代"],"gender":"男","freq":1},{"c":"蓉","s":16,"w":"木","p":"róng","m":"芙蓉；出水芙蓉","src":"制芰荷以为衣兮，集芙蓉以为裳。 — 《楚辞·离骚》","star":4,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"润","s":16,"w":"水","p":"rùn","m":"滋润；温润如玉","src":"迟迟淑景，烟和露润，偏绕长堤芳草。 — 《宋词·古倾杯・倾杯乐》","star":3,"fenqi":false,"landajie":false,"tags":["温婉","知性"],"gender":"通用","freq":1},{"c":"晓","s":16,"w":"火","p":"xiǎo","m":"拂晓；晓光聪慧（简10）","src":"意晓阳兮燎寤，乃自诊兮在兹。 — 《楚辞·陶壅》","star":3,"fenqi":false,"landajie":false,"tags":["温婉","大气"],"gender":"通用","freq":1},{"c":"燕","s":16,"w":"土","p":"yàn","m":"燕子；燕语莺声","src":"燕燕于飞，差池其羽。之子于归，远送于野。 — 《诗经·燕燕》","star":4,"fenqi":false,"landajie":false,"tags":["温婉","自然"],"gender":"女","freq":1},{"c":"铮","s":16,"w":"金","p":"zhēng","m":"金属声；铮铮铁骨","src":"重头歌韵响铮琮，入破舞腰红乱旋。 — 《宋词·木兰花・玉楼春》","star":2,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"簧","s":17,"w":"","p":"huáng","m":"","src":"君子阳阳，左执簧，右招我由房，其乐只且！ — 《诗经·君子阳阳》","star":2,"fenqi":false,"landajie":false,"tags":["雅韵"],"gender":"通","freq":1},{"c":"璐","s":17,"w":"土","p":"lù","m":"美玉；琼璐琳华","src":"带长铗之陆离兮，冠切云之崔嵬，被明月兮佩 — 《楚辞·涉江》","star":4,"fenqi":true,"landajie":false,"tags":["温婉","大气"],"gender":"女","freq":1},{"c":"霜","s":17,"w":"水","p":"shuāng","m":"霜雪；霜华清冽","src":"纠纠葛屦，可以履霜？掺掺女手，可以缝裳？ — 《诗经·葛屦》","star":4,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"檀","s":17,"w":"木","p":"tán","m":"檀香；沉静高雅","src":"将仲子兮，无逾我园，无折我树檀。岂敢爱之 — 《诗经·将仲子》","star":2,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"蔚","s":17,"w":"木","p":"wèi","m":"蔚然；文采蔚然","src":"荟兮蔚兮，南山朝隮。婉兮娈兮，季女斯饥。 — 《诗经·候人》","star":3,"fenqi":false,"landajie":false,"tags":["知性"],"gender":"通用","freq":1},{"c":"霞","s":17,"w":"","p":"xiá","m":"","src":"餐六气而饮沆瀣兮，漱正阳而含朝霞。 — 《楚辞·远游》","star":2,"fenqi":false,"landajie":false,"tags":["天地"],"gender":"通","freq":1},{"c":"泽","s":17,"w":"水","p":"zé","m":"恩泽；泽被苍生（重名极高；简8/康17）","src":"岂曰无衣？与子同泽。王于兴师，修我矛戟。 — 《诗经·无衣》","star":2,"fenqi":true,"landajie":true,"tags":["大气"],"gender":"男","freq":1},{"c":"璧","s":18,"w":"","p":"bì","m":"","src":"瞻彼淇奥，绿竹如箦。有匪君子，如金如锡， — 《诗经·淇奥》","star":2,"fenqi":false,"landajie":false,"tags":["宝玉"],"gender":"通","freq":1},{"c":"铠","s":18,"w":"金","p":"kǎi","m":"铠甲；坚毅护佑","src":"","star":2,"fenqi":true,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"涛","s":18,"w":"水","p":"tāo","m":"波涛；波涛汹涌（老一辈热门）","src":"庙前江水怒为涛。 — 《宋词·酒泉子》","star":2,"fenqi":false,"landajie":true,"tags":["大气"],"gender":"男","freq":1},{"c":"曜","s":18,"w":"","p":"yào","m":"","src":"羔裘如膏，日出有曜。岂不尔思？中心是悼。 — 《诗经·羔裘》","star":2,"fenqi":false,"landajie":false,"tags":["光影"],"gender":"通","freq":1},{"c":"蕾","s":19,"w":"木","p":"lěi","m":"花蕾；含苞待放（放宽）","src":"杏子梢头香蕾破。 — 《宋词·蝶恋花》","star":4,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"薇","s":19,"w":"木","p":"wēi","m":"蔷薇；婉约柔美（放宽）","src":"陟彼南山，言采其薇。未见君子，我心伤悲。 — 《诗经·草虫》","star":4,"fenqi":true,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"瀚","s":20,"w":"水","p":"hàn","m":"瀚海；浩瀚无垠（放宽）","src":"瀚海闌干百丈冰，愁雲慘淡萬里凝。 — 《唐诗·undefined》","star":2,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"巍","s":20,"w":"","p":"wēi","m":"","src":"高山崔巍兮，水流汤汤。 — 《楚辞·初放》","star":2,"fenqi":false,"landajie":false,"tags":["天地"],"gender":"通","freq":1},{"c":"曦","s":20,"w":"火","p":"xī","m":"晨曦；晨曦微光（放宽，女名热门）","src":"与女沐兮咸池，曦女发兮阳之阿 — 《楚辞·少司命》","star":4,"fenqi":false,"landajie":false,"tags":["温婉","大气"],"gender":"女","freq":1},{"c":"露","s":21,"w":"水","p":"lù","m":"露珠；清露润泽（放宽，女名经典）","src":"厌浥行露，岂不夙夜，谓行多露。 — 《诗经·行露》","star":4,"fenqi":false,"landajie":false,"tags":["温婉","自然"],"gender":"女","freq":1},{"c":"鑫","s":24,"w":"金","p":"xīn","m":"金多旺；财源广进（笔画重放宽）","src":"","star":2,"fenqi":false,"landajie":true,"tags":["大气"],"gender":"男","freq":1}];
+const DATA = [
+ {
+  "c": "川",
+  "s": 3,
+  "w": "",
+  "p": "chuān",
+  "m": "",
+  "src": "天保定尔，以莫不兴。如山如阜，如冈如陵， — 《诗经·天保》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "天地"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "山",
+  "s": 3,
+  "w": "土",
+  "p": "shān",
+  "m": "山岳；稳重如山（放宽）",
+  "src": "陟彼南山，言采其蕨。未见君子，忧心惙惙。 — 《诗经·草虫》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "自然",
+   "大气"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "土",
+  "s": 3,
+  "w": "土",
+  "p": "tǔ",
+  "m": "大地；厚德载物（少直用）",
+  "src": "日居月诸，照临下土。乃如之人兮，逝不古处 — 《诗经·日月》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "自然",
+   "大气"
+  ],
+  "gender": "通用",
+  "freq": 1
+ },
+ {
+  "c": "义",
+  "s": 3,
+  "w": "",
+  "p": "yì",
+  "m": "",
+  "src": "命之不易，无遏尔躬。宣昭义问，有虞殷自天 — 《诗经·文王》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "德慧"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "丹",
+  "s": 4,
+  "w": "火",
+  "p": "dān",
+  "m": "朱砂；丹心赤忱",
+  "src": "终南何有？有条有梅。君子至止，锦衣狐裘。 — 《诗经·终南》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "大气"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "火",
+  "s": 4,
+  "w": "火",
+  "p": "huǒ",
+  "m": "火焰；光明炽热（少直用）",
+  "src": "叔于田，乘乘马。执辔如组，两骖如舞。叔在 — 《诗经·大叔于田》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "自然",
+   "大气"
+  ],
+  "gender": "通用",
+  "freq": 1
+ },
+ {
+  "c": "木",
+  "s": 4,
+  "w": "木",
+  "p": "mù",
+  "m": "树木；质朴生机（少直用）",
+  "src": "葛之覃兮，施于中谷，维叶萋萋。黄鸟于飞， — 《诗经·葛覃》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "自然"
+  ],
+  "gender": "通用",
+  "freq": 1
+ },
+ {
+  "c": "仁",
+  "s": 4,
+  "w": "",
+  "p": "rén",
+  "m": "",
+  "src": "叔于田，巷无居人。岂无居人？不如叔也。洵 — 《诗经·叔于田》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "德慧"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "书",
+  "s": 4,
+  "w": "",
+  "p": "shū",
+  "m": "",
+  "src": "昔我往矣，黍稷方华。今我来思，雨雪载途。 — 《诗经·出车》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "雅韵"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "水",
+  "s": 4,
+  "w": "水",
+  "p": "shuǐ",
+  "m": "水流；上善若水（少直用）",
+  "src": "毖彼泉水，亦流于淇。有怀于卫，靡日不思。 — 《诗经·泉水》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "自然"
+  ],
+  "gender": "通用",
+  "freq": 1
+ },
+ {
+  "c": "文",
+  "s": 4,
+  "w": "",
+  "p": "wén",
+  "m": "",
+  "src": "小戎俴收，五楘梁辀。游环胁驱，阴靷鋈续。 — 《诗经·小戎》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "雅韵"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "月",
+  "s": 4,
+  "w": "",
+  "p": "yuè",
+  "m": "",
+  "src": "日居月诸，胡迭而微？心之忧矣，如匪浣衣。 — 《诗经·柏舟》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "天地"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "云",
+  "s": 4,
+  "w": "水",
+  "p": "yún",
+  "m": "云彩；云淡风轻（繁简差8画）",
+  "src": "陟彼砠矣，我马瘏矣，我仆痡矣，云何吁矣。 — 《诗经·卷耳》",
+  "star": 4,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "温婉"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "兰",
+  "s": 5,
+  "w": "",
+  "p": "lán",
+  "m": "",
+  "src": "芄兰之支，童子佩觿。虽则佩觿，能不我知。 — 《诗经·芄兰》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "花草"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "让",
+  "s": 5,
+  "w": "",
+  "p": "ràng",
+  "m": "",
+  "src": "民之无良，相怨一方。受爵不让，至于已斯亡 — 《诗经·角弓》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "德慧"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "石",
+  "s": 5,
+  "w": "土",
+  "p": "shí",
+  "m": "石头；坚如磐石（此字典列金）",
+  "src": "我心匪石，不可转也。我心匪席，不可卷也。 — 《诗经·柏舟》",
+  "star": 2,
+  "fenqi": true,
+  "landajie": false,
+  "tags": [
+   "自然",
+   "大气"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "田",
+  "s": 5,
+  "w": "土",
+  "p": "tián",
+  "m": "田地；耕耘收获（此字典列火）",
+  "src": "灵雨既零，命彼倌人，星言夙驾，说于桑田。 — 《诗经·定之方中》",
+  "star": 3,
+  "fenqi": true,
+  "landajie": false,
+  "tags": [
+   "自然",
+   "大气"
+  ],
+  "gender": "通用",
+  "freq": 1
+ },
+ {
+  "c": "玉",
+  "s": 5,
+  "w": "土",
+  "p": "yù",
+  "m": "玉石；温润如玉（此字典列木）",
+  "src": "林有朴樕，野有死鹿。白茅纯束，有女如玉。 — 《诗经·野有死麕》",
+  "star": 4,
+  "fenqi": true,
+  "landajie": false,
+  "tags": [
+   "温婉",
+   "大气"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "安",
+  "s": 6,
+  "w": "土",
+  "p": "ān",
+  "m": "平安；安居乐业",
+  "src": "岂曰无衣七兮？不如子之衣，安且吉兮！ — 《诗经·无衣》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "大气"
+  ],
+  "gender": "通用",
+  "freq": 1
+ },
+ {
+  "c": "冰",
+  "s": 6,
+  "w": "水",
+  "p": "bīng",
+  "m": "冰晶；冰雪聪明",
+  "src": "雍雍鸣雁，旭日始旦。士如归妻，迨冰未泮。 — 《诗经·匏有苦叶》",
+  "star": 4,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "温婉",
+   "大气"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "光",
+  "s": 6,
+  "w": "火",
+  "p": "guāng",
+  "m": "光明；光风霁月",
+  "src": "东方明矣，朝既昌矣。匪东方则明，月出之光 — 《诗经·鸡鸣》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "自然",
+   "大气"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "圭",
+  "s": 6,
+  "w": "土",
+  "p": "guī",
+  "m": "玉圭；圭璋特达",
+  "src": "瞻彼淇奥，绿竹如箦。有匪君子，如金如锡， — 《诗经·淇奥》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [],
+  "gender": "通用",
+  "freq": 1
+ },
+ {
+  "c": "芍",
+  "s": 6,
+  "w": "",
+  "p": "sháo",
+  "m": "",
+  "src": "相次牡丹芍药，王孙谁道多情。 — 《宋词·河满子》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "花草"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "旭",
+  "s": 6,
+  "w": "火",
+  "p": "xù",
+  "m": "旭日；旭日东升（主流列木！）",
+  "src": "雍雍鸣雁，旭日始旦。士如归妻，迨冰未泮。 — 《诗经·匏有苦叶》",
+  "star": 2,
+  "fenqi": true,
+  "landajie": false,
+  "tags": [
+   "大气"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "屹",
+  "s": 6,
+  "w": "土",
+  "p": "yì",
+  "m": "屹立；屹然不动",
+  "src": "玉花卻在御榻上，榻上庭前屹相向。 — 《唐诗·undefined》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "大气"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "宇",
+  "s": 6,
+  "w": "土",
+  "p": "yǔ",
+  "m": "宇宙；气宇轩昂（重名极高）",
+  "src": "五月斯螽动股，六月莎鸡振羽。七月在野，八 — 《诗经·七月》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": true,
+  "tags": [
+   "大气"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "芝",
+  "s": 6,
+  "w": "",
+  "p": "zhī",
+  "m": "",
+  "src": "拔搴玄芝兮，列树芋荷。 — 《楚辞·谬谏》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "花草"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "灿",
+  "s": 7,
+  "w": "",
+  "p": "càn",
+  "m": "",
+  "src": "九枝擎烛灿繁星，百和焚香抽翠缕。 — 《宋词·玉楼春》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "光影"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "辰",
+  "s": 7,
+  "w": "土",
+  "p": "chén",
+  "m": "星辰；星辰良辰",
+  "src": "折柳樊圃，狂夫瞿瞿。不能辰夜，不夙则莫。 — 《诗经·东方未明》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": true,
+  "tags": [
+   "知性",
+   "大气"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "成",
+  "s": 7,
+  "w": "金",
+  "p": "chéng",
+  "m": "完成；大器晚成",
+  "src": "南有樛木，葛藟萦之。乐只君子，福履成之。 — 《诗经·樛木》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "大气"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "芬",
+  "s": 7,
+  "w": "",
+  "p": "fēn",
+  "m": "",
+  "src": "我孔戁矣，式礼莫愆。工祝致告，徂赉孝孙。 — 《诗经·楚茨》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "花草"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "芙",
+  "s": 7,
+  "w": "",
+  "p": "fú",
+  "m": "",
+  "src": "制芰荷以为衣兮，集芙蓉以为裳。 — 《楚辞·离骚》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "花草"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "谷",
+  "s": 7,
+  "w": "",
+  "p": "gǔ",
+  "m": "",
+  "src": "葛之覃兮，施于中谷，维叶萋萋。黄鸟于飞， — 《诗经·葛覃》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "天地"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "江",
+  "s": 7,
+  "w": "水",
+  "p": "jiāng",
+  "m": "江河；江流浩荡",
+  "src": "南有乔木，不可休息。汉有游女，不可求思。 — 《诗经·汉广》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "自然",
+   "大气"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "均",
+  "s": 7,
+  "w": "土",
+  "p": "jūn",
+  "m": "均匀；均衡公正",
+  "src": "我马维骃，六辔既均。载驰载驱，周爰咨询。 — 《诗经·皇皇者华》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "知性",
+   "大气"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "丽",
+  "s": 7,
+  "w": "",
+  "p": "lì",
+  "m": "",
+  "src": "鱼丽于罶，鲿鲨。君子有酒，旨且多。 — 《诗经·鱼丽》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "明丽"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "良",
+  "s": 7,
+  "w": "",
+  "p": "liáng",
+  "m": "",
+  "src": "日居月诸，出自东方。乃如之人兮，德音无良 — 《诗经·日月》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "德慧"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "妙",
+  "s": 7,
+  "w": "",
+  "p": "miào",
+  "m": "",
+  "src": "躬纯粹而罔愆兮，承皇考之妙仪。 — 《楚辞·远逝》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "温婉"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "汝",
+  "s": 7,
+  "w": "水",
+  "p": "rǔ",
+  "m": "汝水；古典雅致",
+  "src": "遵彼汝坟，伐其条枚。未见君子，惄如调饥。 — 《诗经·汝坟》",
+  "star": 4,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "知性"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "彤",
+  "s": 7,
+  "w": "火",
+  "p": "tóng",
+  "m": "红色；彤管炜煌（女宝重名极高）",
+  "src": "静女其娈，贻我彤管。彤管有炜，说怿女美。 — 《诗经·静女》",
+  "star": 4,
+  "fenqi": false,
+  "landajie": true,
+  "tags": [
+   "温婉"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "汶",
+  "s": 7,
+  "w": "",
+  "p": "wèn",
+  "m": "",
+  "src": "汶水汤汤，行人彭彭。鲁道有荡，齐子翱翔。 — 《诗经·载驱》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "清泠"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "妩",
+  "s": 7,
+  "w": "",
+  "p": "wǔ",
+  "m": "",
+  "src": "",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "温婉"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "汐",
+  "s": 7,
+  "w": "水",
+  "p": "xī",
+  "m": "晚潮；潮汐浪漫",
+  "src": "",
+  "star": 4,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "温婉"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "辛",
+  "s": 7,
+  "w": "金",
+  "p": "xīn",
+  "m": "辛苦；天干；坚韧自砺",
+  "src": "十月之交，朔月辛卯。日有食之，亦孔之丑。 — 《诗经·十月之交》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [],
+  "gender": "通用",
+  "freq": 1
+ },
+ {
+  "c": "杏",
+  "s": 7,
+  "w": "木",
+  "p": "xìng",
+  "m": "杏树；杏花春雨",
+  "src": "孤村芳草远，斜日杏花飞。 — 《宋词·江南春・秋风清》",
+  "star": 4,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "温婉",
+   "自然"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "秀",
+  "s": 7,
+  "w": "金",
+  "p": "xiù",
+  "m": "谷物抽穗；清秀才秀",
+  "src": "瞻彼淇奥，绿竹青青。有匪君子，充耳秀莹， — 《诗经·淇奥》",
+  "star": 4,
+  "fenqi": true,
+  "landajie": false,
+  "tags": [
+   "温婉"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "沂",
+  "s": 7,
+  "w": "",
+  "p": "yí",
+  "m": "",
+  "src": "子路、曾皙、冉有、公西华侍坐，子曰：“以 — 《论语》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "清泠"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "沅",
+  "s": 7,
+  "w": "",
+  "p": "yuán",
+  "m": "",
+  "src": "济沅、湘以南征兮，就重华而敶词： — 《楚辞·离骚》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "清泠"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "远",
+  "s": 7,
+  "w": "",
+  "p": "yuǎn",
+  "m": "",
+  "src": "燕燕于飞，差池其羽。之子于归，远送于野。 — 《诗经·燕燕》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "天地"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "昌",
+  "s": 8,
+  "w": "火",
+  "p": "chāng",
+  "m": "昌盛；繁荣昌盛（此字典列金）",
+  "src": "子之昌兮，俟我乎堂兮，悔予不将兮。 — 《诗经·丰》",
+  "star": 2,
+  "fenqi": true,
+  "landajie": false,
+  "tags": [
+   "大气"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "诚",
+  "s": 8,
+  "w": "",
+  "p": "chéng",
+  "m": "",
+  "src": "申伯信迈，王饯于郿。申伯还南，谢于诚归。 — 《诗经·崧高》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "德慧"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "东",
+  "s": 8,
+  "w": "木",
+  "p": "dōng",
+  "m": "东方；旭日东升（方位属木）",
+  "src": "嘒彼小星，三五在东。肃肃宵征，夙夜在公。 — 《诗经·小星》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "大气"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "庚",
+  "s": 8,
+  "w": "金",
+  "p": "gēng",
+  "m": "年庚；刚健端正",
+  "src": "七月流火，九月授衣。春日载阳，有鸣仓庚。 — 《诗经·七月》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "昊",
+  "s": 8,
+  "w": "火",
+  "p": "hào",
+  "m": "广阔；昊天罔极",
+  "src": "尹氏大师，维周之氐；秉国之钧，四方是维。 — 《诗经·节南山》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "大气"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "和",
+  "s": 8,
+  "w": "",
+  "p": "hé",
+  "m": "",
+  "src": "萚兮萚兮，风其吹女。叔兮伯兮，倡予和女。 — 《诗经·萚兮》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "祥和"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "佳",
+  "s": 8,
+  "w": "木",
+  "p": "jiā",
+  "m": "美好；佳人美好",
+  "src": "登白薠兮骋望，与佳期兮夕张 — 《楚辞·湘夫人》",
+  "star": 4,
+  "fenqi": false,
+  "landajie": true,
+  "tags": [
+   "温婉"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "杰",
+  "s": 8,
+  "w": "木",
+  "p": "jié",
+  "m": "杰出；才智过人（灬勿判火）",
+  "src": "有厌其杰，厌厌其苗，绵绵其麃。载获济济， — 《诗经·载芟》",
+  "star": 2,
+  "fenqi": true,
+  "landajie": false,
+  "tags": [
+   "大气"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "金",
+  "s": 8,
+  "w": "金",
+  "p": "jīn",
+  "m": "金属；坚贞贵重",
+  "src": "陟彼崔嵬，我马虺隤。我姑酌彼金罍，维以不 — 《诗经·卷耳》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "大气"
+  ],
+  "gender": "通用",
+  "freq": 1
+ },
+ {
+  "c": "坤",
+  "s": 8,
+  "w": "土",
+  "p": "kūn",
+  "m": "大地；乾坤厚德",
+  "src": "吳楚東南坼，乾坤日夜浮。 — 《唐诗·undefined》",
+  "star": 4,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "大气"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "林",
+  "s": 8,
+  "w": "木",
+  "p": "lín",
+  "m": "树林；众木成林",
+  "src": "肃肃免罝，施于中林。赳赳武夫，公侯腹心。 — 《诗经·兔罝》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "自然",
+   "大气"
+  ],
+  "gender": "通用",
+  "freq": 1
+ },
+ {
+  "c": "泠",
+  "s": 8,
+  "w": "",
+  "p": "líng",
+  "m": "",
+  "src": "上葳蕤而防露兮，下泠泠而来风。 — 《楚辞·初放》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "清泠"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "岭",
+  "s": 8,
+  "w": "",
+  "p": "lǐng",
+  "m": "",
+  "src": "朝发兮葱岭，夕至兮明光。 — 《楚辞·通路》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "天地"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "旻",
+  "s": 8,
+  "w": "",
+  "p": "mín",
+  "m": "",
+  "src": "浩浩昊天，不骏其德。降丧饥馑，斩伐四国。 — 《诗经·雨无正》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "天地"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "明",
+  "s": 8,
+  "w": "火",
+  "p": "míng",
+  "m": "光明；明德惟馨（主流列水！）",
+  "src": "女曰鸡鸣，士曰昧旦。子兴视夜，明星有烂。 — 《诗经·女曰鸡鸣》",
+  "star": 3,
+  "fenqi": true,
+  "landajie": false,
+  "tags": [
+   "知性",
+   "大气"
+  ],
+  "gender": "通用",
+  "freq": 1
+ },
+ {
+  "c": "茉",
+  "s": 8,
+  "w": "",
+  "p": "mò",
+  "m": "",
+  "src": "",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "花草"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "沐",
+  "s": 8,
+  "w": "水",
+  "p": "mù",
+  "m": "沐洗；如沐春风（含木勿判）",
+  "src": "自伯之东，首如飞蓬。岂无膏沐？谁适为容！ — 《诗经·伯兮》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "大气"
+  ],
+  "gender": "通用",
+  "freq": 1
+ },
+ {
+  "c": "念",
+  "s": 8,
+  "w": "火",
+  "p": "niàn",
+  "m": "思念；念想",
+  "src": "念我独兮，忧心京京 — 《诗经·小雅·小弁》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "简约",
+   "温婉"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "沛",
+  "s": 8,
+  "w": "水",
+  "p": "pèi",
+  "m": "充沛；精力丰沛",
+  "src": "文王曰咨，咨女殷商。人亦有言：颠沛之揭， — 《诗经·荡》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "大气"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "沁",
+  "s": 8,
+  "w": "水",
+  "p": "qìn",
+  "m": "沁润；沁人心脾",
+  "src": "损眉尖、泪痕红沁。 — 《宋词·夜行船》",
+  "star": 4,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "温婉",
+   "自然"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "松",
+  "s": 8,
+  "w": "木",
+  "p": "sōng",
+  "m": "松树；坚贞高洁",
+  "src": "淇水滺滺，桧楫松舟。驾言出游，以写我忧。 — 《诗经·竹竿》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "自然",
+   "大气"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "贤",
+  "s": 8,
+  "w": "",
+  "p": "xián",
+  "m": "",
+  "src": "溥天之下，莫非王土；率土之滨，莫非王臣。 — 《诗经·北山》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "德慧"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "昕",
+  "s": 8,
+  "w": "火",
+  "p": "xīn",
+  "m": "黎明；晨光初现",
+  "src": "",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "大气"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "欣",
+  "s": 8,
+  "w": "木",
+  "p": "xīn",
+  "m": "欣欣；欢欣喜悦",
+  "src": "凫鹥在亹，公尸来止熏熏。旨酒欣欣，燔炙芬 — 《诗经·凫鹥》",
+  "star": 4,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "温婉"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "岫",
+  "s": 8,
+  "w": "土",
+  "p": "xiù",
+  "m": "峰峦；云无心出岫",
+  "src": "银塘静、鱼鳞簟展，烟岫翠、龟甲屏开。 — 《宋词·玉蝴蝶》",
+  "star": 4,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "自然"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "岩",
+  "s": 8,
+  "w": "土",
+  "p": "yán",
+  "m": "岩石；磊落如山",
+  "src": "节彼南山，维石岩岩。赫赫师尹，民具尔瞻。 — 《诗经·节南山》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "自然",
+   "大气"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "泱",
+  "s": 8,
+  "w": "",
+  "p": "yāng",
+  "m": "",
+  "src": "瞻彼洛矣，维水泱泱。君子至止，福禄如茨。 — 《诗经·瞻彼洛矣》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "清泠"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "咏",
+  "s": 8,
+  "w": "",
+  "p": "yǒng",
+  "m": "",
+  "src": "混并寰宇，休牛归马，销金偃革，蹈咏庆昌期 — 《宋词·六州》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "雅韵"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "苑",
+  "s": 8,
+  "w": "",
+  "p": "yuàn",
+  "m": "",
+  "src": "俴驷孔群，厹矛鋈錞。蒙伐有苑，虎韔镂膺。 — 《诗经·小戎》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "花草"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "岳",
+  "s": 8,
+  "w": "土",
+  "p": "yuè",
+  "m": "高山；五岳之尊（此字典列木）",
+  "src": "崧高维岳，骏极于天。维岳降神，生甫及申。 — 《诗经·崧高》",
+  "star": 2,
+  "fenqi": true,
+  "landajie": false,
+  "tags": [
+   "大气"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "玥",
+  "s": 8,
+  "w": "土",
+  "p": "yuè",
+  "m": "神珠；掌上明珠",
+  "src": "",
+  "star": 4,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "温婉"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "昀",
+  "s": 8,
+  "w": "",
+  "p": "yún",
+  "m": "",
+  "src": "",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "光影"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "宙",
+  "s": 8,
+  "w": "",
+  "p": "zhòu",
+  "m": "",
+  "src": "諸葛大名垂宇宙，宗臣遺像肅清高。 — 《唐诗·undefined》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "天地"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "柏",
+  "s": 9,
+  "w": "木",
+  "p": "bǎi bó",
+  "m": "柏树；苍劲正直",
+  "src": "泛彼柏舟，亦泛其流。耿耿不寐，如有隐忧。 — 《诗经·柏舟》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "大气"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "炳",
+  "s": 9,
+  "w": "火",
+  "p": "bǐng",
+  "m": "光明；炳焕昭彰",
+  "src": "望太微兮穆穆，睨三阶兮炳分。 — 《楚辞·守志》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "大气"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "波",
+  "s": 9,
+  "w": "水",
+  "p": "bō",
+  "m": "波浪；波澜壮阔",
+  "src": "有豕白蹢，烝涉波矣。月离于毕，俾滂沱矣。 — 《诗经·渐渐之石》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "大气"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "昶",
+  "s": 9,
+  "w": "",
+  "p": "chǎng",
+  "m": "",
+  "src": "",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "光影"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "春",
+  "s": 9,
+  "w": "火",
+  "p": "chūn",
+  "m": "春季；春风化雨",
+  "src": "野有死麕，白茅包之。有女怀春，吉士诱之。 — 《诗经·野有死麕》",
+  "star": 3,
+  "fenqi": true,
+  "landajie": false,
+  "tags": [
+   "温婉",
+   "大气"
+  ],
+  "gender": "通用",
+  "freq": 1
+ },
+ {
+  "c": "河",
+  "s": 9,
+  "w": "水",
+  "p": "hé",
+  "m": "河流；河清海晏",
+  "src": "关关雎鸠，在河之洲。窈窕淑女，君子好逑。 — 《诗经·关雎》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "自然",
+   "大气"
+  ],
+  "gender": "通用",
+  "freq": 1
+ },
+ {
+  "c": "洹",
+  "s": 9,
+  "w": "",
+  "p": "huán",
+  "m": "",
+  "src": "",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "清泠"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "姣",
+  "s": 9,
+  "w": "",
+  "p": "jiāo",
+  "m": "",
+  "src": "灵偃蹇兮姣服，芳菲菲兮满堂 — 《楚辞·东皇太一》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "温婉"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "娇",
+  "s": 9,
+  "w": "",
+  "p": "jiāo",
+  "m": "",
+  "src": "慢舞萦回，娇鬟低亸，腰肢纤细困无力。 — 《宋词·多丽》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "明丽"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "洁",
+  "s": 9,
+  "w": "",
+  "p": "jié",
+  "m": "",
+  "src": "屈原曰：“吾宁悃悃款款，朴以忠乎，将送往 — 《楚辞·卜居》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "清泠"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "俊",
+  "s": 9,
+  "w": "火",
+  "p": "jùn",
+  "m": "才俊；俊才英杰",
+  "src": "非俊疑杰兮，固庸态也。 — 《楚辞·怀沙》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "知性",
+   "大气"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "珂",
+  "s": 9,
+  "w": "",
+  "p": "kē",
+  "m": "",
+  "src": "不寢聽金鑰，因風想玉珂。 — 《唐诗·undefined》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "宝玉"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "烂",
+  "s": 9,
+  "w": "",
+  "p": "làn",
+  "m": "",
+  "src": "女曰鸡鸣，士曰昧旦。子兴视夜，明星有烂。 — 《诗经·女曰鸡鸣》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "明丽"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "亮",
+  "s": 9,
+  "w": "火",
+  "p": "liàng",
+  "m": "明亮；明亮爽朗",
+  "src": "昔皇考之嘉志兮，喜登能而亮贤。 — 《楚辞·愍命》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "大气",
+   "现代"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "玲",
+  "s": 9,
+  "w": "",
+  "p": "líng",
+  "m": "",
+  "src": "青槐夾馳道，宮館何玲瓏。(館 一作：觀) — 《唐诗·undefined》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "宝玉"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "柳",
+  "s": 9,
+  "w": "木",
+  "p": "liǔ",
+  "m": "柳树；婀娜柔美",
+  "src": "折柳樊圃，狂夫瞿瞿。不能辰夜，不夙则莫。 — 《诗经·东方未明》",
+  "star": 4,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "温婉",
+   "自然"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "珑",
+  "s": 9,
+  "w": "",
+  "p": "lóng",
+  "m": "",
+  "src": "玲珑绣扇花藏语。 — 《宋词·木兰花・玉楼春》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "宝玉"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "洛",
+  "s": 9,
+  "w": "",
+  "p": "luò",
+  "m": "",
+  "src": "瞻彼洛矣，维水泱泱。君子至止，福禄如茨。 — 《诗经·瞻彼洛矣》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "清泠"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "茗",
+  "s": 9,
+  "w": "",
+  "p": "míng",
+  "m": "",
+  "src": "",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "花草"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "娜",
+  "s": 9,
+  "w": "",
+  "p": "nà",
+  "m": "",
+  "src": "见羞容敛翠，嫩脸匀红，素腰袅娜。 — 《宋词·醉蓬莱》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "温婉"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "南",
+  "s": 9,
+  "w": "火",
+  "p": "nán",
+  "m": "南方；温暖如南（**易误判水！**）",
+  "src": "南有樛木，葛藟累之。乐只君子，福履绥之。 — 《诗经·樛木》",
+  "star": 3,
+  "fenqi": true,
+  "landajie": false,
+  "tags": [
+   "大气"
+  ],
+  "gender": "通用",
+  "freq": 1
+ },
+ {
+  "c": "茜",
+  "s": 9,
+  "w": "",
+  "p": "qiàn",
+  "m": "",
+  "src": "茜罗揉出碎英繁，红蜡缕成香萼润。 — 《宋词·玉楼春》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "花草"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "秋",
+  "s": 9,
+  "w": "金",
+  "p": "qiū",
+  "m": "秋天收获；秋高气爽",
+  "src": "氓之蚩蚩，抱布贸丝。匪来贸丝，来即我谋。 — 《诗经·氓》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [],
+  "gender": "通用",
+  "freq": 1
+ },
+ {
+  "c": "泉",
+  "s": 9,
+  "w": "水",
+  "p": "quán",
+  "m": "泉水；源头活水",
+  "src": "毖彼泉水，亦流于淇。有怀于卫，靡日不思。 — 《诗经·泉水》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "温婉",
+   "自然"
+  ],
+  "gender": "通用",
+  "freq": 1
+ },
+ {
+  "c": "娆",
+  "s": 9,
+  "w": "",
+  "p": "ráo",
+  "m": "",
+  "src": "陡顿今来，宫中第一妖娆，却道昭阳飞燕。 — 《宋词·斗百花》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "温婉"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "茹",
+  "s": 9,
+  "w": "",
+  "p": "rú",
+  "m": "",
+  "src": "我心匪鉴，不可以茹。亦有兄弟，不可以据。 — 《诗经·柏舟》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "花草"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "珊",
+  "s": 9,
+  "w": "",
+  "p": "shān",
+  "m": "",
+  "src": "鸞翔鳳翥衆仙下，珊瑚碧樹交枝柯。 — 《唐诗·undefined》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "宝玉"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "姝",
+  "s": 9,
+  "w": "",
+  "p": "shū",
+  "m": "",
+  "src": "静女其姝，俟我于城隅。爱而不见，搔首踟蹰 — 《诗经·静女》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "温婉"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "烁",
+  "s": 9,
+  "w": "",
+  "p": "shuò",
+  "m": "",
+  "src": "云蒙蒙兮电鯈烁，孤雌惊兮鸣呴呴。 — 《楚辞·悯上》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "光影"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "思",
+  "s": 9,
+  "w": "金",
+  "p": "sī",
+  "m": "思考；深思明辨",
+  "src": "求之不得，寤寐思服。悠哉悠哉，辗转反侧。 — 《诗经·关雎》",
+  "star": 3,
+  "fenqi": true,
+  "landajie": false,
+  "tags": [
+   "知性"
+  ],
+  "gender": "通用",
+  "freq": 1
+ },
+ {
+  "c": "恬",
+  "s": 9,
+  "w": "",
+  "p": "tián",
+  "m": "",
+  "src": "焉舒情而抽信兮，恬死亡而不聊。 — 《楚辞·惜往日》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "祥和"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "信",
+  "s": 9,
+  "w": "金",
+  "p": "xìn",
+  "m": "诚信；言而有信",
+  "src": "于嗟阔兮，不我活兮。于嗟洵兮，不我信兮。 — 《诗经·击鼓》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "大气"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "星",
+  "s": 9,
+  "w": "",
+  "p": "xīng",
+  "m": "",
+  "src": "嘒彼小星，三五在东。肃肃宵征，夙夜在公。 — 《诗经·小星》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "天地"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "宣",
+  "s": 9,
+  "w": "金",
+  "p": "xuān",
+  "m": "宣布；通达宣朗",
+  "src": "鸿雁于飞，哀鸣嗷嗷。维此哲人，谓我劬劳。 — 《诗经·鸿雁》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "大气"
+  ],
+  "gender": "通用",
+  "freq": 1
+ },
+ {
+  "c": "炫",
+  "s": 9,
+  "w": "火",
+  "p": "xuàn",
+  "m": "光彩；炫目夺光",
+  "src": "妖夫曳炫，何号于市？ — 《楚辞·天问》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "大气",
+   "现代"
+  ],
+  "gender": "通用",
+  "freq": 1
+ },
+ {
+  "c": "绚",
+  "s": 9,
+  "w": "",
+  "p": "xuàn",
+  "m": "",
+  "src": "子夏问曰：“‘巧笑倩兮，美目盼兮，素以为 — 《论语》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "光影"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "洵",
+  "s": 9,
+  "w": "",
+  "p": "xún",
+  "m": "",
+  "src": "于嗟阔兮，不我活兮。于嗟洵兮，不我信兮。 — 《诗经·击鼓》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "清泠"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "妍",
+  "s": 9,
+  "w": "水",
+  "p": "yán",
+  "m": "美丽；妍丽动人（简7/康9）",
+  "src": "众芳摇落独鲜妍。 — 《宋词·瑞鹧鸪》",
+  "star": 4,
+  "fenqi": true,
+  "landajie": false,
+  "tags": [
+   "温婉"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "垚",
+  "s": 9,
+  "w": "土",
+  "p": "yáo",
+  "m": "山高；土厚德重",
+  "src": "",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "自然",
+   "大气"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "怡",
+  "s": 9,
+  "w": "土",
+  "p": "yí",
+  "m": "和悦；心旷神怡（五行各异）",
+  "src": "心不怡之长久兮，忧与愁其相接。 — 《楚辞·哀郢》",
+  "star": 4,
+  "fenqi": true,
+  "landajie": true,
+  "tags": [
+   "温婉"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "茵",
+  "s": 9,
+  "w": "",
+  "p": "yīn",
+  "m": "",
+  "src": "小戎俴收，五楘梁辀。游环胁驱，阴靷鋈续。 — 《诗经·小戎》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "花草"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "宥",
+  "s": 9,
+  "w": "土",
+  "p": "yòu",
+  "m": "宽宥；宽厚包容",
+  "src": "昊天有成命，二后受之。成王不敢康，夙夜基 — 《诗经·昊天有成命》",
+  "star": 2,
+  "fenqi": true,
+  "landajie": false,
+  "tags": [
+   "知性",
+   "大气"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "昱",
+  "s": 9,
+  "w": "火",
+  "p": "yù",
+  "m": "日光；昱昱生辉",
+  "src": "",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "大气"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "垣",
+  "s": 9,
+  "w": "土",
+  "p": "yuán",
+  "m": "墙垣；垣立稳固",
+  "src": "乘彼垝垣，以望复关。不见复关，泣涕涟涟。 — 《诗经·氓》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "大气"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "则",
+  "s": 9,
+  "w": "金",
+  "p": "zé",
+  "m": "法则；方正守则",
+  "src": "鲂鱼赪尾，王室如毁。虽则如毁，父母孔迩。 — 《诗经·汝坟》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "知性"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "昭",
+  "s": 9,
+  "w": "火",
+  "p": "zhāo",
+  "m": "明亮；昭然日月",
+  "src": "呦呦鹿鸣，食野之蒿。我有嘉宾，德音孔昭。 — 《诗经·鹿鸣》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "知性",
+   "大气"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "峥",
+  "s": 9,
+  "w": "",
+  "p": "zhēng",
+  "m": "",
+  "src": "下峥嵘而无地兮，上寥廓而无天。 — 《楚辞·远游》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "天地"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "城",
+  "s": 10,
+  "w": "土",
+  "p": "chéng",
+  "m": "城池；众志成城（简9）",
+  "src": "肃肃兔罝，椓之丁丁。赳赳武夫，公侯干城。 — 《诗经·兔罝》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "大气"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "纯",
+  "s": 10,
+  "w": "金",
+  "p": "chún",
+  "m": "纯粹；纯净专注",
+  "src": "林有朴樕，野有死鹿。白茅纯束，有女如玉。 — 《诗经·野有死麕》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "温婉"
+  ],
+  "gender": "通用",
+  "freq": 1
+ },
+ {
+  "c": "珰",
+  "s": 10,
+  "w": "",
+  "p": "dāng",
+  "m": "",
+  "src": "玉珮玎珰，露滴寒如水。 — 《宋词·凤栖梧・蝶恋花》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "宝玉"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "涤",
+  "s": 10,
+  "w": "",
+  "p": "dí",
+  "m": "",
+  "src": "二之日凿冰冲冲，三之日纳于凌阴。四之日其 — 《诗经·七月》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "清泠"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "娥",
+  "s": 10,
+  "w": "",
+  "p": "é",
+  "m": "",
+  "src": "嫮目宜笑，娥眉曼只。 — 《楚辞·大招》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "温婉"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "恩",
+  "s": 10,
+  "w": "土",
+  "p": "ēn",
+  "m": "恩惠；感恩载德",
+  "src": "鸱鸮鸱鸮，既取我子，无毁我室。恩斯勤斯， — 《诗经·鸱鸮》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "知性",
+   "大气"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "芳",
+  "s": 10,
+  "w": "木",
+  "p": "fāng",
+  "m": "芬芳；芳华高洁",
+  "src": "昔三后之纯粹兮，固众芳之所在。 — 《楚辞·离骚》",
+  "star": 4,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "温婉"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "峰",
+  "s": 10,
+  "w": "土",
+  "p": "fēng",
+  "m": "山峰；登峰造极",
+  "src": "终是欠峰峦。 — 《宋词·酒泉子》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "大气"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "刚",
+  "s": 10,
+  "w": "金",
+  "p": "gāng",
+  "m": "刚强；刚正不阿",
+  "src": "采薇采薇，薇亦刚止。曰归曰归，岁亦阳止。 — 《诗经·采薇》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "大气"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "桂",
+  "s": 10,
+  "w": "木",
+  "p": "guì",
+  "m": "桂树；蟾宫折桂",
+  "src": "杂申椒与菌桂兮，岂惟纫夫蕙茝！ — 《楚辞·离骚》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "知性",
+   "大气"
+  ],
+  "gender": "通用",
+  "freq": 1
+ },
+ {
+  "c": "珩",
+  "s": 10,
+  "w": "",
+  "p": "héng",
+  "m": "",
+  "src": "约軧错衡，八鸾玱玱。服其命服，朱芾斯皇， — 《诗经·采芑》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "宝玉"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "洪",
+  "s": 10,
+  "w": "水",
+  "p": "hóng",
+  "m": "浩大；洪福齐天",
+  "src": "浚哲维商，长发其祥。洪水芒芒，禹敷下土方 — 《诗经·长发》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "大气"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "涣",
+  "s": 10,
+  "w": "",
+  "p": "huàn",
+  "m": "",
+  "src": "溱与洧，方涣涣兮。士与女，方秉蕳兮。女曰 — 《诗经·溱洧》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "清泠"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "晖",
+  "s": 10,
+  "w": "",
+  "p": "huī",
+  "m": "",
+  "src": "对残晖、登临休叹，赏令节、酩酊方酬。 — 《宋词·玉蝴蝶》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "光影"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "津",
+  "s": 10,
+  "w": "水",
+  "p": "jīn",
+  "m": "津润；津泽润物（简9）",
+  "src": "朝发轫于天津兮，夕余至乎西极。 — 《楚辞·离骚》",
+  "star": 2,
+  "fenqi": true,
+  "landajie": false,
+  "tags": [
+   "知性"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "晋",
+  "s": 10,
+  "w": "火",
+  "p": "jìn",
+  "m": "晋升；晋阶向上",
+  "src": "晋申生之孝子兮，父信谗而不好。 — 《楚辞·惜诵》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "大气"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "娟",
+  "s": 10,
+  "w": "",
+  "p": "juān",
+  "m": "",
+  "src": "雌蜺便娟以增挠兮，鸾鸟轩翥而翔飞。 — 《楚辞·远游》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "温婉"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "峻",
+  "s": 10,
+  "w": "土",
+  "p": "jùn",
+  "m": "高峻；峻岭崇山（此字典列金）",
+  "src": "冀枝叶之峻茂兮，愿俟时乎吾将刈。 — 《楚辞·离骚》",
+  "star": 2,
+  "fenqi": true,
+  "landajie": false,
+  "tags": [
+   "大气"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "涟",
+  "s": 10,
+  "w": "",
+  "p": "lián",
+  "m": "",
+  "src": "乘彼垝垣，以望复关。不见复关，泣涕涟涟。 — 《诗经·氓》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "清泠"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "莲",
+  "s": 10,
+  "w": "",
+  "p": "lián",
+  "m": "",
+  "src": "严夜警，铜莲漏迟迟。 — 《宋词·六州》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "花草"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "珞",
+  "s": 10,
+  "w": "",
+  "p": "luò",
+  "m": "",
+  "src": "",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "宝玉"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "娉",
+  "s": 10,
+  "w": "",
+  "p": "pīng",
+  "m": "",
+  "src": "娉娉嫋嫋十三餘，豆蔻梢頭二月初。 — 《唐诗·undefined》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "温婉"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "芮",
+  "s": 10,
+  "w": "木",
+  "p": "ruì",
+  "m": "草木初生；稚嫩鲜活",
+  "src": "虞芮质厥成，文王蹶厥生。予曰有疏附，予曰 — 《诗经·绵》",
+  "star": 4,
+  "fenqi": true,
+  "landajie": false,
+  "tags": [
+   "温婉",
+   "自然"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "素",
+  "s": 10,
+  "w": "金",
+  "p": "sù",
+  "m": "白绢；纯洁素雅",
+  "src": "羔羊之皮，素丝五紽。退食自公，委蛇委蛇。 — 《诗经·羔羊》",
+  "star": 4,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "温婉",
+   "知性"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "泰",
+  "s": 10,
+  "w": "",
+  "p": "tài",
+  "m": "",
+  "src": "泰山岩岩，鲁邦所詹。奄有龟蒙，遂荒大东。 — 《诗经·閟宫》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "祥和"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "桃",
+  "s": 10,
+  "w": "",
+  "p": "táo",
+  "m": "",
+  "src": "桃之夭夭，灼灼其华。之子于归，宜其室家。 — 《诗经·桃夭》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "花草"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "桐",
+  "s": 10,
+  "w": "木",
+  "p": "tóng",
+  "m": "梧桐；梧凤之鸣",
+  "src": "定之方中，作于楚宫。揆之以日，作于楚室。 — 《诗经·定之方中》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "大气"
+  ],
+  "gender": "通用",
+  "freq": 1
+ },
+ {
+  "c": "娴",
+  "s": 10,
+  "w": "",
+  "p": "xián",
+  "m": "",
+  "src": "",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "温婉"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "祥",
+  "s": 10,
+  "w": "",
+  "p": "xiáng",
+  "m": "",
+  "src": "大人占之：维熊维罴，男子之祥；维虺维蛇， — 《诗经·斯干》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "祥和"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "修",
+  "s": 10,
+  "w": "金",
+  "p": "xiū",
+  "m": "修养；修身养性",
+  "src": "中谷有蓷，暵其修矣。有女仳离，条其歗矣。 — 《诗经·中谷有蓷》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "知性"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "晏",
+  "s": 10,
+  "w": "",
+  "p": "yàn",
+  "m": "",
+  "src": "及尔偕老，老使我怨。淇则有岸，隰则有泮。 — 《诗经·氓》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "光影"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "艳",
+  "s": 10,
+  "w": "",
+  "p": "yàn",
+  "m": "",
+  "src": "长发曼鬋，艳陆离些。 — 《楚辞·招魂》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "明丽"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "洋",
+  "s": 10,
+  "w": "水",
+  "p": "yáng",
+  "m": "海洋；广阔洋气",
+  "src": "河水洋洋，北流活活。施罛濊濊，鳣鲔发发。 — 《诗经·硕人》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "大气",
+   "现代"
+  ],
+  "gender": "通用",
+  "freq": 1
+ },
+ {
+  "c": "晔",
+  "s": 10,
+  "w": "",
+  "p": "yè",
+  "m": "",
+  "src": "恐天时之代序兮，耀灵晔而西征。 — 《楚辞·远游》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "光影"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "烨",
+  "s": 10,
+  "w": "",
+  "p": "yè",
+  "m": "",
+  "src": "烨烨震电，不宁不令。百川沸腾，山冢崒崩。 — 《诗经·十月之交》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "光影"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "莺",
+  "s": 10,
+  "w": "",
+  "p": "yīng",
+  "m": "",
+  "src": "交交桑扈，有莺其羽。君子乐胥，受天之祜。 — 《诗经·桑扈》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "花草"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "悦",
+  "s": 10,
+  "w": "金",
+  "p": "yuè",
+  "m": "喜悦；心悦诚服",
+  "src": "心摇悦而日幸兮，然怊怅而无冀。 — 《楚辞·九辩》",
+  "star": 4,
+  "fenqi": true,
+  "landajie": false,
+  "tags": [
+   "温婉"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "钊",
+  "s": 10,
+  "w": "金",
+  "p": "zhāo",
+  "m": "勉励；自勉进取",
+  "src": "",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "哲",
+  "s": 10,
+  "w": "火",
+  "p": "zhé",
+  "m": "哲理；哲思睿智（有派列金）",
+  "src": "鸿雁于飞，哀鸣嗷嗷。维此哲人，谓我劬劳。 — 《诗经·鸿雁》",
+  "star": 2,
+  "fenqi": true,
+  "landajie": false,
+  "tags": [
+   "知性"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "芷",
+  "s": 10,
+  "w": "木",
+  "p": "zhǐ",
+  "m": "白芷；高洁清雅（屈原香草）",
+  "src": "扈江离与辟芷兮，纫秋兰以为佩。 — 《楚辞·离骚》",
+  "star": 4,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "温婉",
+   "知性"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "珠",
+  "s": 10,
+  "w": "",
+  "p": "zhū",
+  "m": "",
+  "src": "鱼鳞屋兮龙堂，紫贝阙兮珠宫 — 《楚辞·河伯》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "宝玉"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "彬",
+  "s": 11,
+  "w": "木",
+  "p": "bīn",
+  "m": "文质彬彬；文雅有礼",
+  "src": "子曰：“质胜文则野，文胜质则史。文质彬彬 — 《论语》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "知性"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "彩",
+  "s": 11,
+  "w": "",
+  "p": "cǎi",
+  "m": "",
+  "src": "朝辭白帝彩雲間，千里江陵一日還。 — 《唐诗·undefined》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "明丽"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "婵",
+  "s": 11,
+  "w": "",
+  "p": "chán",
+  "m": "",
+  "src": "女嬃之婵媛兮，申申其詈予，曰： — 《楚辞·离骚》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "温婉"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "晟",
+  "s": 11,
+  "w": "火",
+  "p": "chéng",
+  "m": "光明；兴盛光明（简10）",
+  "src": "",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "大气"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "崇",
+  "s": 11,
+  "w": "土",
+  "p": "chóng",
+  "m": "崇高；崇德尚善（此字典列金）",
+  "src": "朝隮于西，崇朝其雨。女子有行，远兄弟父母 — 《诗经·蝃蝀》",
+  "star": 2,
+  "fenqi": true,
+  "landajie": false,
+  "tags": [
+   "知性",
+   "大气"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "绸",
+  "s": 11,
+  "w": "",
+  "p": "chóu",
+  "m": "",
+  "src": "绸缪束薪，三星在天。今夕何夕，见此良人？ — 《诗经·绸缪》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "光影"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "淙",
+  "s": 11,
+  "w": "",
+  "p": "cóng",
+  "m": "",
+  "src": "",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "清泠"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "淡",
+  "s": 11,
+  "w": "",
+  "p": "dàn",
+  "m": "",
+  "src": "卻嫌脂粉污顏色，淡掃蛾眉朝至尊。 — 《唐诗·undefined》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "清泠"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "笛",
+  "s": 11,
+  "w": "",
+  "p": "dí",
+  "m": "",
+  "src": "豈無山歌與村笛？嘔啞嘲哳難爲聽。 — 《唐诗·undefined》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "雅韵"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "海",
+  "s": 11,
+  "w": "水",
+  "p": "hǎi",
+  "m": "大海；海纳百川",
+  "src": "沔彼流水，朝宗于海。鴥彼飞隼，载飞载止。 — 《诗经·沔水》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": true,
+  "tags": [
+   "大气"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "晗",
+  "s": 11,
+  "w": "火",
+  "p": "hán",
+  "m": "天将明；晗光初霁",
+  "src": "",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "温婉",
+   "大气"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "鸿",
+  "s": 11,
+  "w": "",
+  "p": "hóng",
+  "m": "",
+  "src": "鱼网之设，鸿则离之。燕婉之求，得此戚施。 — 《诗经·新台》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "天地"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "焕",
+  "s": 11,
+  "w": "",
+  "p": "huàn",
+  "m": "",
+  "src": "嘉禾甘露登歌荐，云物焕祥经。 — 《宋词·导引》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "光影"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "基",
+  "s": 11,
+  "w": "土",
+  "p": "jī",
+  "m": "基础；基业长青",
+  "src": "南山有台，北山有莱。乐只君子，邦家之基。 — 《诗经·南山有台》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "大气"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "婕",
+  "s": 11,
+  "w": "",
+  "p": "jié",
+  "m": "",
+  "src": "內府殷紅瑪瑙盤，婕妤傳詔才人索。 — 《唐诗·undefined》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "温婉"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "婧",
+  "s": 11,
+  "w": "",
+  "p": "jìng",
+  "m": "",
+  "src": "",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "温婉"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "菊",
+  "s": 11,
+  "w": "",
+  "p": "jú",
+  "m": "",
+  "src": "朝饮木兰之坠露兮，夕餐秋菊之落英。 — 《楚辞·离骚》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "花草"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "康",
+  "s": 11,
+  "w": "木",
+  "p": "kāng",
+  "m": "安康；健康安乐",
+  "src": "蟋蟀在堂，岁聿其莫。今我不乐，日月其除。 — 《诗经·蟋蟀》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "大气"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "琅",
+  "s": 11,
+  "w": "",
+  "p": "láng",
+  "m": "",
+  "src": "抚长剑兮玉珥，璆锵鸣兮琳琅 — 《楚辞·东皇太一》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "宝玉"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "朗",
+  "s": 11,
+  "w": "火",
+  "p": "lǎng",
+  "m": "爽朗；开朗明亮（简10）",
+  "src": "昭明有融，高朗令终，令终有俶。公尸嘉告。 — 《诗经·既醉》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "大气",
+   "现代"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "绫",
+  "s": 11,
+  "w": "",
+  "p": "líng",
+  "m": "",
+  "src": "红笺纸、小砑吴绫。 — 《宋词·愁倚阑令・春光好》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "光影"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "琉",
+  "s": 11,
+  "w": "",
+  "p": "liú",
+  "m": "",
+  "src": "牙板数敲珠一串，梁尘暗落琉璃盏。 — 《宋词·凤栖梧・蝶恋花》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "宝玉"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "梅",
+  "s": 11,
+  "w": "",
+  "p": "méi",
+  "m": "",
+  "src": "摽有梅，其实七兮。求我庶士，迨其吉兮。 — 《诗经·摽有梅》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "花草"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "敏",
+  "s": 11,
+  "w": "",
+  "p": "mǐn",
+  "m": "",
+  "src": "尝其旨否。禾易长亩，终善且有。曾孙不怒， — 《诗经·甫田》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "德慧"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "培",
+  "s": 11,
+  "w": "土",
+  "p": "péi",
+  "m": "培育；培育成材",
+  "src": "",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "知性",
+   "大气"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "淠",
+  "s": 11,
+  "w": "",
+  "p": "pì",
+  "m": "",
+  "src": "菀彼柳斯，鸣蜩嘒嘒，有漼者渊，萑苇淠淠。 — 《诗经·小弁》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "清泠"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "萍",
+  "s": 11,
+  "w": "",
+  "p": "píng",
+  "m": "",
+  "src": "窃哀兮浮萍，汎淫兮无根。 — 《楚辞·尊嘉》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "花草"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "绮",
+  "s": 11,
+  "w": "",
+  "p": "qǐ",
+  "m": "",
+  "src": "纂组绮缟，结琦璜些。 — 《楚辞·招魂》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "光影"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "若",
+  "s": 11,
+  "w": "木",
+  "p": "ruò",
+  "m": "若木神木；灵气濯濯",
+  "src": "桑之未落，其叶沃若。于嗟鸠兮！无食桑葚。 — 《诗经·氓》",
+  "star": 4,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "温婉",
+   "知性"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "绍",
+  "s": 11,
+  "w": "金",
+  "p": "shào",
+  "m": "继承；绍继先业",
+  "src": "月出照兮。佼人燎兮。舒夭绍兮。劳心惨兮。 — 《诗经·月出》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "知性"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "笙",
+  "s": 11,
+  "w": "",
+  "p": "shēng",
+  "m": "",
+  "src": "呦呦鹿鸣，食野之苹。我有嘉宾，鼓瑟吹笙。 — 《诗经·鹿鸣》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "雅韵"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "淞",
+  "s": 11,
+  "w": "",
+  "p": "sōng",
+  "m": "",
+  "src": "",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "清泠"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "婉",
+  "s": 11,
+  "w": "",
+  "p": "wǎn",
+  "m": "",
+  "src": "新台有泚，河水瀰瀰。燕婉之求，蘧篨不鲜。 — 《诗经·新台》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "温婉"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "涴",
+  "s": 11,
+  "w": "",
+  "p": "wò",
+  "m": "",
+  "src": "素面翻嫌粉涴，洗妆不褪唇红。 — 《宋词·西江月》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "清泠"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "晞",
+  "s": 11,
+  "w": "火",
+  "p": "xī",
+  "m": "破晓；晞发朝阳",
+  "src": "东方未晞，颠倒裳衣。倒之颠之，自公令之。 — 《诗经·东方未明》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [],
+  "gender": "通用",
+  "freq": 1
+ },
+ {
+  "c": "雪",
+  "s": 11,
+  "w": "水",
+  "p": "xuě",
+  "m": "白雪；冰清玉洁",
+  "src": "北风其凉，雨雪其雱。惠而好我，携手同行。 — 《诗经·北风》",
+  "star": 4,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "温婉"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "逸",
+  "s": 11,
+  "w": "",
+  "p": "yì",
+  "m": "",
+  "src": "皎皎白驹，贲然来思。尔公尔侯，逸豫无期？ — 《诗经·白驹》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "天地"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "莹",
+  "s": 11,
+  "w": "",
+  "p": "yíng",
+  "m": "",
+  "src": "瞻彼淇奥，绿竹青青。有匪君子，充耳秀莹， — 《诗经·淇奥》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "宝玉"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "渊",
+  "s": 11,
+  "w": "",
+  "p": "yuān",
+  "m": "",
+  "src": "仲氏任只，其心塞渊。终温且惠，淑慎其身。 — 《诗经·燕燕》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "清泠"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "章",
+  "s": 11,
+  "w": "",
+  "p": "zhāng",
+  "m": "",
+  "src": "玁狁匪茹，整居焦获。侵镐及方，至于泾阳。 — 《诗经·六月》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "雅韵"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "梓",
+  "s": 11,
+  "w": "木",
+  "p": "zǐ",
+  "m": "梓树；故土深情（重名极高）",
+  "src": "定之方中，作于楚宫。揆之以日，作于楚室。 — 《诗经·定之方中》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": true,
+  "tags": [
+   "大气"
+  ],
+  "gender": "通用",
+  "freq": 1
+ },
+ {
+  "c": "博",
+  "s": 12,
+  "w": "水",
+  "p": "bó",
+  "m": "广博；博学多才",
+  "src": "角弓其觩。束矢其搜。戎车孔博。徒御无斁。 — 《诗经·泮水》",
+  "star": 2,
+  "fenqi": true,
+  "landajie": true,
+  "tags": [
+   "知性",
+   "大气"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "淳",
+  "s": 12,
+  "w": "水",
+  "p": "chún",
+  "m": "淳朴；淳厚质朴",
+  "src": "嗚呼聖王及聖相，相與烜赫流淳熙。 — 《唐诗·undefined》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "知性",
+   "大气"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "琮",
+  "s": 12,
+  "w": "",
+  "p": "cóng",
+  "m": "",
+  "src": "重头歌韵响铮琮，入破舞腰红乱旋。 — 《宋词·木兰花・玉楼春》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "宝玉"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "栋",
+  "s": 12,
+  "w": "木",
+  "p": "dòng",
+  "m": "栋梁；国之栋梁",
+  "src": "桂栋兮兰橑，辛夷楣兮药房 — 《楚辞·湘夫人》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "大气"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "赋",
+  "s": 12,
+  "w": "",
+  "p": "fù",
+  "m": "",
+  "src": "仲山甫之德，柔嘉维则。令仪令色。小心翼翼 — 《诗经·烝民》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "雅韵"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "涵",
+  "s": 12,
+  "w": "水",
+  "p": "hán",
+  "m": "涵蓄；涵养深厚（重名极高）",
+  "src": "乱之初生，僭始既涵。乱之又生，君子信谗。 — 《诗经·巧言》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": true,
+  "tags": [
+   "知性",
+   "大气"
+  ],
+  "gender": "通用",
+  "freq": 1
+ },
+ {
+  "c": "惠",
+  "s": 12,
+  "w": "",
+  "p": "huì",
+  "m": "",
+  "src": "仲氏任只，其心塞渊。终温且惠，淑慎其身。 — 《诗经·燕燕》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "德慧"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "湫",
+  "s": 12,
+  "w": "",
+  "p": "jiǎo",
+  "m": "",
+  "src": "风骚屑以摇木兮，云吸吸以湫戾。 — 《楚辞·思古》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "清泠"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "琚",
+  "s": 12,
+  "w": "",
+  "p": "jū",
+  "m": "",
+  "src": "投我以木瓜，报之以琼琚。匪报也，永以为好 — 《诗经·木瓜》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "宝玉"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "钧",
+  "s": 12,
+  "w": "金",
+  "p": "jūn",
+  "m": "三十斤；千钧沉稳",
+  "src": "尹氏大师，维周之氐；秉国之钧，四方是维。 — 《诗经·节南山》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "大气"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "葵",
+  "s": 12,
+  "w": "",
+  "p": "kuí",
+  "m": "",
+  "src": "六月食郁及薁，七月亨葵及菽。八月剥枣，十 — 《诗经·七月》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "花草"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "岚",
+  "s": 12,
+  "w": "土",
+  "p": "lán",
+  "m": "山气；山岚氤氲（简7）",
+  "src": "岚影浮春，云容阁雨，澄泓碧展玻璃。 — 《宋词·满庭芳》",
+  "star": 4,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "温婉",
+   "自然"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "琳",
+  "s": 12,
+  "w": "木",
+  "p": "lín",
+  "m": "美玉；琳琳如玉",
+  "src": "抚长剑兮玉珥，璆锵鸣兮琳琅 — 《楚辞·东皇太一》",
+  "star": 4,
+  "fenqi": true,
+  "landajie": false,
+  "tags": [
+   "温婉",
+   "大气"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "媚",
+  "s": 12,
+  "w": "",
+  "p": "mèi",
+  "m": "",
+  "src": "驷驖孔阜，六辔在手。公之媚子，从公于狩。 — 《诗经·驷驖》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "温婉"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "淼",
+  "s": 12,
+  "w": "",
+  "p": "miǎo",
+  "m": "",
+  "src": "当陵阳之焉至兮，淼南渡之焉如？ — 《楚辞·哀郢》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "清泠"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "淇",
+  "s": 12,
+  "w": "水",
+  "p": "qí",
+  "m": "淇水；淇奥绿竹",
+  "src": "毖彼泉水，亦流于淇。有怀于卫，靡日不思。 — 《诗经·泉水》",
+  "star": 4,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "温婉"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "棋",
+  "s": 12,
+  "w": "木",
+  "p": "qí",
+  "m": "棋局；高瞻远瞩",
+  "src": "菎蔽象棋，有六簙些。 — 《楚辞·招魂》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "知性"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "琦",
+  "s": 12,
+  "w": "",
+  "p": "qí",
+  "m": "",
+  "src": "纂组绮缟，结琦璜些。 — 《楚辞·招魂》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "宝玉"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "琪",
+  "s": 12,
+  "w": "木",
+  "p": "qí",
+  "m": "美玉；琪树瑶花",
+  "src": "琪树罗三殿，金龙抱九关。 — 《宋词·巫山一段云》",
+  "star": 4,
+  "fenqi": true,
+  "landajie": false,
+  "tags": [
+   "温婉",
+   "大气"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "谦",
+  "s": 12,
+  "w": "",
+  "p": "qiān",
+  "m": "",
+  "src": "兢兢惕惕持谦德，未许禅云亭。 — 《宋词·导引》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "德慧"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "钦",
+  "s": 12,
+  "w": "金",
+  "p": "qīn",
+  "m": "钦佩；受尊被敬",
+  "src": "鴥彼晨风，郁彼北林。未见君子，忧心钦钦。 — 《诗经·晨风》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "大气"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "琴",
+  "s": 12,
+  "w": "",
+  "p": "qín",
+  "m": "",
+  "src": "参差荇菜，左右采之。窈窕淑女，琴瑟友之。 — 《诗经·关雎》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "雅韵"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "清",
+  "s": 12,
+  "w": "水",
+  "p": "qīng",
+  "m": "清澈；清正明朗",
+  "src": "瑳兮瑳兮，其之展也。蒙彼绉絺，是绁袢也。 — 《诗经·君子偕老》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "知性",
+   "大气"
+  ],
+  "gender": "通用",
+  "freq": 1
+ },
+ {
+  "c": "晴",
+  "s": 12,
+  "w": "火",
+  "p": "qíng",
+  "m": "晴空；云销雨霁",
+  "src": "分野中峯變，陰晴衆壑殊。 — 《唐诗·undefined》",
+  "star": 4,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "温婉",
+   "大气"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "琼",
+  "s": 12,
+  "w": "",
+  "p": "qióng",
+  "m": "",
+  "src": "投我以木瓜，报之以琼琚。匪报也，永以为好 — 《诗经·木瓜》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "宝玉"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "然",
+  "s": 12,
+  "w": "火",
+  "p": "rán",
+  "m": "\"燃\"本字；浩然正气（此字典列金！）",
+  "src": "终风且霾，惠然肯来，莫往莫来，悠悠我思。 — 《诗经·终风》",
+  "star": 3,
+  "fenqi": true,
+  "landajie": true,
+  "tags": [
+   "大气"
+  ],
+  "gender": "通用",
+  "freq": 1
+ },
+ {
+  "c": "嵘",
+  "s": 12,
+  "w": "",
+  "p": "róng",
+  "m": "",
+  "src": "下峥嵘而无地兮，上寥廓而无天。 — 《楚辞·远游》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "天地"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "森",
+  "s": 12,
+  "w": "木",
+  "p": "sēn",
+  "m": "森林；繁茂兴业",
+  "src": "丞相祠堂何處尋，錦官城外柏森森。 — 《唐诗·undefined》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "自然",
+   "大气"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "善",
+  "s": 12,
+  "w": "",
+  "p": "shàn",
+  "m": "",
+  "src": "凯风自南，吹彼棘薪。母氏圣善，我无令人。 — 《诗经·凯风》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "德慧"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "媞",
+  "s": 12,
+  "w": "",
+  "p": "shì",
+  "m": "",
+  "src": "西施媞媞而不得见兮，嫫母勃屑而日侍。 — 《楚辞·怨世》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "温婉"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "淑",
+  "s": 12,
+  "w": "水",
+  "p": "shū",
+  "m": "善良；窈窕淑女",
+  "src": "关关雎鸠，在河之洲。窈窕淑女，君子好逑。 — 《诗经·关雎》",
+  "star": 4,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "温婉"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "舒",
+  "s": 12,
+  "w": "金",
+  "p": "shū",
+  "m": "舒展；舒泰安逸",
+  "src": "舒而脱脱兮，无感我帨兮，无使尨也吠。 — 《诗经·野有死麕》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "温婉"
+  ],
+  "gender": "通用",
+  "freq": 1
+ },
+ {
+  "c": "斯",
+  "s": 12,
+  "w": "金",
+  "p": "sī",
+  "m": "斯文；斯文儒雅",
+  "src": "螽斯羽，诜诜兮。宜尔子孙，振振兮。 — 《诗经·螽斯》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "知性"
+  ],
+  "gender": "通用",
+  "freq": 1
+ },
+ {
+  "c": "棠",
+  "s": 12,
+  "w": "木",
+  "p": "táng",
+  "m": "海棠；海棠春睡",
+  "src": "蔽芾甘棠，勿翦勿伐，召伯所茇。 — 《诗经·甘棠》",
+  "star": 4,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "温婉"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "缇",
+  "s": 12,
+  "w": "",
+  "p": "tí",
+  "m": "",
+  "src": "袭英衣兮缇[糹習]，披华裳兮芳芬。 — 《楚辞·昭世》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "光影"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "婷",
+  "s": 12,
+  "w": "",
+  "p": "tíng",
+  "m": "",
+  "src": "好借月魂来，娉婷画烛旁。 — 《宋词·梅花曲》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "温婉"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "琬",
+  "s": 12,
+  "w": "",
+  "p": "wǎn",
+  "m": "",
+  "src": "吸飞泉之微液兮，怀琬琰之华英。 — 《楚辞·远游》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "宝玉"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "温",
+  "s": 12,
+  "w": "",
+  "p": "wēn",
+  "m": "",
+  "src": "仲氏任只，其心塞渊。终温且惠，淑慎其身。 — 《诗经·燕燕》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "德慧"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "雯",
+  "s": 12,
+  "w": "水",
+  "p": "wén",
+  "m": "彩云；雯华云纹",
+  "src": "",
+  "star": 4,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "温婉"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "湘",
+  "s": 12,
+  "w": "",
+  "p": "xiāng",
+  "m": "",
+  "src": "于以盛之？维筐及筥。于以湘之？维锜及釜。 — 《诗经·采蘋》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "清泠"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "翔",
+  "s": 12,
+  "w": "",
+  "p": "xiáng",
+  "m": "",
+  "src": "清人在彭，驷介旁旁。二矛重英，河上乎翱翔 — 《诗经·清人》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "天地"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "雅",
+  "s": 12,
+  "w": "",
+  "p": "yǎ",
+  "m": "",
+  "src": "鼓钟钦钦，鼓瑟鼓琴，笙磬同音。以雅以南， — 《诗经·鼓钟》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "雅韵"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "琰",
+  "s": 12,
+  "w": "",
+  "p": "yǎn",
+  "m": "",
+  "src": "吸飞泉之微液兮，怀琬琰之华英。 — 《楚辞·远游》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "宝玉"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "谣",
+  "s": 12,
+  "w": "",
+  "p": "yáo",
+  "m": "",
+  "src": "园有桃，其实之肴。心之忧矣，我歌且谣。不 — 《诗经·园有桃》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "雅韵"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "瑛",
+  "s": 12,
+  "w": "",
+  "p": "yīng",
+  "m": "",
+  "src": "椒瑛兮湟汙，葈耳兮充房。 — 《楚辞·哀岁》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "宝玉"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "愉",
+  "s": 12,
+  "w": "",
+  "p": "yú",
+  "m": "",
+  "src": "山有枢，隰有榆。子有衣裳，弗曳弗娄。子有 — 《诗经·山有枢》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "祥和"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "媛",
+  "s": 12,
+  "w": "",
+  "p": "yuàn",
+  "m": "",
+  "src": "瑳兮瑳兮，其之展也。蒙彼绉絺，是绁袢也。 — 《诗经·君子偕老》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "温婉"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "越",
+  "s": 12,
+  "w": "土",
+  "p": "yuè",
+  "m": "超越；卓越超群",
+  "src": "穀旦于逝，越以鬷迈。视尔如荍，贻我握椒。 — 《诗经·东门之枌》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "大气",
+   "现代"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "湛",
+  "s": 12,
+  "w": "",
+  "p": "zhàn",
+  "m": "",
+  "src": "呦呦鹿鸣，食野之芩。我有嘉宾，鼓瑟鼓琴。 — 《诗经·鹿鸣》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "清泠"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "筝",
+  "s": 12,
+  "w": "",
+  "p": "zhēng",
+  "m": "",
+  "src": "破伯牙之号钟兮，挟人筝而弹纬。 — 《楚辞·愍命》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "雅韵"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "智",
+  "s": 12,
+  "w": "",
+  "p": "zhì",
+  "m": "",
+  "src": "詹尹乃释策而谢曰：“夫尺有所短，寸有所长 — 《楚辞·卜居》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "德慧"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "嫒",
+  "s": 13,
+  "w": "",
+  "p": "ài",
+  "m": "",
+  "src": "",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "温婉"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "慈",
+  "s": 13,
+  "w": "",
+  "p": "cí",
+  "m": "",
+  "src": "众谗人之嫉妒兮，被以不慈之伪名。 — 《楚辞·哀郢》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "德慧"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "辞",
+  "s": 13,
+  "w": "",
+  "p": "cí",
+  "m": "",
+  "src": "辞之辑矣，民之洽矣。辞之怿矣，民之莫矣。 — 《诗经·板》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "雅韵"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "福",
+  "s": 13,
+  "w": "",
+  "p": "fú",
+  "m": "",
+  "src": "南有樛木，葛藟累之。乐只君子，福履绥之。 — 《诗经·樛木》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "祥和"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "瑰",
+  "s": 13,
+  "w": "",
+  "p": "guī",
+  "m": "",
+  "src": "我送舅氏，悠悠我思。何以赠之？琼瑰玉佩。 — 《诗经·渭阳》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "宝玉"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "荷",
+  "s": 13,
+  "w": "木",
+  "p": "hé",
+  "m": "荷花；出淤泥不染",
+  "src": "山有扶苏，隰有荷华。不见子都，乃见狂且。 — 《诗经·山有扶苏》",
+  "star": 4,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "温婉"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "煌",
+  "s": 13,
+  "w": "火",
+  "p": "huáng",
+  "m": "明亮；辉煌璀璨",
+  "src": "东门之杨，其叶牂牂。昏以为期，明星煌煌。 — 《诗经·东门之杨》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "大气"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "靖",
+  "s": 13,
+  "w": "金",
+  "p": "jìng",
+  "m": "平安；靖宁四方",
+  "src": "嗟尔君子，无恒安处。靖共尔位，正直是与。 — 《诗经·小明》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "大气"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "楷",
+  "s": 13,
+  "w": "木",
+  "p": "kǎi",
+  "m": "楷模；方正楷模",
+  "src": "",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "知性"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "莉",
+  "s": 13,
+  "w": "木",
+  "p": "lì",
+  "m": "茉莉；茉莉清芬",
+  "src": "",
+  "star": 4,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "温婉"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "铃",
+  "s": 13,
+  "w": "金",
+  "p": "líng",
+  "m": "铃铛；清脆悦耳",
+  "src": "载见辟王，曰求厥章。龙旂阳阳，和铃央央。 — 《诗经·载见》",
+  "star": 4,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "温婉"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "溟",
+  "s": 13,
+  "w": "",
+  "p": "míng",
+  "m": "",
+  "src": "人在虚空，月生溟海，寒渔夜泛，游鳞可辨。 — 《宋词·倾杯・倾杯乐》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "清泠"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "楠",
+  "s": 13,
+  "w": "木",
+  "p": "nán",
+  "m": "楠木；栋梁之材",
+  "src": "",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "大气"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "瑟",
+  "s": 13,
+  "w": "",
+  "p": "sè",
+  "m": "",
+  "src": "参差荇菜，左右采之。窈窕淑女，琴瑟友之。 — 《诗经·关雎》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "雅韵"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "莎",
+  "s": 13,
+  "w": "木",
+  "p": "shā",
+  "m": "莎草；轻柔飘逸",
+  "src": "五月斯螽动股，六月莎鸡振羽。七月在野，八 — 《诗经·七月》",
+  "star": 4,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "温婉"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "诗",
+  "s": 13,
+  "w": "金",
+  "p": "shī",
+  "m": "诗歌；诗情画意",
+  "src": "杨园之道，猗于亩丘。寺人孟子，作为此诗。 — 《诗经·巷伯》",
+  "star": 4,
+  "fenqi": false,
+  "landajie": true,
+  "tags": [
+   "温婉",
+   "知性"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "嵩",
+  "s": 13,
+  "w": "土",
+  "p": "sōng",
+  "m": "嵩山；嵩岳崇高",
+  "src": "嵩雲秦樹久離居，雙鯉迢迢一紙書。 — 《唐诗·undefined》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "大气"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "炜",
+  "s": 13,
+  "w": "火",
+  "p": "wěi",
+  "m": "光明；炜烨生辉（简8）",
+  "src": "静女其娈，贻我彤管。彤管有炜，说怿女美。 — 《诗经·静女》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "大气"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "新",
+  "s": 13,
+  "w": "金",
+  "p": "xīn",
+  "m": "更新；日新其德",
+  "src": "行道迟迟，中心有违。不远伊迩，薄送我畿。 — 《诗经·谷风》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "大气"
+  ],
+  "gender": "通用",
+  "freq": 1
+ },
+ {
+  "c": "钰",
+  "s": 13,
+  "w": "金",
+  "p": "yù",
+  "m": "珍宝；如金似玉",
+  "src": "",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "大气"
+  ],
+  "gender": "通用",
+  "freq": 1
+ },
+ {
+  "c": "煜",
+  "s": 13,
+  "w": "火",
+  "p": "yù",
+  "m": "照耀；煜煜生辉",
+  "src": "",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "大气"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "瑗",
+  "s": 13,
+  "w": "",
+  "p": "yuàn",
+  "m": "",
+  "src": "",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "宝玉"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "韵",
+  "s": 13,
+  "w": "",
+  "p": "yùn",
+  "m": "",
+  "src": "少年风韵，自觉随春老。 — 《宋词·诉衷情近》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "雅韵"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "照",
+  "s": 13,
+  "w": "火",
+  "p": "zhào",
+  "m": "照耀；光照四方",
+  "src": "日居月诸，照临下土。乃如之人兮，逝不古处 — 《诗经·日月》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "大气"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "碧",
+  "s": 14,
+  "w": "",
+  "p": "bì",
+  "m": "",
+  "src": "孤帆遠影碧空盡，唯見長江天際流。 (唯  — 《唐诗·undefined》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "宝玉"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "嫦",
+  "s": 14,
+  "w": "",
+  "p": "cháng",
+  "m": "",
+  "src": "嫦娥應悔偷靈藥，碧海青天夜夜心。 — 《唐诗·undefined》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "温婉"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "畅",
+  "s": 14,
+  "w": "火",
+  "p": "chàng",
+  "m": "畅通；顺畅通达（简8）",
+  "src": "小戎俴收，五楘梁辀。游环胁驱，阴靷鋈续。 — 《诗经·小戎》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "大气",
+   "现代"
+  ],
+  "gender": "通用",
+  "freq": 1
+ },
+ {
+  "c": "菲",
+  "s": 14,
+  "w": "木",
+  "p": "fēi",
+  "m": "芳菲；芳香馥郁",
+  "src": "习习谷风，以阴以雨。黾勉同心，不宜有怒。 — 《诗经·谷风》",
+  "star": 4,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "温婉"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "歌",
+  "s": 14,
+  "w": "",
+  "p": "gē",
+  "m": "",
+  "src": "江有沱，之子归，不我过。不我过，其啸也歌 — 《诗经·江有汜》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "雅韵"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "菡",
+  "s": 14,
+  "w": "木",
+  "p": "hàn",
+  "m": "荷花；淡雅高洁",
+  "src": "彼泽之陂，有蒲菡萏。有美一人，硕大且俨。 — 《诗经·泽陂》",
+  "star": 4,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "温婉"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "华",
+  "s": 14,
+  "w": "木",
+  "p": "huá",
+  "m": "光华；才华横溢",
+  "src": "桃之夭夭，灼灼其华。之子于归，宜其室家。 — 《诗经·桃夭》",
+  "star": 3,
+  "fenqi": true,
+  "landajie": false,
+  "tags": [
+   "大气"
+  ],
+  "gender": "通用",
+  "freq": 1
+ },
+ {
+  "c": "霁",
+  "s": 14,
+  "w": "",
+  "p": "jì",
+  "m": "",
+  "src": "春朝雨霁轻尘歇。 — 《宋词·阳关引》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "天地"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "嘉",
+  "s": 14,
+  "w": "",
+  "p": "jiā",
+  "m": "",
+  "src": "既不我嘉，不能旋反。视尔不臧，我思不远。 — 《诗经·载驰》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "祥和"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "菁",
+  "s": 14,
+  "w": "木",
+  "p": "jīng",
+  "m": "菁华；草木菁菁",
+  "src": "菁菁者莪，在彼中阿。既见君子，乐且有仪。 — 《诗经·菁菁者莪》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "知性",
+   "自然"
+  ],
+  "gender": "通用",
+  "freq": 1
+ },
+ {
+  "c": "静",
+  "s": 14,
+  "w": "",
+  "p": "jìng",
+  "m": "",
+  "src": "忧心悄悄，愠于群小。觏闵既多，受侮不少。 — 《诗经·柏舟》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "祥和"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "潋",
+  "s": 14,
+  "w": "",
+  "p": "liàn",
+  "m": "",
+  "src": "金波银汉，潋滟无际。 — 《宋词·佳人醉》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "清泠"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "缦",
+  "s": 14,
+  "w": "",
+  "p": "màn",
+  "m": "",
+  "src": "缦鬓小横波。 — 《宋词·菩萨蛮》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "光影"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "萌",
+  "s": 14,
+  "w": "木",
+  "p": "méng",
+  "m": "萌芽；生机萌发",
+  "src": "厥萌在初，何所亿焉？ — 《楚辞·天问》",
+  "star": 4,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "温婉",
+   "自然"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "铭",
+  "s": 14,
+  "w": "金",
+  "p": "míng",
+  "m": "铭刻；铭记声名",
+  "src": "",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "大气"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "宁",
+  "s": 14,
+  "w": "火",
+  "p": "níng",
+  "m": "安宁；宁静致远（简5/繁14；金火分歧）",
+  "src": "言告师氏，言告言归。薄污我私，薄浣我衣。 — 《诗经·葛覃》",
+  "star": 4,
+  "fenqi": true,
+  "landajie": false,
+  "tags": [
+   "温婉",
+   "知性"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "蔷",
+  "s": 14,
+  "w": "",
+  "p": "qiáng",
+  "m": "",
+  "src": "衬琅玕锦院，竹外蔷薇。 — 《宋词·八声甘州》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "花草"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "荣",
+  "s": 14,
+  "w": "木",
+  "p": "róng",
+  "m": "茂盛荣耀；荣光焕发（底部火勿判）",
+  "src": "及荣华之未落兮，相下女之可诒。 — 《楚辞·离骚》",
+  "star": 3,
+  "fenqi": true,
+  "landajie": false,
+  "tags": [
+   "大气"
+  ],
+  "gender": "通用",
+  "freq": 1
+ },
+ {
+  "c": "瑞",
+  "s": 14,
+  "w": "金",
+  "p": "ruì",
+  "m": "祥瑞；瑞气盈门",
+  "src": "羡咎繇兮建典谟，懿风后兮受瑞图。 — 《楚辞·逢尤》",
+  "star": 3,
+  "fenqi": true,
+  "landajie": false,
+  "tags": [
+   "大气"
+  ],
+  "gender": "通用",
+  "freq": 1
+ },
+ {
+  "c": "睿",
+  "s": 14,
+  "w": "金",
+  "p": "ruì",
+  "m": "睿智；睿智明达",
+  "src": "气和玉烛，睿化著鸿明。 — 《宋词·导引》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": true,
+  "tags": [
+   "知性",
+   "大气"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "韶",
+  "s": 14,
+  "w": "",
+  "p": "sháo",
+  "m": "",
+  "src": "奏《九歌》而舞《韶》兮，聊假日以偷乐。 — 《楚辞·离骚》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "雅韵"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "霆",
+  "s": 14,
+  "w": "",
+  "p": "tíng",
+  "m": "",
+  "src": "啴啴焞焞，如霆如雷。显允方叔，征伐玁狁， — 《诗经·采芑》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "天地"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "溪",
+  "s": 14,
+  "w": "水",
+  "p": "xī",
+  "m": "溪流；溪水潺潺",
+  "src": "山气巄嵷兮石嵯峨，溪谷崭岩兮水曾波。 — 《楚辞·招隐士》",
+  "star": 4,
+  "fenqi": true,
+  "landajie": false,
+  "tags": [
+   "温婉",
+   "自然"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "潇",
+  "s": 14,
+  "w": "",
+  "p": "xiāo",
+  "m": "",
+  "src": "风雨潇潇，鸡鸣胶胶。既见君子，云胡不瘳？ — 《诗经·风雨》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "清泠"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "箫",
+  "s": 14,
+  "w": "",
+  "p": "xiāo",
+  "m": "",
+  "src": "乃奏，箫管备举。喤喤厥声，肃雍和鸣，先祖 — 《诗经·有瞽》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "雅韵"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "嫣",
+  "s": 14,
+  "w": "",
+  "p": "yān",
+  "m": "",
+  "src": "阳城下蔡困嫣然。 — 《宋词·浣溪沙》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "温婉"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "漪",
+  "s": 14,
+  "w": "",
+  "p": "yī",
+  "m": "",
+  "src": "微动涟漪。 — 《宋词·采桑子》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "清泠"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "银",
+  "s": 14,
+  "w": "金",
+  "p": "yín",
+  "m": "白银；银光素净",
+  "src": "真珠帘卷玉楼空，天淡银河垂地。 — 《宋词·御街行》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "温婉"
+  ],
+  "gender": "通用",
+  "freq": 1
+ },
+ {
+  "c": "瑜",
+  "s": 14,
+  "w": "土",
+  "p": "yú",
+  "m": "美玉；怀瑾握瑜",
+  "src": "怀瑾握瑜兮，穷不知所示。 — 《楚辞·怀沙》",
+  "star": 3,
+  "fenqi": true,
+  "landajie": false,
+  "tags": [
+   "温婉",
+   "大气"
+  ],
+  "gender": "通用",
+  "freq": 1
+ },
+ {
+  "c": "源",
+  "s": 14,
+  "w": "水",
+  "p": "yuán",
+  "m": "源头；源远流长",
+  "src": "泉源在左，淇水在右。女子有行，远兄弟父母 — 《诗经·竹竿》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "知性",
+   "大气"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "澈",
+  "s": 15,
+  "w": "",
+  "p": "chè",
+  "m": "",
+  "src": "君含怒而待臣兮，不清澈其然否。 — 《楚辞·惜往日》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "清泠"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "聪",
+  "s": 15,
+  "w": "",
+  "p": "cōng",
+  "m": "",
+  "src": "有兔爰爰，雉离于罿。我生之初，尚无庸；我 — 《诗经·兔爰》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "德慧"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "德",
+  "s": 15,
+  "w": "",
+  "p": "dé",
+  "m": "",
+  "src": "日居月诸，出自东方。乃如之人兮，德音无良 — 《诗经·日月》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "德慧"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "锋",
+  "s": 15,
+  "w": "金",
+  "p": "fēng",
+  "m": "刀锋；锋芒锐气",
+  "src": "旦暮锋车命驾，重整济川舟。 — 《宋词·瑞鹧鸪》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "大气"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "篁",
+  "s": 15,
+  "w": "",
+  "p": "huáng",
+  "m": "",
+  "src": "余处幽篁兮终不见天，路险难兮独后来 — 《楚辞·山鬼》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "雅韵"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "辉",
+  "s": 15,
+  "w": "火",
+  "p": "huī",
+  "m": "光辉；光辉灿烂（老一辈热门）",
+  "src": "夜如何其？夜乡晨，庭燎有辉。君子至止，言 — 《诗经·庭燎》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "大气"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "慧",
+  "s": 15,
+  "w": "水",
+  "p": "huì",
+  "m": "智慧；兰心蕙质",
+  "src": "揽慧星以为旍兮，举斗柄以为麾。 — 《楚辞·远游》",
+  "star": 4,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "知性",
+   "大气"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "蕙",
+  "s": 15,
+  "w": "",
+  "p": "huì",
+  "m": "",
+  "src": "杂申椒与菌桂兮，岂惟纫夫蕙茝！ — 《楚辞·离骚》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "花草"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "剑",
+  "s": 15,
+  "w": "金",
+  "p": "jiàn",
+  "m": "宝剑；剑气豪迈",
+  "src": "抚长剑兮玉珥，璆锵鸣兮琳琅 — 《楚辞·东皇太一》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "大气"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "槿",
+  "s": 15,
+  "w": "木",
+  "p": "jǐn",
+  "m": "木槿；坚韧柔美",
+  "src": "山中習靜觀朝槿，松下清齋折露葵。 — 《唐诗·undefined》",
+  "star": 4,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "温婉",
+   "自然"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "澜",
+  "s": 15,
+  "w": "",
+  "p": "lán",
+  "m": "",
+  "src": "何青云之流澜兮，微霜降之蒙蒙。 — 《楚辞·自悲》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "清泠"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "磊",
+  "s": 15,
+  "w": "土",
+  "p": "lěi",
+  "m": "众石；光明磊落",
+  "src": "采三秀兮于山间，石磊磊兮葛蔓蔓 — 《楚辞·山鬼》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "大气"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "漫",
+  "s": 15,
+  "w": "水",
+  "p": "màn",
+  "m": "烂漫；天真烂漫",
+  "src": "路漫漫其修远兮，吾将上下而求索。 — 《楚辞·离骚》",
+  "star": 4,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "温婉",
+   "自然"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "墨",
+  "s": 15,
+  "w": "",
+  "p": "mò",
+  "m": "",
+  "src": "背绳墨以追曲兮，竞周容以为度。 — 《楚辞·离骚》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "雅韵"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "磐",
+  "s": 15,
+  "w": "土",
+  "p": "pán",
+  "m": "磐石；坚如磐石",
+  "src": "請留磐石上，垂釣將已矣。(磐石 一作：盤 — 《唐诗·undefined》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "大气"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "蕊",
+  "s": 15,
+  "w": "",
+  "p": "ruǐ",
+  "m": "",
+  "src": "掔木根以结茞兮，贯薜荔之落蕊。 — 《楚辞·离骚》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "花草"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "锐",
+  "s": 15,
+  "w": "金",
+  "p": "ruì",
+  "m": "锐利；锐意进取",
+  "src": "留思北顾涕渐渐兮，折锐摧矜凝氾滥兮， — 《楚辞·忧苦》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "大气"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "霄",
+  "s": 15,
+  "w": "",
+  "p": "xiāo",
+  "m": "",
+  "src": "譬若王侨之乘云兮，载赤霄而凌太清。 — 《楚辞·远游》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "天地"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "萱",
+  "s": 15,
+  "w": "木",
+  "p": "xuān",
+  "m": "萱草；忘忧快乐（重名极高）",
+  "src": "碧砌红萱草。 — 《宋词·清平乐》",
+  "star": 4,
+  "fenqi": false,
+  "landajie": true,
+  "tags": [
+   "温婉"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "璇",
+  "s": 15,
+  "w": "",
+  "p": "xuán",
+  "m": "",
+  "src": "谣吟兮中野，上察兮璇玑。 — 《楚辞·怨上》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "宝玉"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "瑶",
+  "s": 15,
+  "w": "土",
+  "p": "yáo",
+  "m": "美玉；瑶池仙品（重名极高）",
+  "src": "投我以木桃，报之以琼瑶。匪报也，永以为好 — 《诗经·木瓜》",
+  "star": 4,
+  "fenqi": true,
+  "landajie": true,
+  "tags": [
+   "温婉"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "熠",
+  "s": 15,
+  "w": "",
+  "p": "yì",
+  "m": "",
+  "src": "伊威在室，蠨蛸在户。町畽鹿场，熠耀宵行。 — 《诗经·东山》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "光影"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "璠",
+  "s": 16,
+  "w": "",
+  "p": "fán",
+  "m": "",
+  "src": "",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "宝玉"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "霏",
+  "s": 16,
+  "w": "",
+  "p": "fēi",
+  "m": "",
+  "src": "北风其喈，雨雪其霏。惠而好我，携手同归。 — 《诗经·北风》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "天地"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "翰",
+  "s": 16,
+  "w": "",
+  "p": "hàn",
+  "m": "",
+  "src": "宛彼鸣鸠，翰飞戾天。我心忧伤，念昔先人。 — 《诗经·小宛》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "雅韵"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "寰",
+  "s": 16,
+  "w": "",
+  "p": "huán",
+  "m": "",
+  "src": "回頭下望人寰處，不見長安見塵霧。惟將舊物 — 《唐诗·undefined》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "天地"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "锦",
+  "s": 16,
+  "w": "金",
+  "p": "jǐn",
+  "m": "锦绣；前程似锦",
+  "src": "硕人其颀，衣锦褧衣。齐侯之子，卫侯之妻。 — 《诗经·硕人》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "温婉",
+   "大气"
+  ],
+  "gender": "通用",
+  "freq": 1
+ },
+ {
+  "c": "瑾",
+  "s": 16,
+  "w": "土",
+  "p": "jǐn",
+  "m": "美玉；怀瑾握玉",
+  "src": "怀瑾握瑜兮，穷不知所示。 — 《楚辞·怀沙》",
+  "star": 3,
+  "fenqi": true,
+  "landajie": false,
+  "tags": [
+   "大气"
+  ],
+  "gender": "通用",
+  "freq": 1
+ },
+ {
+  "c": "璟",
+  "s": 16,
+  "w": "",
+  "p": "jǐng",
+  "m": "",
+  "src": "",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "宝玉"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "霖",
+  "s": 16,
+  "w": "水",
+  "p": "lín",
+  "m": "甘霖；恩泽万物（升温中）",
+  "src": "皇天淫溢而秋霖兮，后土何时而得漧？ — 《楚辞·九辩》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": true,
+  "tags": [
+   "自然",
+   "大气"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "霓",
+  "s": 16,
+  "w": "水",
+  "p": "ní",
+  "m": "霓虹；霓裳羽衣",
+  "src": "飘风屯其相离兮，帅云霓而来御。 — 《楚辞·离骚》",
+  "star": 4,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "温婉"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "桥",
+  "s": 16,
+  "w": "木",
+  "p": "qiáo",
+  "m": "桥梁；通达开阔",
+  "src": "芰荷浦溆，杨柳汀洲，映虹桥倒影，兰舟飞棹 — 《宋词·早梅芳・喜迁莺》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "大气",
+   "现代"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "蓉",
+  "s": 16,
+  "w": "木",
+  "p": "róng",
+  "m": "芙蓉；出水芙蓉",
+  "src": "制芰荷以为衣兮，集芙蓉以为裳。 — 《楚辞·离骚》",
+  "star": 4,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "温婉"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "润",
+  "s": 16,
+  "w": "水",
+  "p": "rùn",
+  "m": "滋润；温润如玉",
+  "src": "迟迟淑景，烟和露润，偏绕长堤芳草。 — 《宋词·古倾杯・倾杯乐》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "温婉",
+   "知性"
+  ],
+  "gender": "通用",
+  "freq": 1
+ },
+ {
+  "c": "晓",
+  "s": 16,
+  "w": "火",
+  "p": "xiǎo",
+  "m": "拂晓；晓光聪慧（简10）",
+  "src": "意晓阳兮燎寤，乃自诊兮在兹。 — 《楚辞·陶壅》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "温婉",
+   "大气"
+  ],
+  "gender": "通用",
+  "freq": 1
+ },
+ {
+  "c": "燕",
+  "s": 16,
+  "w": "土",
+  "p": "yàn",
+  "m": "燕子；燕语莺声",
+  "src": "燕燕于飞，差池其羽。之子于归，远送于野。 — 《诗经·燕燕》",
+  "star": 4,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "温婉",
+   "自然"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "铮",
+  "s": 16,
+  "w": "金",
+  "p": "zhēng",
+  "m": "金属声；铮铮铁骨",
+  "src": "重头歌韵响铮琮，入破舞腰红乱旋。 — 《宋词·木兰花・玉楼春》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "大气"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "簧",
+  "s": 17,
+  "w": "",
+  "p": "huáng",
+  "m": "",
+  "src": "君子阳阳，左执簧，右招我由房，其乐只且！ — 《诗经·君子阳阳》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "雅韵"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "璐",
+  "s": 17,
+  "w": "土",
+  "p": "lù",
+  "m": "美玉；琼璐琳华",
+  "src": "带长铗之陆离兮，冠切云之崔嵬，被明月兮佩 — 《楚辞·涉江》",
+  "star": 4,
+  "fenqi": true,
+  "landajie": false,
+  "tags": [
+   "温婉",
+   "大气"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "霜",
+  "s": 17,
+  "w": "水",
+  "p": "shuāng",
+  "m": "霜雪；霜华清冽",
+  "src": "纠纠葛屦，可以履霜？掺掺女手，可以缝裳？ — 《诗经·葛屦》",
+  "star": 4,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "温婉"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "檀",
+  "s": 17,
+  "w": "木",
+  "p": "tán",
+  "m": "檀香；沉静高雅",
+  "src": "将仲子兮，无逾我园，无折我树檀。岂敢爱之 — 《诗经·将仲子》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "大气"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "蔚",
+  "s": 17,
+  "w": "木",
+  "p": "wèi",
+  "m": "蔚然；文采蔚然",
+  "src": "荟兮蔚兮，南山朝隮。婉兮娈兮，季女斯饥。 — 《诗经·候人》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "知性"
+  ],
+  "gender": "通用",
+  "freq": 1
+ },
+ {
+  "c": "霞",
+  "s": 17,
+  "w": "",
+  "p": "xiá",
+  "m": "",
+  "src": "餐六气而饮沆瀣兮，漱正阳而含朝霞。 — 《楚辞·远游》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "天地"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "泽",
+  "s": 17,
+  "w": "水",
+  "p": "zé",
+  "m": "恩泽；泽被苍生（重名极高；简8/康17）",
+  "src": "岂曰无衣？与子同泽。王于兴师，修我矛戟。 — 《诗经·无衣》",
+  "star": 2,
+  "fenqi": true,
+  "landajie": true,
+  "tags": [
+   "大气"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "璧",
+  "s": 18,
+  "w": "",
+  "p": "bì",
+  "m": "",
+  "src": "瞻彼淇奥，绿竹如箦。有匪君子，如金如锡， — 《诗经·淇奥》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "宝玉"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "铠",
+  "s": 18,
+  "w": "金",
+  "p": "kǎi",
+  "m": "铠甲；坚毅护佑",
+  "src": "",
+  "star": 2,
+  "fenqi": true,
+  "landajie": false,
+  "tags": [
+   "大气"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "涛",
+  "s": 18,
+  "w": "水",
+  "p": "tāo",
+  "m": "波涛；波涛汹涌（老一辈热门）",
+  "src": "庙前江水怒为涛。 — 《宋词·酒泉子》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": true,
+  "tags": [
+   "大气"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "曜",
+  "s": 18,
+  "w": "",
+  "p": "yào",
+  "m": "",
+  "src": "羔裘如膏，日出有曜。岂不尔思？中心是悼。 — 《诗经·羔裘》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "光影"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "蕾",
+  "s": 19,
+  "w": "木",
+  "p": "lěi",
+  "m": "花蕾；含苞待放（放宽）",
+  "src": "杏子梢头香蕾破。 — 《宋词·蝶恋花》",
+  "star": 4,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "温婉"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "薇",
+  "s": 19,
+  "w": "木",
+  "p": "wēi",
+  "m": "蔷薇；婉约柔美（放宽）",
+  "src": "陟彼南山，言采其薇。未见君子，我心伤悲。 — 《诗经·草虫》",
+  "star": 4,
+  "fenqi": true,
+  "landajie": false,
+  "tags": [
+   "温婉"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "瀚",
+  "s": 20,
+  "w": "水",
+  "p": "hàn",
+  "m": "瀚海；浩瀚无垠（放宽）",
+  "src": "瀚海闌干百丈冰，愁雲慘淡萬里凝。 — 《唐诗·undefined》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "大气"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "巍",
+  "s": 20,
+  "w": "",
+  "p": "wēi",
+  "m": "",
+  "src": "高山崔巍兮，水流汤汤。 — 《楚辞·初放》",
+  "star": 2,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "天地"
+  ],
+  "gender": "通",
+  "freq": 1
+ },
+ {
+  "c": "曦",
+  "s": 20,
+  "w": "火",
+  "p": "xī",
+  "m": "晨曦；晨曦微光（放宽，女名热门）",
+  "src": "与女沐兮咸池，曦女发兮阳之阿 — 《楚辞·少司命》",
+  "star": 4,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "温婉",
+   "大气"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "露",
+  "s": 21,
+  "w": "水",
+  "p": "lù",
+  "m": "露珠；清露润泽（放宽，女名经典）",
+  "src": "厌浥行露，岂不夙夜，谓行多露。 — 《诗经·行露》",
+  "star": 4,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "温婉",
+   "自然"
+  ],
+  "gender": "女",
+  "freq": 1
+ },
+ {
+  "c": "鑫",
+  "s": 24,
+  "w": "金",
+  "p": "xīn",
+  "m": "金多旺；财源广进（笔画重放宽）",
+  "src": "",
+  "star": 2,
+  "fenqi": false,
+  "landajie": true,
+  "tags": [
+   "大气"
+  ],
+  "gender": "男",
+  "freq": 1
+ },
+ {
+  "c": "亦",
+  "s": 6,
+  "w": "土",
+  "p": "yì",
+  "m": "亦然；也是",
+  "src": "不亦说乎 — 《论语·学而》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "简约",
+   "文雅"
+  ],
+  "gender": "通用",
+  "freq": 1
+ },
+ {
+  "c": "知",
+  "s": 8,
+  "w": "火",
+  "p": "zhī",
+  "m": "知晓；知慧",
+  "src": "温故而知新 — 《论语·为政》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "简约",
+   "文雅"
+  ],
+  "gender": "通用",
+  "freq": 1
+ },
+ {
+  "c": "初",
+  "s": 7,
+  "w": "金",
+  "p": "chū",
+  "m": "初始；初心",
+  "src": "靡不有初，鲜克有终 — 《诗经·大雅·荡》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "简约",
+   "清雅"
+  ],
+  "gender": "通用",
+  "freq": 1
+ },
+ {
+  "c": "言",
+  "s": 7,
+  "w": "木",
+  "p": "yán",
+  "m": "言语；信言",
+  "src": "言笑晏晏 — 《诗经·卫风·氓》",
+  "star": 3,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "简约",
+   "文雅"
+  ],
+  "gender": "通用",
+  "freq": 1
+ },
+ {
+  "c": "乐",
+  "s": 15,
+  "w": "火",
+  "p": "lè",
+  "m": "欢乐；乐",
+  "src": "不亦乐乎 — 《论语·学而》",
+  "star": 4,
+  "fenqi": false,
+  "landajie": false,
+  "tags": [
+   "简约",
+   "明朗"
+  ],
+  "gender": "通用",
+  "freq": 1
+ }
+];
 const INSPIRATION = [
   {
     "name": "素瑜",
@@ -968,6 +7048,780 @@ const INSPIRATION = [
     "srcBook1": "《诗经·无衣》",
     "srcBook2": "《诗经·关雎》",
     "zy": "安然淑善，温婉贞静",
+    "group": "灵动秀美"
+  },
+  {
+    "name": "亦晴",
+    "c1": "亦",
+    "c2": "晴",
+    "p": "yì qíng",
+    "s1": 6,
+    "s2": 12,
+    "w1": "土",
+    "w2": "火",
+    "m1": "亦然；也是",
+    "m2": "晴空；云销雨霁",
+    "src1": "《论语·学而》",
+    "src2": "《唐诗·undefined》",
+    "srcBook1": "《论语·学而》",
+    "srcBook2": "《唐诗·undefined》",
+    "zy": "亦然晴空，云淡风轻",
+    "group": "现代简约"
+  },
+  {
+    "name": "亦岚",
+    "c1": "亦",
+    "c2": "岚",
+    "p": "yì lán",
+    "s1": 6,
+    "s2": 12,
+    "w1": "土",
+    "w2": "土",
+    "m1": "亦然；也是",
+    "m2": "山气；山岚氤氲（简7）",
+    "src1": "《论语·学而》",
+    "src2": "《宋词·满庭芳》",
+    "srcBook1": "《论语·学而》",
+    "srcBook2": "《宋词·满庭芳》",
+    "zy": "亦然山岚，云烟缥缈",
+    "group": "现代简约"
+  },
+  {
+    "name": "亦棠",
+    "c1": "亦",
+    "c2": "棠",
+    "p": "yì táng",
+    "s1": 6,
+    "s2": 12,
+    "w1": "土",
+    "w2": "木",
+    "m1": "亦然；也是",
+    "m2": "海棠；海棠春睡",
+    "src1": "《论语·学而》",
+    "src2": "《诗经·甘棠》",
+    "srcBook1": "《论语·学而》",
+    "srcBook2": "《诗经·甘棠》",
+    "zy": "亦然海棠，灼灼其华",
+    "group": "现代简约"
+  },
+  {
+    "name": "亦雯",
+    "c1": "亦",
+    "c2": "雯",
+    "p": "yì wén",
+    "s1": 6,
+    "s2": 12,
+    "w1": "土",
+    "w2": "水",
+    "m1": "亦然；也是",
+    "m2": "彩云；雯华云纹",
+    "src1": "《论语·学而》",
+    "src2": "",
+    "srcBook1": "《论语·学而》",
+    "srcBook2": "",
+    "zy": "亦然彩云，雯华烂漫",
+    "group": "现代简约"
+  },
+  {
+    "name": "亦琳",
+    "c1": "亦",
+    "c2": "琳",
+    "p": "yì lín",
+    "s1": 6,
+    "s2": 12,
+    "w1": "土",
+    "w2": "木",
+    "m1": "亦然；也是",
+    "m2": "美玉；琳琳如玉",
+    "src1": "《论语·学而》",
+    "src2": "《楚辞·东皇太一》",
+    "srcBook1": "《论语·学而》",
+    "srcBook2": "《楚辞·东皇太一》",
+    "zy": "亦然美玉，琳琅满目",
+    "group": "现代简约"
+  },
+  {
+    "name": "亦淑",
+    "c1": "亦",
+    "c2": "淑",
+    "p": "yì shū",
+    "s1": 6,
+    "s2": 12,
+    "w1": "土",
+    "w2": "水",
+    "m1": "亦然；也是",
+    "m2": "善良；窈窕淑女",
+    "src1": "《论语·学而》",
+    "src2": "《诗经·关雎》",
+    "srcBook1": "《论语·学而》",
+    "srcBook2": "《诗经·关雎》",
+    "zy": "亦然淑善，温婉贞静",
+    "group": "现代简约"
+  },
+  {
+    "name": "知悦",
+    "c1": "知",
+    "c2": "悦",
+    "p": "zhī yuè",
+    "s1": 8,
+    "s2": 10,
+    "w1": "火",
+    "w2": "金",
+    "m1": "知晓；知慧",
+    "m2": "喜悦；心悦诚服",
+    "src1": "《论语·为政》",
+    "src2": "《楚辞·九辩》",
+    "srcBook1": "《论语·为政》",
+    "srcBook2": "《楚辞·九辩》",
+    "zy": "知心喜悦，怡然自得",
+    "group": "现代简约"
+  },
+  {
+    "name": "知桐",
+    "c1": "知",
+    "c2": "桐",
+    "p": "zhī tóng",
+    "s1": 8,
+    "s2": 10,
+    "w1": "火",
+    "w2": "木",
+    "m1": "知晓；知慧",
+    "m2": "梧桐；梧凤之鸣",
+    "src1": "《论语·为政》",
+    "src2": "《诗经·定之方中》",
+    "srcBook1": "《论语·为政》",
+    "srcBook2": "《诗经·定之方中》",
+    "zy": "知音梧桐，凤栖良木",
+    "group": "现代简约"
+  },
+  {
+    "name": "知芷",
+    "c1": "知",
+    "c2": "芷",
+    "p": "zhī zhǐ",
+    "s1": 8,
+    "s2": 10,
+    "w1": "火",
+    "w2": "木",
+    "m1": "知晓；知慧",
+    "m2": "白芷；高洁清雅（屈原香草）",
+    "src1": "《论语·为政》",
+    "src2": "《楚辞·离骚》",
+    "srcBook1": "《论语·为政》",
+    "srcBook2": "《楚辞·离骚》",
+    "zy": "知晓白芷，幽香远溢",
+    "group": "现代简约"
+  },
+  {
+    "name": "念悦",
+    "c1": "念",
+    "c2": "悦",
+    "p": "niàn yuè",
+    "s1": 8,
+    "s2": 10,
+    "w1": "火",
+    "w2": "金",
+    "m1": "思念；念想",
+    "m2": "喜悦；心悦诚服",
+    "src1": "《诗经·小雅·小弁》",
+    "src2": "《楚辞·九辩》",
+    "srcBook1": "《诗经·小雅·小弁》",
+    "srcBook2": "《楚辞·九辩》",
+    "zy": "念中喜悦，心怀欢欣",
+    "group": "现代简约"
+  },
+  {
+    "name": "念素",
+    "c1": "念",
+    "c2": "素",
+    "p": "niàn sù",
+    "s1": 8,
+    "s2": 10,
+    "w1": "火",
+    "w2": "金",
+    "m1": "思念；念想",
+    "m2": "白绢；纯洁素雅",
+    "src1": "《诗经·小雅·小弁》",
+    "src2": "《诗经·羔羊》",
+    "srcBook1": "《诗经·小雅·小弁》",
+    "srcBook2": "《诗经·羔羊》",
+    "zy": "念兹素心，澄静如雪",
+    "group": "现代简约"
+  },
+  {
+    "name": "知晓",
+    "c1": "知",
+    "c2": "晓",
+    "p": "zhī xiǎo",
+    "s1": 8,
+    "s2": 16,
+    "w1": "火",
+    "w2": "火",
+    "m1": "知晓；知慧",
+    "m2": "拂晓；晓光聪慧（简10）",
+    "src1": "《论语·为政》",
+    "src2": "《楚辞·陶壅》",
+    "srcBook1": "《论语·为政》",
+    "srcBook2": "《楚辞·陶壅》",
+    "zy": "知晓晨曦，光而不耀",
+    "group": "现代简约"
+  },
+  {
+    "name": "念晓",
+    "c1": "念",
+    "c2": "晓",
+    "p": "niàn xiǎo",
+    "s1": 8,
+    "s2": 16,
+    "w1": "火",
+    "w2": "火",
+    "m1": "思念；念想",
+    "m2": "拂晓；晓光聪慧（简10）",
+    "src1": "《诗经·小雅·小弁》",
+    "src2": "《楚辞·陶壅》",
+    "srcBook1": "《诗经·小雅·小弁》",
+    "srcBook2": "《楚辞·陶壅》",
+    "zy": "念及晨曦，心怀微光",
+    "group": "现代简约"
+  },
+  {
+    "name": "芷初",
+    "c1": "芷",
+    "c2": "初",
+    "p": "zhǐ chū",
+    "s1": 10,
+    "s2": 7,
+    "w1": "木",
+    "w2": "金",
+    "m1": "白芷；高洁清雅（屈原香草）",
+    "m2": "初始；初心",
+    "src1": "《楚辞·离骚》",
+    "src2": "《诗经·大雅·荡》",
+    "srcBook1": "《楚辞·离骚》",
+    "srcBook2": "《诗经·大雅·荡》",
+    "zy": "白芷初心，芳洁自守",
+    "group": "现代简约"
+  },
+  {
+    "name": "悦初",
+    "c1": "悦",
+    "c2": "初",
+    "p": "yuè chū",
+    "s1": 10,
+    "s2": 7,
+    "w1": "金",
+    "w2": "金",
+    "m1": "喜悦；心悦诚服",
+    "m2": "初始；初心",
+    "src1": "《楚辞·九辩》",
+    "src2": "《诗经·大雅·荡》",
+    "srcBook1": "《楚辞·九辩》",
+    "srcBook2": "《诗经·大雅·荡》",
+    "zy": "悦守初心，不改其乐",
+    "group": "现代简约"
+  },
+  {
+    "name": "素初",
+    "c1": "素",
+    "c2": "初",
+    "p": "sù chū",
+    "s1": 10,
+    "s2": 7,
+    "w1": "金",
+    "w2": "金",
+    "m1": "白绢；纯洁素雅",
+    "m2": "初始；初心",
+    "src1": "《诗经·羔羊》",
+    "src2": "《诗经·大雅·荡》",
+    "srcBook1": "《诗经·羔羊》",
+    "srcBook2": "《诗经·大雅·荡》",
+    "zy": "素守初心，澄澈如初",
+    "group": "现代简约"
+  },
+  {
+    "name": "芮初",
+    "c1": "芮",
+    "c2": "初",
+    "p": "ruì chū",
+    "s1": 10,
+    "s2": 7,
+    "w1": "木",
+    "w2": "金",
+    "m1": "草木初生；稚嫩鲜活",
+    "m2": "初始；初心",
+    "src1": "《诗经·绵》",
+    "src2": "《诗经·大雅·荡》",
+    "srcBook1": "《诗经·绵》",
+    "srcBook2": "《诗经·大雅·荡》",
+    "zy": "芮草初心，生机初萌",
+    "group": "现代简约"
+  },
+  {
+    "name": "悦言",
+    "c1": "悦",
+    "c2": "言",
+    "p": "yuè yán",
+    "s1": 10,
+    "s2": 7,
+    "w1": "金",
+    "w2": "木",
+    "m1": "喜悦；心悦诚服",
+    "m2": "言语；信言",
+    "src1": "《楚辞·九辩》",
+    "src2": "《诗经·卫风·氓》",
+    "srcBook1": "《楚辞·九辩》",
+    "srcBook2": "《诗经·卫风·氓》",
+    "zy": "悦心之言，温言软语",
+    "group": "现代简约"
+  },
+  {
+    "name": "思乐",
+    "c1": "思",
+    "c2": "乐",
+    "p": "sī lè",
+    "s1": 9,
+    "s2": 15,
+    "w1": "金",
+    "w2": "火",
+    "m1": "思考；深思明辨",
+    "m2": "欢乐；乐",
+    "src1": "《诗经·关雎》",
+    "src2": "《论语·学而》",
+    "srcBook1": "《诗经·关雎》",
+    "srcBook2": "《论语·学而》",
+    "zy": "思之乐之，自得其乐",
+    "group": "现代简约"
+  },
+  {
+    "name": "怡乐",
+    "c1": "怡",
+    "c2": "乐",
+    "p": "yí lè",
+    "s1": 9,
+    "s2": 15,
+    "w1": "土",
+    "w2": "火",
+    "m1": "和悦；心旷神怡（五行各异）",
+    "m2": "欢乐；乐",
+    "src1": "《楚辞·哀郢》",
+    "src2": "《论语·学而》",
+    "srcBook1": "《楚辞·哀郢》",
+    "srcBook2": "《论语·学而》",
+    "zy": "怡然自乐，不亦乐乎",
+    "group": "现代简约"
+  },
+  {
+    "name": "纯瑞",
+    "c1": "纯",
+    "c2": "瑞",
+    "p": "chún ruì",
+    "s1": 10,
+    "s2": 14,
+    "w1": "金",
+    "w2": "金",
+    "m1": "纯粹；纯净专注",
+    "m2": "祥瑞；瑞气盈门",
+    "src1": "《诗经·野有死麕》",
+    "src2": "《楚辞·逢尤》",
+    "srcBook1": "《诗经·野有死麕》",
+    "srcBook2": "《楚辞·逢尤》",
+    "zy": "纯心承瑞，祥瑞盈门",
+    "group": "清雅素净"
+  },
+  {
+    "name": "纯溪",
+    "c1": "纯",
+    "c2": "溪",
+    "p": "chún xī",
+    "s1": 10,
+    "s2": 14,
+    "w1": "金",
+    "w2": "水",
+    "m1": "纯粹；纯净专注",
+    "m2": "溪流；溪水潺潺",
+    "src1": "《诗经·野有死麕》",
+    "src2": "《楚辞·招隐士》",
+    "srcBook1": "《诗经·野有死麕》",
+    "srcBook2": "《楚辞·招隐士》",
+    "zy": "纯净如溪，清可见底",
+    "group": "清雅素净"
+  },
+  {
+    "name": "纯菲",
+    "c1": "纯",
+    "c2": "菲",
+    "p": "chún fēi",
+    "s1": 10,
+    "s2": 14,
+    "w1": "金",
+    "w2": "木",
+    "m1": "纯粹；纯净专注",
+    "m2": "芳菲；芳香馥郁",
+    "src1": "《诗经·野有死麕》",
+    "src2": "《诗经·谷风》",
+    "srcBook1": "《诗经·野有死麕》",
+    "srcBook2": "《诗经·谷风》",
+    "zy": "纯净芳菲，清芬远溢",
+    "group": "清雅素净"
+  },
+  {
+    "name": "芷菲",
+    "c1": "芷",
+    "c2": "菲",
+    "p": "zhǐ fēi",
+    "s1": 10,
+    "s2": 14,
+    "w1": "木",
+    "w2": "木",
+    "m1": "白芷；高洁清雅（屈原香草）",
+    "m2": "芳菲；芳香馥郁",
+    "src1": "《楚辞·离骚》",
+    "src2": "《诗经·谷风》",
+    "srcBook1": "《楚辞·离骚》",
+    "srcBook2": "《诗经·谷风》",
+    "zy": "白芷芳菲，幽香满庭",
+    "group": "花木芬芳"
+  },
+  {
+    "name": "芮宁",
+    "c1": "芮",
+    "c2": "宁",
+    "p": "ruì níng",
+    "s1": 10,
+    "s2": 14,
+    "w1": "木",
+    "w2": "火",
+    "m1": "草木初生；稚嫩鲜活",
+    "m2": "安宁；宁静致远（简5/繁14；金火分歧）",
+    "src1": "《诗经·绵》",
+    "src2": "《诗经·葛覃》",
+    "srcBook1": "《诗经·绵》",
+    "srcBook2": "《诗经·葛覃》",
+    "zy": "草木初生，安宁自守",
+    "group": "花木芬芳"
+  },
+  {
+    "name": "芮菡",
+    "c1": "芮",
+    "c2": "菡",
+    "p": "ruì hàn",
+    "s1": 10,
+    "s2": 14,
+    "w1": "木",
+    "w2": "木",
+    "m1": "草木初生；稚嫩鲜活",
+    "m2": "荷花；淡雅高洁",
+    "src1": "《诗经·绵》",
+    "src2": "《诗经·泽陂》",
+    "srcBook1": "《诗经·绵》",
+    "srcBook2": "《诗经·泽陂》",
+    "zy": "草木初萌，菡萏含葩",
+    "group": "花木芬芳"
+  },
+  {
+    "name": "欣瑾",
+    "c1": "欣",
+    "c2": "瑾",
+    "p": "xīn jǐn",
+    "s1": 8,
+    "s2": 16,
+    "w1": "木",
+    "w2": "土",
+    "m1": "欣欣；欢欣喜悦",
+    "m2": "美玉；怀瑾握玉",
+    "src1": "《诗经·凫鹥》",
+    "src2": "《楚辞·怀沙》",
+    "srcBook1": "《诗经·凫鹥》",
+    "srcBook2": "《楚辞·怀沙》",
+    "zy": "欣然美玉，怀瑾握瑜",
+    "group": "美玉珍宝"
+  },
+  {
+    "name": "玥晓",
+    "c1": "玥",
+    "c2": "晓",
+    "p": "yuè xiǎo",
+    "s1": 8,
+    "s2": 16,
+    "w1": "土",
+    "w2": "火",
+    "m1": "神珠；掌上明珠",
+    "m2": "拂晓；晓光聪慧（简10）",
+    "src1": "",
+    "src2": "《楚辞·陶壅》",
+    "srcBook1": "",
+    "srcBook2": "《楚辞·陶壅》",
+    "zy": "神珠拂晓，晨光熹微",
+    "group": "美玉珍宝"
+  },
+  {
+    "name": "玥润",
+    "c1": "玥",
+    "c2": "润",
+    "p": "yuè rùn",
+    "s1": 8,
+    "s2": 16,
+    "w1": "土",
+    "w2": "水",
+    "m1": "神珠；掌上明珠",
+    "m2": "滋润；温润如玉",
+    "src1": "",
+    "src2": "《宋词·古倾杯・倾杯乐》",
+    "srcBook1": "",
+    "srcBook2": "《宋词·古倾杯・倾杯乐》",
+    "zy": "神珠润泽，光彩温润",
+    "group": "美玉珍宝"
+  },
+  {
+    "name": "佳霓",
+    "c1": "佳",
+    "c2": "霓",
+    "p": "jiā ní",
+    "s1": 8,
+    "s2": 16,
+    "w1": "木",
+    "w2": "水",
+    "m1": "美好；佳人美好",
+    "m2": "霓虹；霓裳羽衣",
+    "src1": "《楚辞·湘夫人》",
+    "src2": "《楚辞·离骚》",
+    "srcBook1": "《楚辞·湘夫人》",
+    "srcBook2": "《楚辞·离骚》",
+    "zy": "佳人霓虹，雨后初晴",
+    "group": "喜悦明朗"
+  },
+  {
+    "name": "佳蓉",
+    "c1": "佳",
+    "c2": "蓉",
+    "p": "jiā róng",
+    "s1": 8,
+    "s2": 16,
+    "w1": "木",
+    "w2": "木",
+    "m1": "美好；佳人美好",
+    "m2": "芙蓉；出水芙蓉",
+    "src1": "《楚辞·湘夫人》",
+    "src2": "《楚辞·离骚》",
+    "srcBook1": "《楚辞·湘夫人》",
+    "srcBook2": "《楚辞·离骚》",
+    "zy": "佳人芙蓉，灼灼其华",
+    "group": "喜悦明朗"
+  },
+  {
+    "name": "思慧",
+    "c1": "思",
+    "c2": "慧",
+    "p": "sī huì",
+    "s1": 9,
+    "s2": 15,
+    "w1": "金",
+    "w2": "水",
+    "m1": "思考；深思明辨",
+    "m2": "智慧；兰心蕙质",
+    "src1": "《诗经·关雎》",
+    "src2": "《楚辞·远游》",
+    "srcBook1": "《诗经·关雎》",
+    "srcBook2": "《楚辞·远游》",
+    "zy": "善思聪慧，秀外慧中",
+    "group": "诗意古典"
+  },
+  {
+    "name": "思槿",
+    "c1": "思",
+    "c2": "槿",
+    "p": "sī jǐn",
+    "s1": 9,
+    "s2": 15,
+    "w1": "金",
+    "w2": "木",
+    "m1": "思考；深思明辨",
+    "m2": "木槿；坚韧柔美",
+    "src1": "《诗经·关雎》",
+    "src2": "《唐诗·undefined》",
+    "srcBook1": "《诗经·关雎》",
+    "srcBook2": "《唐诗·undefined》",
+    "zy": "思念木槿，朝开暮落",
+    "group": "诗意古典"
+  },
+  {
+    "name": "思漫",
+    "c1": "思",
+    "c2": "漫",
+    "p": "sī màn",
+    "s1": 9,
+    "s2": 15,
+    "w1": "金",
+    "w2": "水",
+    "m1": "思考；深思明辨",
+    "m2": "烂漫；天真烂漫",
+    "src1": "《诗经·关雎》",
+    "src2": "《楚辞·离骚》",
+    "srcBook1": "《诗经·关雎》",
+    "srcBook2": "《楚辞·离骚》",
+    "zy": "思绪烂漫，天真烂漫",
+    "group": "诗意古典"
+  },
+  {
+    "name": "怡槿",
+    "c1": "怡",
+    "c2": "槿",
+    "p": "yí jǐn",
+    "s1": 9,
+    "s2": 15,
+    "w1": "土",
+    "w2": "木",
+    "m1": "和悦；心旷神怡（五行各异）",
+    "m2": "木槿；坚韧柔美",
+    "src1": "《楚辞·哀郢》",
+    "src2": "《唐诗·undefined》",
+    "srcBook1": "《楚辞·哀郢》",
+    "srcBook2": "《唐诗·undefined》",
+    "zy": "怡然木槿，朝华夕秀",
+    "group": "诗意古典"
+  },
+  {
+    "name": "妍槿",
+    "c1": "妍",
+    "c2": "槿",
+    "p": "yán jǐn",
+    "s1": 9,
+    "s2": 15,
+    "w1": "水",
+    "w2": "木",
+    "m1": "美丽；妍丽动人（简7/康9）",
+    "m2": "木槿；坚韧柔美",
+    "src1": "《宋词·瑞鹧鸪》",
+    "src2": "《唐诗·undefined》",
+    "srcBook1": "《宋词·瑞鹧鸪》",
+    "srcBook2": "《唐诗·undefined》",
+    "zy": "妍丽木槿，灼灼其华",
+    "group": "诗意古典"
+  },
+  {
+    "name": "妍漫",
+    "c1": "妍",
+    "c2": "漫",
+    "p": "yán màn",
+    "s1": 9,
+    "s2": 15,
+    "w1": "水",
+    "w2": "水",
+    "m1": "美丽；妍丽动人（简7/康9）",
+    "m2": "烂漫；天真烂漫",
+    "src1": "《宋词·瑞鹧鸪》",
+    "src2": "《楚辞·离骚》",
+    "srcBook1": "《宋词·瑞鹧鸪》",
+    "srcBook2": "《楚辞·离骚》",
+    "zy": "妍丽烂漫，天真烂漫",
+    "group": "诗意古典"
+  },
+  {
+    "name": "安棠",
+    "c1": "安",
+    "c2": "棠",
+    "p": "ān táng",
+    "s1": 6,
+    "s2": 12,
+    "w1": "土",
+    "w2": "木",
+    "m1": "平安；安居乐业",
+    "m2": "海棠；海棠春睡",
+    "src1": "《诗经·无衣》",
+    "src2": "《诗经·甘棠》",
+    "srcBook1": "《诗经·无衣》",
+    "srcBook2": "《诗经·甘棠》",
+    "zy": "安然海棠，岁月静好",
+    "group": "灵动秀美"
+  },
+  {
+    "name": "安涵",
+    "c1": "安",
+    "c2": "涵",
+    "p": "ān hán",
+    "s1": 6,
+    "s2": 12,
+    "w1": "土",
+    "w2": "水",
+    "m1": "平安；安居乐业",
+    "m2": "涵蓄；涵养深厚（重名极高）",
+    "src1": "《诗经·无衣》",
+    "src2": "《诗经·巧言》",
+    "srcBook1": "《诗经·无衣》",
+    "srcBook2": "《诗经·巧言》",
+    "zy": "安然涵蓄，内有丘壑",
+    "group": "灵动秀美"
+  },
+  {
+    "name": "安琪",
+    "c1": "安",
+    "c2": "琪",
+    "p": "ān qí",
+    "s1": 6,
+    "s2": 12,
+    "w1": "土",
+    "w2": "木",
+    "m1": "平安；安居乐业",
+    "m2": "美玉；琪树瑶花",
+    "src1": "《诗经·无衣》",
+    "src2": "《宋词·巫山一段云》",
+    "srcBook1": "《诗经·无衣》",
+    "srcBook2": "《宋词·巫山一段云》",
+    "zy": "安然美玉，如玉之莹",
+    "group": "灵动秀美"
+  },
+  {
+    "name": "安清",
+    "c1": "安",
+    "c2": "清",
+    "p": "ān qīng",
+    "s1": 6,
+    "s2": 12,
+    "w1": "土",
+    "w2": "水",
+    "m1": "平安；安居乐业",
+    "m2": "清澈；清正明朗",
+    "src1": "《诗经·无衣》",
+    "src2": "《诗经·君子偕老》",
+    "srcBook1": "《诗经·无衣》",
+    "srcBook2": "《诗经·君子偕老》",
+    "zy": "安然清澈，澄明如水",
+    "group": "灵动秀美"
+  },
+  {
+    "name": "安舒",
+    "c1": "安",
+    "c2": "舒",
+    "p": "ān shū",
+    "s1": 6,
+    "s2": 12,
+    "w1": "土",
+    "w2": "金",
+    "m1": "平安；安居乐业",
+    "m2": "舒展；舒泰安逸",
+    "src1": "《诗经·无衣》",
+    "src2": "《诗经·野有死麕》",
+    "srcBook1": "《诗经·无衣》",
+    "srcBook2": "《诗经·野有死麕》",
+    "zy": "安然舒展，从容自若",
+    "group": "灵动秀美"
+  },
+  {
+    "name": "安斯",
+    "c1": "安",
+    "c2": "斯",
+    "p": "ān sī",
+    "s1": 6,
+    "s2": 12,
+    "w1": "土",
+    "w2": "金",
+    "m1": "平安；安居乐业",
+    "m2": "斯文；斯文儒雅",
+    "src1": "《诗经·无衣》",
+    "src2": "《诗经·螽斯》",
+    "srcBook1": "《诗经·无衣》",
+    "srcBook2": "《诗经·螽斯》",
+    "zy": "安然斯文，温文尔雅",
     "group": "灵动秀美"
   }
 ];

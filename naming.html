@@ -9,20 +9,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;600;700;900&family=Ma+Shan+Zheng&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
 <style>
 :root{
-  /* 墨色系 */
   --ink:#26221d; --ink2:#5c554b; --ink3:#9a9186; --ink4:#c4bbb0;
-  /* 宣纸系 */
   --paper:#f5efe4; --paper2:#ede5d6; --paper3:#e3d9c6;
   --card:#fdfaf3; --card2:#faf4e8;
-  /* 朱砂 */
   --cinnabar:#a8362c; --cinnabar2:#c44a3e; --cinnabar3:#d9695d;
-  /* 赭金 */
   --gold:#9c7a35; --gold2:#b8924a; --gold3:#d4b06a;
-  /* 青瓷 */
   --jade:#557a6a; --jade2:#7a9a8a;
-  /* 黛蓝 */
   --indigo:#3a5a7a;
-  /* 边线 */
   --line:#ddd1bc; --line2:#e8dec9;
   --sh1:0 1px 3px rgba(80,60,30,.05),0 1px 2px rgba(80,60,30,.03);
   --sh2:0 4px 14px rgba(80,60,30,.08),0 2px 6px rgba(80,60,30,.04);
@@ -39,24 +32,10 @@ body{font-family:var(--sans);background:var(--paper);color:var(--ink);min-height
   background-image:radial-gradient(circle at 12% 18%,rgba(156,122,53,.05),transparent 40%),radial-gradient(circle at 88% 82%,rgba(85,122,106,.05),transparent 40%);
 }
 
-/* ===== 顶部横幅 ===== */
-.hero{
-  position:relative;overflow:hidden;
-  background:
-    radial-gradient(ellipse at 20% 50%,rgba(168,54,44,.14),transparent 55%),
-    radial-gradient(ellipse at 85% 60%,rgba(156,122,53,.12),transparent 50%),
-    linear-gradient(135deg,#241f1a 0%,#3a3026 55%,#2b241d 100%);
-  color:#f3ead9;padding:2.4rem 2rem 2rem;text-align:center;
-}
+.hero{position:relative;overflow:hidden;background:radial-gradient(ellipse at 20% 50%,rgba(168,54,44,.14),transparent 55%),radial-gradient(ellipse at 85% 60%,rgba(156,122,53,.12),transparent 50%),linear-gradient(135deg,#241f1a 0%,#3a3026 55%,#2b241d 100%);color:#f3ead9;padding:2.4rem 2rem 2rem;text-align:center}
 .hero::after{content:'';position:absolute;left:50%;bottom:0;transform:translateX(-50%);width:60%;height:1px;background:linear-gradient(90deg,transparent,rgba(212,176,106,.5),transparent)}
 .hero .inner{position:relative;z-index:2;display:inline-flex;align-items:center;gap:1.1rem}
-.hero .seal{
-  background:var(--cinnabar);color:#f5ede0;font-family:var(--brush);
-  width:3.2rem;height:3.2rem;display:flex;align-items:center;justify-content:center;
-  font-size:1.5rem;border-radius:7px;transform:rotate(-4deg);
-  box-shadow:0 0 0 2px rgba(245,237,224,.15) inset,0 4px 12px rgba(0,0,0,.25);
-  position:relative;
-}
+.hero .seal{background:var(--cinnabar);color:#f5ede0;font-family:var(--brush);width:3.2rem;height:3.2rem;display:flex;align-items:center;justify-content:center;font-size:1.5rem;border-radius:7px;transform:rotate(-4deg);box-shadow:0 0 0 2px rgba(245,237,224,.15) inset,0 4px 12px rgba(0,0,0,.25);position:relative}
 .hero .seal::before{content:'';position:absolute;inset:3px;border:1px solid rgba(245,237,224,.25);border-radius:5px}
 .hero .titlewrap{text-align:left}
 .hero .title{font-family:var(--xw);font-weight:400;font-size:2rem;letter-spacing:.3rem;line-height:1;color:#f3ead9}
@@ -64,48 +43,29 @@ body{font-family:var(--sans);background:var(--paper);color:var(--ink);min-height
 .hero .sub{font-family:var(--serif);font-weight:300;font-size:.74rem;letter-spacing:.25rem;color:rgba(243,234,217,.6);margin-top:.5rem}
 .hero .meta{position:absolute;top:1.3rem;right:1.6rem;font-family:var(--serif);font-size:.66rem;letter-spacing:.15rem;color:rgba(243,234,217,.4);writing-mode:vertical-rl}
 
-/* ===== 布局 ===== */
 .wrap{display:flex;gap:1.4rem;max-width:1320px;margin:0 auto;padding:1.4rem;align-items:flex-start}
-.sidebar{
-  width:266px;flex-shrink:0;position:sticky;top:1.4rem;
-  max-height:calc(100vh - 2.8rem);overflow-y:auto;
-  display:flex;flex-direction:column;gap:.85rem;padding-right:4px;
-}
+.sidebar{width:266px;flex-shrink:0;position:sticky;top:1.4rem;max-height:calc(100vh - 2.8rem);overflow-y:auto;display:flex;flex-direction:column;gap:.85rem;padding-right:4px}
 .sidebar::-webkit-scrollbar{width:5px}
 .sidebar::-webkit-scrollbar-track{background:transparent}
 .sidebar::-webkit-scrollbar-thumb{background:var(--line);border-radius:3px}
 .sidebar::-webkit-scrollbar-thumb:hover{background:var(--gold2)}
 
-.card{
-  background:var(--card);border-radius:var(--r);padding:1rem 1.15rem;
-  box-shadow:var(--sh1);border:1px solid var(--line2);
-}
-.card h3{
-  font-family:var(--serif);font-weight:600;font-size:.88rem;color:var(--ink);
-  margin-bottom:.75rem;padding-bottom:.55rem;
-  display:flex;align-items:center;gap:.5rem;
-  border-bottom:1px solid var(--line2);
-}
+.card{background:var(--card);border-radius:var(--r);padding:1rem 1.15rem;box-shadow:var(--sh1);border:1px solid var(--line2)}
+.card h3{font-family:var(--serif);font-weight:600;font-size:.88rem;color:var(--ink);margin-bottom:.75rem;padding-bottom:.55rem;display:flex;align-items:center;gap:.5rem;border-bottom:1px solid var(--line2)}
 .card h3::before{content:'';width:3px;height:13px;background:var(--cinnabar);border-radius:1px;flex-shrink:0}
 .card h3 .en{font-family:var(--serif);font-weight:300;font-size:.62rem;color:var(--ink3);letter-spacing:.1rem;margin-left:auto;text-transform:uppercase}
 
-/* 八字 */
 .bz-field{margin-bottom:.55rem}
 .bz-field label{display:block;font-size:.68rem;color:var(--ink3);margin-bottom:.2rem;letter-spacing:.05rem}
-.bz-input{
-  width:100%;font-family:var(--serif);font-size:.92rem;
-  padding:.42rem .55rem;border:1px solid var(--line);border-radius:var(--rs);
-  background:var(--paper);color:var(--ink);transition:all .18s;
-}
+.bz-input{width:100%;font-family:var(--serif);font-size:.92rem;padding:.42rem .55rem;border:1px solid var(--line);border-radius:var(--rs);background:var(--paper);color:var(--ink);transition:all .18s}
 .bz-input:focus{outline:none;border-color:var(--gold2);background:var(--card);box-shadow:0 0 0 3px rgba(156,122,53,.1)}
 select.bz-input{cursor:pointer;appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--ink3) 50%),linear-gradient(135deg,var(--ink3) 50%,transparent 50%);background-position:calc(100% - 12px) calc(50% - 2px),calc(100% - 8px) calc(50% - 2px);background-size:4px 4px,4px 4px;background-repeat:no-repeat;padding-right:1.6rem}
+.recommend-btn{width:100%;margin-top:.7rem;padding:.5rem;border-radius:var(--rs);border:none;background:linear-gradient(135deg,var(--cinnabar),var(--cinnabar2));color:#fff;cursor:pointer;font-size:.82rem;font-family:var(--sans);letter-spacing:.08rem;transition:all .18s;box-shadow:0 2px 8px rgba(168,54,44,.25)}
+.recommend-btn:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(168,54,44,.35)}
+.recommend-btn:disabled{background:var(--ink4);box-shadow:none;cursor:not-allowed;opacity:.6}
 
 .bz-pillars{display:flex;gap:.35rem;margin-top:.7rem;justify-content:space-between}
-.bz-pillars .pz{
-  flex:1;font-family:var(--serif);font-weight:500;font-size:.92rem;
-  padding:.28rem .2rem;border-radius:6px;background:var(--card2);color:var(--ink);
-  text-align:center;border:1px solid var(--line2);transition:all .2s;
-}
+.bz-pillars .pz{flex:1;font-family:var(--serif);font-weight:500;font-size:.92rem;padding:.28rem .2rem;border-radius:6px;background:var(--card2);color:var(--ink);text-align:center;border:1px solid var(--line2);transition:all .2s}
 .bz-pillars .pz .lb{display:block;font-size:.52rem;color:var(--ink3);letter-spacing:.15rem;margin-bottom:.1rem;font-weight:400}
 .bz-pillars .pz.empty{color:var(--ink4)}
 .bz-pillars .pz.has-val{background:linear-gradient(135deg,var(--card2),var(--paper2));border-color:var(--gold3)}
@@ -120,49 +80,27 @@ select.bz-input{cursor:pointer;appearance:none;background-image:linear-gradient(
 .wxcount .火{background:rgba(168,54,44,.16);color:var(--cinnabar)}
 .wxcount .土{background:rgba(139,90,43,.16);color:#8b5a2b}
 
-/* chips */
 .chips{display:flex;flex-wrap:wrap;gap:.28rem}
-.chip{
-  padding:.26rem .62rem;border-radius:16px;border:1px solid var(--line);
-  background:var(--paper);cursor:pointer;font-size:.74rem;color:var(--ink2);
-  transition:all .18s;user-select:none;line-height:1.2;
-}
+.chip{padding:.26rem .62rem;border-radius:16px;border:1px solid var(--line);background:var(--paper);cursor:pointer;font-size:.74rem;color:var(--ink2);transition:all .18s;user-select:none;line-height:1.2}
 .chip:hover{border-color:var(--gold2);color:var(--ink);background:var(--card2)}
 .chip.active{background:var(--ink);color:#f3ead9;border-color:var(--ink);box-shadow:0 1px 4px rgba(38,34,29,.25)}
 .chip.danger{border-color:rgba(196,74,62,.4);color:var(--cinnabar)}
 .chip.danger.active{background:var(--cinnabar);color:#fff;border-color:var(--cinnabar)}
-
 .combo-note{font-size:.76rem;color:var(--ink2);line-height:1.9}
 .combo-note b{color:var(--ink);font-family:var(--serif)}
 .combo-note .star{color:var(--cinnabar)}
 
-/* ===== 主区 ===== */
 .main{flex:1;min-width:0}
-
-/* 姓名组装条 */
-.main-top{
-  background:linear-gradient(135deg,var(--card),var(--card2));
-  border-radius:var(--r);padding:1.2rem 1.5rem;box-shadow:var(--sh2);
-  margin-bottom:1rem;display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;
-  border:1px solid var(--line2);position:relative;overflow:hidden;
-}
+.main-top{background:linear-gradient(135deg,var(--card),var(--card2));border-radius:var(--r);padding:1.2rem 1.5rem;box-shadow:var(--sh2);margin-bottom:1rem;display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;border:1px solid var(--line2);position:relative;overflow:hidden}
 .main-top::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--cinnabar),var(--gold2))}
 .name-assemble{display:flex;align-items:baseline;gap:.3rem}
 .name-assemble .xing{font-family:var(--serif);font-weight:600;font-size:2.1rem;color:var(--gold);line-height:1}
-.name-assemble .slot{
-  font-family:var(--serif);font-weight:500;font-size:2.1rem;width:2.6rem;
-  text-align:center;border:none;border-bottom:2px solid var(--line);
-  background:transparent;color:var(--ink);cursor:pointer;transition:all .2s;line-height:1.1;
-}
+.name-assemble .slot{font-family:var(--serif);font-weight:500;font-size:2.1rem;width:2.6rem;text-align:center;border:none;border-bottom:2px solid var(--line);background:transparent;color:var(--ink);cursor:pointer;transition:all .2s;line-height:1.1}
 .name-assemble .slot.filled{border-bottom-color:var(--cinnabar)}
 .name-assemble .slot:empty::before{content:'·';color:var(--ink4)}
 .name-assemble .slot:hover{border-bottom-color:var(--gold2)}
-
 .wuge-row{display:flex;gap:.4rem;margin-left:auto;flex-wrap:wrap}
-.wg{
-  text-align:center;padding:.32rem .5rem;background:var(--paper);
-  border-radius:6px;min-width:2.9rem;border:1px solid var(--line2);transition:all .2s;
-}
+.wg{text-align:center;padding:.32rem .5rem;background:var(--paper);border-radius:6px;min-width:2.9rem;border:1px solid var(--line2);transition:all .2s}
 .wg .v{display:block;font-family:var(--serif);font-weight:700;font-size:1.02rem;line-height:1.2}
 .wg .l{font-size:.54rem;color:var(--ink3);letter-spacing:.12rem;margin-top:.05rem}
 .wg .v.ji{color:var(--jade)}
@@ -171,40 +109,50 @@ select.bz-input{cursor:pointer;appearance:none;background-image:linear-gradient(
 .wg.ji-bg{background:rgba(85,122,106,.1);border-color:rgba(85,122,106,.3)}
 .wg.xiong-bg{background:rgba(168,54,44,.08);border-color:rgba(168,54,44,.25)}
 
-.name-result{margin-bottom:1rem}
-.name-card{
-  display:inline-flex;align-items:center;gap:1rem;
-  background:linear-gradient(135deg,var(--card),var(--card2));
-  border-radius:var(--r);padding:.7rem 1.3rem;box-shadow:var(--sh3);
-  margin-right:.6rem;border:1px solid var(--gold3);
-  position:relative;
-}
-.name-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--cinnabar);border-radius:3px 0 0 3px}
-.name-card .full-name{font-family:var(--serif);font-weight:600;font-size:1.4rem;letter-spacing:.18rem;color:var(--ink)}
-.name-card .wuge-sum{font-size:.7rem;color:var(--ink3)}
-.name-card .all-ji{color:var(--jade);font-weight:700;font-family:var(--serif);margin-left:.3rem}
+/* 推荐结果 */
+.rec-section{margin-bottom:1rem}
+.rec-section .rec-head{font-family:var(--serif);font-weight:600;font-size:.9rem;color:var(--ink);margin-bottom:.6rem;display:flex;align-items:center;gap:.5rem}
+.rec-section .rec-head::before{content:'';width:3px;height:13px;background:var(--gold2);border-radius:1px}
+.rec-section .rec-head .hint{font-weight:400;font-size:.72rem;color:var(--ink3)}
+.rec-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:.6rem}
+.rec-card{background:var(--card);border:1px solid var(--line2);border-radius:var(--rs);padding:.7rem .85rem;cursor:pointer;transition:all .18s;box-shadow:var(--sh1)}
+.rec-card:hover{transform:translateY(-2px);box-shadow:var(--sh3);border-color:var(--gold2)}
+.rec-card .rc-name{font-family:var(--serif);font-weight:600;font-size:1.25rem;letter-spacing:.12rem;color:var(--ink)}
+.rec-card .rc-wuge{font-size:.66rem;color:var(--ink3);margin-top:.15rem}
+.rec-card .rc-ji{color:var(--jade);font-weight:600}
+.rec-card .rc-mean{font-size:.7rem;color:var(--ink2);margin-top:.35rem;line-height:1.5;font-family:var(--serif)}
+.rec-card .rc-src{font-size:.64rem;color:var(--ink3);margin-top:.2rem}
+
+/* 名字解读面板 */
+.interpret{margin-bottom:1rem;background:linear-gradient(135deg,var(--card),var(--card2));border:1px solid var(--gold3);border-radius:var(--r);box-shadow:var(--sh2);overflow:hidden}
+.interpret .ip-top{background:linear-gradient(135deg,#3a3026,#241f1a);color:#f3ead9;padding:1.3rem 1.6rem;text-align:center;position:relative}
+.interpret .ip-top::after{content:'';position:absolute;left:50%;bottom:0;transform:translateX(-50%);width:40%;height:1px;background:linear-gradient(90deg,transparent,var(--gold3),transparent)}
+.interpret .ip-name{font-family:var(--serif);font-weight:600;font-size:2.4rem;letter-spacing:.2rem;line-height:1.1}
+.interpret .ip-py{font-size:.78rem;color:rgba(243,234,217,.55);margin-top:.35rem;letter-spacing:.2rem}
+.interpret .ip-tag{display:inline-block;margin-top:.5rem;font-size:.66rem;padding:.12rem .5rem;border-radius:10px;background:rgba(85,122,106,.25);color:#bfe3d0;letter-spacing:.08rem}
+.interpret .ip-body{padding:1.1rem 1.4rem}
+.interpret .ip-char{display:flex;gap:.8rem;padding:.7rem 0;border-bottom:1px dashed var(--line2)}
+.interpret .ip-char:last-of-type{border-bottom:none}
+.interpret .ip-char .ic-big{font-family:var(--serif);font-weight:600;font-size:1.8rem;color:var(--gold);flex-shrink:0;width:2.2rem;text-align:center;line-height:1.2}
+.interpret .ip-char .ic-info{flex:1}
+.interpret .ip-char .ic-line1{font-size:.76rem;color:var(--ink3);margin-bottom:.25rem}
+.interpret .ip-char .ic-line1 b{color:var(--ink);font-family:var(--serif);font-weight:600}
+.interpret .ip-char .ic-mean{font-family:var(--serif);font-size:.84rem;color:var(--ink2);line-height:1.65}
+.interpret .ip-char .ic-src{font-size:.7rem;color:var(--ink3);margin-top:.2rem;font-family:var(--serif)}
+.interpret .ip-wuge{margin-top:.6rem;padding:.6rem .8rem;background:var(--paper);border-radius:var(--rs);font-size:.74rem;color:var(--ink2);font-family:var(--serif)}
+.interpret .ip-wuge b{color:var(--ink)}
+.interpret .ip-wuge .ji-tag{color:var(--jade);font-weight:600}
+.interpret .ip-zongyi{margin-top:.6rem;padding:.7rem .9rem;background:linear-gradient(135deg,var(--paper),var(--paper2));border-radius:var(--rs);border-left:3px solid var(--cinnabar);font-family:var(--serif);font-size:.82rem;line-height:1.8;color:var(--ink2)}
+.interpret .ip-zongyi .zl{font-weight:600;color:var(--ink);font-size:.74rem;letter-spacing:.1rem;display:block;margin-bottom:.2rem}
 
 .toolbar{display:flex;align-items:center;gap:.8rem;margin-bottom:.75rem;flex-wrap:wrap;padding:0 .2rem}
 .tool-count{font-size:.78rem;color:var(--ink3)}
 .tool-count b{color:var(--ink);font-family:var(--serif);font-weight:600}
 .btn{padding:.42rem 1.1rem;border-radius:var(--rs);border:1px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer;font-size:.78rem;transition:all .18s;font-family:var(--sans);letter-spacing:.05rem}
 .btn:hover{background:var(--ink);color:#f3ead9}
-.btn.pri{background:var(--cinnabar);color:#fff;border-color:var(--cinnabar)}
-.btn.pri:hover{background:var(--cinnabar2)}
 
-/* ===== 字格 grid ===== */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(78px,1fr));
-  gap:.55rem;
-}
-.cell{
-  background:var(--card);border-radius:var(--rs);
-  padding:.6rem .2rem .45rem;text-align:center;
-  box-shadow:var(--sh1);cursor:pointer;
-  transition:transform .18s cubic-bezier(.4,0,.2,1),box-shadow .18s,border-color .18s;
-  position:relative;border:1px solid var(--line2);overflow:hidden;
-}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(78px,1fr));gap:.55rem}
+.cell{background:var(--card);border-radius:var(--rs);padding:.6rem .2rem .45rem;text-align:center;box-shadow:var(--sh1);cursor:pointer;transition:transform .18s cubic-bezier(.4,0,.2,1),box-shadow .18s,border-color .18s;position:relative;border:1px solid var(--line2);overflow:hidden}
 .cell::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,transparent 40%,rgba(156,122,53,.06));opacity:0;transition:opacity .2s}
 .cell:hover{transform:translateY(-3px);box-shadow:var(--sh3);border-color:var(--gold2)}
 .cell:hover::before{opacity:1}
@@ -214,34 +162,15 @@ select.bz-input{cursor:pointer;appearance:none;background-image:linear-gradient(
 .cell .ch{font-family:var(--serif);font-weight:500;font-size:1.7rem;display:block;line-height:1.25;color:inherit}
 .cell .py{font-size:.56rem;color:var(--ink3);display:block;line-height:1.2;margin-top:.05rem;font-family:var(--sans)}
 .cell .meta{font-size:.56rem;color:var(--ink3);display:block;margin-top:.08rem;letter-spacing:.02rem}
-.cell .wx-dot{
-  position:absolute;top:6px;right:6px;width:7px;height:7px;border-radius:50%;
-  box-shadow:0 0 0 1.5px rgba(255,255,255,.7);
-}
-.cell .wx-dot.金{background:var(--gold)}
-.cell .wx-dot.木{background:var(--jade)}
-.cell .wx-dot.水{background:var(--indigo)}
-.cell .wx-dot.火{background:var(--cinnabar)}
-.cell .wx-dot.土{background:#8b5a2b}
+.cell .wx-dot{position:absolute;top:6px;right:6px;width:7px;height:7px;border-radius:50%;box-shadow:0 0 0 1.5px rgba(255,255,255,.7)}
+.cell .wx-dot.金{background:var(--gold)} .cell .wx-dot.木{background:var(--jade)} .cell .wx-dot.水{background:var(--indigo)} .cell .wx-dot.火{background:var(--cinnabar)} .cell .wx-dot.土{background:#8b5a2b}
 
-/* ===== 详情弹窗 ===== */
-.detail-overlay{
-  position:fixed;inset:0;background:rgba(38,34,29,.45);
-  z-index:100;display:none;align-items:center;justify-content:center;
-  backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);
-}
+.detail-overlay{position:fixed;inset:0;background:rgba(38,34,29,.45);z-index:100;display:none;align-items:center;justify-content:center;backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
 .detail-overlay.show{display:flex;animation:fadeIn .2s ease}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
-.detail-box{
-  background:var(--card);border-radius:16px;width:480px;max-width:92vw;
-  padding:0;box-shadow:0 12px 48px rgba(38,34,29,.25);position:relative;
-  overflow:hidden;animation:popIn .28s cubic-bezier(.34,1.56,.64,1);
-}
+.detail-box{background:var(--card);border-radius:16px;width:480px;max-width:92vw;padding:0;box-shadow:0 12px 48px rgba(38,34,29,.25);position:relative;overflow:hidden;animation:popIn .28s cubic-bezier(.34,1.56,.64,1)}
 @keyframes popIn{from{opacity:0;transform:scale(.92) translateY(8px)}to{opacity:1;transform:scale(1) translateY(0)}}
-.detail-box .db-top{
-  background:linear-gradient(135deg,#3a3026,#241f1a);color:#f3ead9;
-  padding:1.8rem 2rem 1.4rem;text-align:center;position:relative;
-}
+.detail-box .db-top{background:linear-gradient(135deg,#3a3026,#241f1a);color:#f3ead9;padding:1.8rem 2rem 1.4rem;text-align:center;position:relative}
 .detail-box .db-top::after{content:'';position:absolute;left:50%;bottom:0;transform:translateX(-50%);width:40%;height:1px;background:linear-gradient(90deg,transparent,var(--gold3),transparent)}
 .detail-box .close-btn{position:absolute;top:.9rem;right:1.1rem;background:rgba(255,255,255,.12);border:none;width:1.6rem;height:1.6rem;border-radius:50%;font-size:1rem;color:#f3ead9;cursor:pointer;transition:background .18s}
 .detail-box .close-btn:hover{background:rgba(255,255,255,.25)}
@@ -251,23 +180,11 @@ select.bz-input{cursor:pointer;appearance:none;background-image:linear-gradient(
 .detail-box .info-list{display:grid;grid-template-columns:auto 1fr;gap:.55rem 1rem;font-size:.88rem}
 .detail-box .info-list dt{color:var(--ink3);text-align:right;font-family:var(--serif)}
 .detail-box .info-list dd{font-family:var(--serif);color:var(--ink)}
-.detail-box .source-quote{
-  margin-top:1rem;padding:.75rem 1rem;background:var(--paper2);
-  border-radius:var(--rs);border-left:3px solid var(--gold2);
-  font-family:var(--serif);font-size:.82rem;line-height:1.8;color:var(--ink2);
-}
+.detail-box .source-quote{margin-top:1rem;padding:.75rem 1rem;background:var(--paper2);border-radius:var(--rs);border-left:3px solid var(--gold2);font-family:var(--serif);font-size:.82rem;line-height:1.8;color:var(--ink2)}
 .detail-box .acts{margin-top:1.2rem;display:flex;gap:.6rem;justify-content:flex-end}
-
 .empty{text-align:center;padding:3rem;color:var(--ink3);font-size:.9rem}
-.empty::before{content:'';display:block;font-size:2rem;margin-bottom:.5rem;opacity:.3}
 
-@media(max-width:920px){
-  .wrap{flex-direction:column;padding:1rem}
-  .sidebar{width:100%;position:relative;max-height:none;flex-direction:row;flex-wrap:wrap;padding-right:0}
-  .sidebar .card{flex:1;min-width:150px}
-  .hero .meta{display:none}
-  .grid{grid-template-columns:repeat(auto-fill,minmax(68px,1fr))}
-}
+@media(max-width:920px){.wrap{flex-direction:column;padding:1rem}.sidebar{width:100%;position:relative;max-height:none;flex-direction:row;flex-wrap:wrap;padding-right:0}.sidebar .card{flex:1;min-width:150px}.hero .meta{display:none}.grid{grid-template-columns:repeat(auto-fill,minmax(68px,1fr))}}
 </style>
 </head>
 <body>
@@ -287,26 +204,11 @@ select.bz-input{cursor:pointer;appearance:none;background-image:linear-gradient(
 <aside class="sidebar">
   <div class="card">
     <h3>生辰八字 <span class="en">bazi</span></h3>
-    <div class="bz-field">
-      <label>出生日期（公历）</label>
-      <input class="bz-input" type="date" id="bzDate" value="2027-01-02" min="2026-12-15" max="2027-01-10">
-    </div>
-    <div class="bz-field">
-      <label>出生时辰</label>
+    <div class="bz-field"><label>出生日期（公历）</label><input class="bz-input" type="date" id="bzDate" value="2027-01-02" min="2026-12-15" max="2027-01-10"></div>
+    <div class="bz-field"><label>出生时辰</label>
       <select class="bz-input" id="bzHour">
         <option value="-1">未知 / 不填</option>
-        <option value="0">子时 23–1点</option>
-        <option value="1">丑时 1–3点</option>
-        <option value="2">寅时 3–5点</option>
-        <option value="3">卯时 5–7点</option>
-        <option value="4">辰时 7–9点</option>
-        <option value="5">巳时 9–11点</option>
-        <option value="6" selected>午时 11–13点</option>
-        <option value="7">未时 13–15点</option>
-        <option value="8">申时 15–17点</option>
-        <option value="9">酉时 17–19点</option>
-        <option value="10">戌时 19–21点</option>
-        <option value="11">亥时 21–23点</option>
+        <option value="0">子时 23–1点</option><option value="1">丑时 1–3点</option><option value="2">寅时 3–5点</option><option value="3">卯时 5–7点</option><option value="4">辰时 7–9点</option><option value="5">巳时 9–11点</option><option value="6" selected>午时 11–13点</option><option value="7">未时 13–15点</option><option value="8">申时 15–17点</option><option value="9">酉时 17–19点</option><option value="10">戌时 19–21点</option><option value="11">亥时 21–23点</option>
       </select>
     </div>
     <div class="bz-pillars" id="bzPillars">
@@ -316,49 +218,19 @@ select.bz-input{cursor:pointer;appearance:none;background-image:linear-gradient(
       <div class="pz empty"><span class="lb">时</span><span id="pHour">——</span></div>
     </div>
     <div class="xiyong" id="xiyongDisplay">选择日期与时辰后自动推算</div>
+    <button class="recommend-btn" id="recBtn" onclick="recommend()">根据八字推荐名字 →</button>
   </div>
-  <div class="card">
-    <h3>笔画 <span class="en">strokes</span></h3>
-    <div class="chips" id="strokeChips"></div>
-  </div>
-  <div class="card">
-    <h3>五行 <span class="en">wuxing</span></h3>
-    <div class="chips" id="wxChips"></div>
-  </div>
-  <div class="card">
-    <h3>风格 <span class="en">style</span></h3>
-    <div class="chips" id="styleChips"></div>
-  </div>
-  <div class="card">
-    <h3>性别 <span class="en">gender</span></h3>
-    <div class="chips" id="genderChips">
-      <span class="chip" data-g="女" onclick="gndr('女',this)">女</span>
-      <span class="chip" data-g="通用" onclick="gndr('通用',this)">通用</span>
-      <span class="chip" data-g="男" onclick="gndr('男',this)">男</span>
-    </div>
-  </div>
-  <div class="card">
-    <h3>排除 <span class="en">exclude</span></h3>
-    <div class="chips" id="excludeChips"></div>
-  </div>
-  <div class="card">
-    <h3>五格大吉组合 <span class="en">wuge</span></h3>
-    <div class="combo-note">
-      刘 = 15画（康熙）<br>
-      <span class="star">★</span> <b>10 + 14</b> 全吉最优<br>
-      <b>8 + 16</b> · <b>9 + 15</b> · <b>10 + 7</b><br>
-      <b>8 + 10</b> · <b>10 + 6</b> · <b>6 + 12</b>
-    </div>
-  </div>
+  <div class="card"><h3>笔画 <span class="en">strokes</span></h3><div class="chips" id="strokeChips"></div></div>
+  <div class="card"><h3>五行 <span class="en">wuxing</span></h3><div class="chips" id="wxChips"></div></div>
+  <div class="card"><h3>风格 <span class="en">style</span></h3><div class="chips" id="styleChips"></div></div>
+  <div class="card"><h3>性别 <span class="en">gender</span></h3><div class="chips" id="genderChips"><span class="chip" data-g="女" onclick="gndr('女',this)">女</span><span class="chip" data-g="通用" onclick="gndr('通用',this)">通用</span><span class="chip" data-g="男" onclick="gndr('男',this)">男</span></div></div>
+  <div class="card"><h3>排除 <span class="en">exclude</span></h3><div class="chips" id="excludeChips"></div></div>
+  <div class="card"><h3>五格大吉组合 <span class="en">wuge</span></h3><div class="combo-note">刘 = 15画（康熙）<br><span class="star">★</span> <b>10 + 14</b> 全吉最优<br><b>8 + 16</b> · <b>9 + 15</b> · <b>10 + 7</b><br><b>8 + 10</b> · <b>10 + 6</b> · <b>6 + 12</b></div></div>
 </aside>
 
 <main class="main">
   <div class="main-top">
-    <div class="name-assemble">
-      <span class="xing">刘</span>
-      <span class="slot" id="slotA"></span>
-      <span class="slot" id="slotB"></span>
-    </div>
+    <div class="name-assemble"><span class="xing">刘</span><span class="slot" id="slotA"></span><span class="slot" id="slotB"></span></div>
     <div class="wuge-row" id="wugeRow">
       <div class="wg"><span class="v idle" id="g1">—</span><span class="l">天格</span></div>
       <div class="wg"><span class="v idle" id="g2">—</span><span class="l">人格</span></div>
@@ -368,17 +240,16 @@ select.bz-input{cursor:pointer;appearance:none;background-image:linear-gradient(
     </div>
     <button class="btn" onclick="clrName()">清空</button>
   </div>
-  <div class="name-result" id="nameResult"></div>
-  <div class="toolbar">
-    <span class="tool-count">显示 <b id="showCount">0</b> 字 · 共 <b id="totalCount">0</b></span>
-  </div>
+
+  <div id="recommendBox"></div>
+  <div id="interpretBox"></div>
+
+  <div class="toolbar"><span class="tool-count">显示 <b id="showCount">0</b> 字 · 共 <b id="totalCount">0</b></span></div>
   <div class="grid" id="grid"></div>
 </main>
 </div>
 
-<div class="detail-overlay" id="detailOverlay" onclick="closeDetail(event)">
-  <div class="detail-box" id="detailBox"></div>
-</div>
+<div class="detail-overlay" id="detailOverlay" onclick="closeDetail(event)"><div class="detail-box" id="detailBox"></div></div>
 
 <script>
 const DATA = [{"c":"川","s":3,"w":"","p":"chuān","m":"","src":"天保定尔，以莫不兴。如山如阜，如冈如陵， — 《诗经·天保》","star":2,"fenqi":false,"landajie":false,"tags":["天地"],"gender":"通","freq":1},{"c":"山","s":3,"w":"土","p":"shān","m":"山岳；稳重如山（放宽）","src":"陟彼南山，言采其蕨。未见君子，忧心惙惙。 — 《诗经·草虫》","star":2,"fenqi":false,"landajie":false,"tags":["自然","大气"],"gender":"男","freq":1},{"c":"土","s":3,"w":"土","p":"tǔ","m":"大地；厚德载物（少直用）","src":"日居月诸，照临下土。乃如之人兮，逝不古处 — 《诗经·日月》","star":3,"fenqi":false,"landajie":false,"tags":["自然","大气"],"gender":"通用","freq":1},{"c":"义","s":3,"w":"","p":"yì","m":"","src":"命之不易，无遏尔躬。宣昭义问，有虞殷自天 — 《诗经·文王》","star":2,"fenqi":false,"landajie":false,"tags":["德慧"],"gender":"通","freq":1},{"c":"丹","s":4,"w":"火","p":"dān","m":"朱砂；丹心赤忱","src":"终南何有？有条有梅。君子至止，锦衣狐裘。 — 《诗经·终南》","star":2,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"火","s":4,"w":"火","p":"huǒ","m":"火焰；光明炽热（少直用）","src":"叔于田，乘乘马。执辔如组，两骖如舞。叔在 — 《诗经·大叔于田》","star":3,"fenqi":false,"landajie":false,"tags":["自然","大气"],"gender":"通用","freq":1},{"c":"木","s":4,"w":"木","p":"mù","m":"树木；质朴生机（少直用）","src":"葛之覃兮，施于中谷，维叶萋萋。黄鸟于飞， — 《诗经·葛覃》","star":3,"fenqi":false,"landajie":false,"tags":["自然"],"gender":"通用","freq":1},{"c":"仁","s":4,"w":"","p":"rén","m":"","src":"叔于田，巷无居人。岂无居人？不如叔也。洵 — 《诗经·叔于田》","star":2,"fenqi":false,"landajie":false,"tags":["德慧"],"gender":"通","freq":1},{"c":"书","s":4,"w":"","p":"shū","m":"","src":"昔我往矣，黍稷方华。今我来思，雨雪载途。 — 《诗经·出车》","star":2,"fenqi":false,"landajie":false,"tags":["雅韵"],"gender":"通","freq":1},{"c":"水","s":4,"w":"水","p":"shuǐ","m":"水流；上善若水（少直用）","src":"毖彼泉水，亦流于淇。有怀于卫，靡日不思。 — 《诗经·泉水》","star":3,"fenqi":false,"landajie":false,"tags":["自然"],"gender":"通用","freq":1},{"c":"文","s":4,"w":"","p":"wén","m":"","src":"小戎俴收，五楘梁辀。游环胁驱，阴靷鋈续。 — 《诗经·小戎》","star":2,"fenqi":false,"landajie":false,"tags":["雅韵"],"gender":"通","freq":1},{"c":"月","s":4,"w":"","p":"yuè","m":"","src":"日居月诸，胡迭而微？心之忧矣，如匪浣衣。 — 《诗经·柏舟》","star":2,"fenqi":false,"landajie":false,"tags":["天地"],"gender":"通","freq":1},{"c":"云","s":4,"w":"水","p":"yún","m":"云彩；云淡风轻（繁简差8画）","src":"陟彼砠矣，我马瘏矣，我仆痡矣，云何吁矣。 — 《诗经·卷耳》","star":4,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"兰","s":5,"w":"","p":"lán","m":"","src":"芄兰之支，童子佩觿。虽则佩觿，能不我知。 — 《诗经·芄兰》","star":3,"fenqi":false,"landajie":false,"tags":["花草"],"gender":"女","freq":1},{"c":"让","s":5,"w":"","p":"ràng","m":"","src":"民之无良，相怨一方。受爵不让，至于已斯亡 — 《诗经·角弓》","star":2,"fenqi":false,"landajie":false,"tags":["德慧"],"gender":"通","freq":1},{"c":"石","s":5,"w":"土","p":"shí","m":"石头；坚如磐石（此字典列金）","src":"我心匪石，不可转也。我心匪席，不可卷也。 — 《诗经·柏舟》","star":2,"fenqi":true,"landajie":false,"tags":["自然","大气"],"gender":"男","freq":1},{"c":"田","s":5,"w":"土","p":"tián","m":"田地；耕耘收获（此字典列火）","src":"灵雨既零，命彼倌人，星言夙驾，说于桑田。 — 《诗经·定之方中》","star":3,"fenqi":true,"landajie":false,"tags":["自然","大气"],"gender":"通用","freq":1},{"c":"玉","s":5,"w":"土","p":"yù","m":"玉石；温润如玉（此字典列木）","src":"林有朴樕，野有死鹿。白茅纯束，有女如玉。 — 《诗经·野有死麕》","star":4,"fenqi":true,"landajie":false,"tags":["温婉","大气"],"gender":"女","freq":1},{"c":"安","s":6,"w":"土","p":"ān","m":"平安；安居乐业","src":"岂曰无衣七兮？不如子之衣，安且吉兮！ — 《诗经·无衣》","star":3,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"通用","freq":1},{"c":"冰","s":6,"w":"水","p":"bīng","m":"冰晶；冰雪聪明","src":"雍雍鸣雁，旭日始旦。士如归妻，迨冰未泮。 — 《诗经·匏有苦叶》","star":4,"fenqi":false,"landajie":false,"tags":["温婉","大气"],"gender":"女","freq":1},{"c":"光","s":6,"w":"火","p":"guāng","m":"光明；光风霁月","src":"东方明矣，朝既昌矣。匪东方则明，月出之光 — 《诗经·鸡鸣》","star":2,"fenqi":false,"landajie":false,"tags":["自然","大气"],"gender":"男","freq":1},{"c":"圭","s":6,"w":"土","p":"guī","m":"玉圭；圭璋特达","src":"瞻彼淇奥，绿竹如箦。有匪君子，如金如锡， — 《诗经·淇奥》","star":3,"fenqi":false,"landajie":false,"tags":[],"gender":"通用","freq":1},{"c":"芍","s":6,"w":"","p":"sháo","m":"","src":"相次牡丹芍药，王孙谁道多情。 — 《宋词·河满子》","star":3,"fenqi":false,"landajie":false,"tags":["花草"],"gender":"女","freq":1},{"c":"旭","s":6,"w":"火","p":"xù","m":"旭日；旭日东升（主流列木！）","src":"雍雍鸣雁，旭日始旦。士如归妻，迨冰未泮。 — 《诗经·匏有苦叶》","star":2,"fenqi":true,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"屹","s":6,"w":"土","p":"yì","m":"屹立；屹然不动","src":"玉花卻在御榻上，榻上庭前屹相向。 — 《唐诗·undefined》","star":2,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"宇","s":6,"w":"土","p":"yǔ","m":"宇宙；气宇轩昂（重名极高）","src":"五月斯螽动股，六月莎鸡振羽。七月在野，八 — 《诗经·七月》","star":2,"fenqi":false,"landajie":true,"tags":["大气"],"gender":"男","freq":1},{"c":"芝","s":6,"w":"","p":"zhī","m":"","src":"拔搴玄芝兮，列树芋荷。 — 《楚辞·谬谏》","star":3,"fenqi":false,"landajie":false,"tags":["花草"],"gender":"女","freq":1},{"c":"灿","s":7,"w":"","p":"càn","m":"","src":"九枝擎烛灿繁星，百和焚香抽翠缕。 — 《宋词·玉楼春》","star":2,"fenqi":false,"landajie":false,"tags":["光影"],"gender":"通","freq":1},{"c":"辰","s":7,"w":"土","p":"chén","m":"星辰；星辰良辰","src":"折柳樊圃，狂夫瞿瞿。不能辰夜，不夙则莫。 — 《诗经·东方未明》","star":2,"fenqi":false,"landajie":true,"tags":["知性","大气"],"gender":"男","freq":1},{"c":"成","s":7,"w":"金","p":"chéng","m":"完成；大器晚成","src":"南有樛木，葛藟萦之。乐只君子，福履成之。 — 《诗经·樛木》","star":2,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"芬","s":7,"w":"","p":"fēn","m":"","src":"我孔戁矣，式礼莫愆。工祝致告，徂赉孝孙。 — 《诗经·楚茨》","star":3,"fenqi":false,"landajie":false,"tags":["花草"],"gender":"女","freq":1},{"c":"芙","s":7,"w":"","p":"fú","m":"","src":"制芰荷以为衣兮，集芙蓉以为裳。 — 《楚辞·离骚》","star":3,"fenqi":false,"landajie":false,"tags":["花草"],"gender":"女","freq":1},{"c":"谷","s":7,"w":"","p":"gǔ","m":"","src":"葛之覃兮，施于中谷，维叶萋萋。黄鸟于飞， — 《诗经·葛覃》","star":2,"fenqi":false,"landajie":false,"tags":["天地"],"gender":"通","freq":1},{"c":"江","s":7,"w":"水","p":"jiāng","m":"江河；江流浩荡","src":"南有乔木，不可休息。汉有游女，不可求思。 — 《诗经·汉广》","star":2,"fenqi":false,"landajie":false,"tags":["自然","大气"],"gender":"男","freq":1},{"c":"均","s":7,"w":"土","p":"jūn","m":"均匀；均衡公正","src":"我马维骃，六辔既均。载驰载驱，周爰咨询。 — 《诗经·皇皇者华》","star":2,"fenqi":false,"landajie":false,"tags":["知性","大气"],"gender":"男","freq":1},{"c":"丽","s":7,"w":"","p":"lì","m":"","src":"鱼丽于罶，鲿鲨。君子有酒，旨且多。 — 《诗经·鱼丽》","star":3,"fenqi":false,"landajie":false,"tags":["明丽"],"gender":"女","freq":1},{"c":"良","s":7,"w":"","p":"liáng","m":"","src":"日居月诸，出自东方。乃如之人兮，德音无良 — 《诗经·日月》","star":2,"fenqi":false,"landajie":false,"tags":["德慧"],"gender":"通","freq":1},{"c":"妙","s":7,"w":"","p":"miào","m":"","src":"躬纯粹而罔愆兮，承皇考之妙仪。 — 《楚辞·远逝》","star":3,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"汝","s":7,"w":"水","p":"rǔ","m":"汝水；古典雅致","src":"遵彼汝坟，伐其条枚。未见君子，惄如调饥。 — 《诗经·汝坟》","star":4,"fenqi":false,"landajie":false,"tags":["知性"],"gender":"女","freq":1},{"c":"彤","s":7,"w":"火","p":"tóng","m":"红色；彤管炜煌（女宝重名极高）","src":"静女其娈，贻我彤管。彤管有炜，说怿女美。 — 《诗经·静女》","star":4,"fenqi":false,"landajie":true,"tags":["温婉"],"gender":"女","freq":1},{"c":"汶","s":7,"w":"","p":"wèn","m":"","src":"汶水汤汤，行人彭彭。鲁道有荡，齐子翱翔。 — 《诗经·载驱》","star":3,"fenqi":false,"landajie":false,"tags":["清泠"],"gender":"女","freq":1},{"c":"妩","s":7,"w":"","p":"wǔ","m":"","src":"","star":3,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"汐","s":7,"w":"水","p":"xī","m":"晚潮；潮汐浪漫","src":"","star":4,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"辛","s":7,"w":"金","p":"xīn","m":"辛苦；天干；坚韧自砺","src":"十月之交，朔月辛卯。日有食之，亦孔之丑。 — 《诗经·十月之交》","star":3,"fenqi":false,"landajie":false,"tags":[],"gender":"通用","freq":1},{"c":"杏","s":7,"w":"木","p":"xìng","m":"杏树；杏花春雨","src":"孤村芳草远，斜日杏花飞。 — 《宋词·江南春・秋风清》","star":4,"fenqi":false,"landajie":false,"tags":["温婉","自然"],"gender":"女","freq":1},{"c":"秀","s":7,"w":"金","p":"xiù","m":"谷物抽穗；清秀才秀","src":"瞻彼淇奥，绿竹青青。有匪君子，充耳秀莹， — 《诗经·淇奥》","star":4,"fenqi":true,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"沂","s":7,"w":"","p":"yí","m":"","src":"子路、曾皙、冉有、公西华侍坐，子曰：“以 — 《论语》","star":3,"fenqi":false,"landajie":false,"tags":["清泠"],"gender":"女","freq":1},{"c":"沅","s":7,"w":"","p":"yuán","m":"","src":"济沅、湘以南征兮，就重华而敶词： — 《楚辞·离骚》","star":3,"fenqi":false,"landajie":false,"tags":["清泠"],"gender":"女","freq":1},{"c":"远","s":7,"w":"","p":"yuǎn","m":"","src":"燕燕于飞，差池其羽。之子于归，远送于野。 — 《诗经·燕燕》","star":2,"fenqi":false,"landajie":false,"tags":["天地"],"gender":"通","freq":1},{"c":"昌","s":8,"w":"火","p":"chāng","m":"昌盛；繁荣昌盛（此字典列金）","src":"子之昌兮，俟我乎堂兮，悔予不将兮。 — 《诗经·丰》","star":2,"fenqi":true,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"诚","s":8,"w":"","p":"chéng","m":"","src":"申伯信迈，王饯于郿。申伯还南，谢于诚归。 — 《诗经·崧高》","star":2,"fenqi":false,"landajie":false,"tags":["德慧"],"gender":"通","freq":1},{"c":"东","s":8,"w":"木","p":"dōng","m":"东方；旭日东升（方位属木）","src":"嘒彼小星，三五在东。肃肃宵征，夙夜在公。 — 《诗经·小星》","star":2,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"庚","s":8,"w":"金","p":"gēng","m":"年庚；刚健端正","src":"七月流火，九月授衣。春日载阳，有鸣仓庚。 — 《诗经·七月》","star":2,"fenqi":false,"landajie":false,"tags":[],"gender":"男","freq":1},{"c":"昊","s":8,"w":"火","p":"hào","m":"广阔；昊天罔极","src":"尹氏大师，维周之氐；秉国之钧，四方是维。 — 《诗经·节南山》","star":2,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"和","s":8,"w":"","p":"hé","m":"","src":"萚兮萚兮，风其吹女。叔兮伯兮，倡予和女。 — 《诗经·萚兮》","star":2,"fenqi":false,"landajie":false,"tags":["祥和"],"gender":"通","freq":1},{"c":"佳","s":8,"w":"木","p":"jiā","m":"美好；佳人美好","src":"登白薠兮骋望，与佳期兮夕张 — 《楚辞·湘夫人》","star":4,"fenqi":false,"landajie":true,"tags":["温婉"],"gender":"女","freq":1},{"c":"杰","s":8,"w":"木","p":"jié","m":"杰出；才智过人（灬勿判火）","src":"有厌其杰，厌厌其苗，绵绵其麃。载获济济， — 《诗经·载芟》","star":2,"fenqi":true,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"金","s":8,"w":"金","p":"jīn","m":"金属；坚贞贵重","src":"陟彼崔嵬，我马虺隤。我姑酌彼金罍，维以不 — 《诗经·卷耳》","star":3,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"通用","freq":1},{"c":"坤","s":8,"w":"土","p":"kūn","m":"大地；乾坤厚德","src":"吳楚東南坼，乾坤日夜浮。 — 《唐诗·undefined》","star":4,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"女","freq":1},{"c":"林","s":8,"w":"木","p":"lín","m":"树林；众木成林","src":"肃肃免罝，施于中林。赳赳武夫，公侯腹心。 — 《诗经·兔罝》","star":3,"fenqi":false,"landajie":false,"tags":["自然","大气"],"gender":"通用","freq":1},{"c":"泠","s":8,"w":"","p":"líng","m":"","src":"上葳蕤而防露兮，下泠泠而来风。 — 《楚辞·初放》","star":3,"fenqi":false,"landajie":false,"tags":["清泠"],"gender":"女","freq":1},{"c":"岭","s":8,"w":"","p":"lǐng","m":"","src":"朝发兮葱岭，夕至兮明光。 — 《楚辞·通路》","star":2,"fenqi":false,"landajie":false,"tags":["天地"],"gender":"通","freq":1},{"c":"旻","s":8,"w":"","p":"mín","m":"","src":"浩浩昊天，不骏其德。降丧饥馑，斩伐四国。 — 《诗经·雨无正》","star":2,"fenqi":false,"landajie":false,"tags":["天地"],"gender":"通","freq":1},{"c":"明","s":8,"w":"火","p":"míng","m":"光明；明德惟馨（主流列水！）","src":"女曰鸡鸣，士曰昧旦。子兴视夜，明星有烂。 — 《诗经·女曰鸡鸣》","star":3,"fenqi":true,"landajie":false,"tags":["知性","大气"],"gender":"通用","freq":1},{"c":"茉","s":8,"w":"","p":"mò","m":"","src":"","star":3,"fenqi":false,"landajie":false,"tags":["花草"],"gender":"女","freq":1},{"c":"沐","s":8,"w":"水","p":"mù","m":"沐洗；如沐春风（含木勿判）","src":"自伯之东，首如飞蓬。岂无膏沐？谁适为容！ — 《诗经·伯兮》","star":3,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"通用","freq":1},{"c":"念","s":8,"w":"","p":"niàn","m":"","src":"我有旨蓄，亦以御冬。宴尔新婚，以我御穷。 — 《诗经·谷风》","star":2,"fenqi":false,"landajie":false,"tags":["德慧"],"gender":"通","freq":1},{"c":"沛","s":8,"w":"水","p":"pèi","m":"充沛；精力丰沛","src":"文王曰咨，咨女殷商。人亦有言：颠沛之揭， — 《诗经·荡》","star":2,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"沁","s":8,"w":"水","p":"qìn","m":"沁润；沁人心脾","src":"损眉尖、泪痕红沁。 — 《宋词·夜行船》","star":4,"fenqi":false,"landajie":false,"tags":["温婉","自然"],"gender":"女","freq":1},{"c":"松","s":8,"w":"木","p":"sōng","m":"松树；坚贞高洁","src":"淇水滺滺，桧楫松舟。驾言出游，以写我忧。 — 《诗经·竹竿》","star":2,"fenqi":false,"landajie":false,"tags":["自然","大气"],"gender":"男","freq":1},{"c":"贤","s":8,"w":"","p":"xián","m":"","src":"溥天之下，莫非王土；率土之滨，莫非王臣。 — 《诗经·北山》","star":2,"fenqi":false,"landajie":false,"tags":["德慧"],"gender":"通","freq":1},{"c":"昕","s":8,"w":"火","p":"xīn","m":"黎明；晨光初现","src":"","star":2,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"欣","s":8,"w":"木","p":"xīn","m":"欣欣；欢欣喜悦","src":"凫鹥在亹，公尸来止熏熏。旨酒欣欣，燔炙芬 — 《诗经·凫鹥》","star":4,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"岫","s":8,"w":"土","p":"xiù","m":"峰峦；云无心出岫","src":"银塘静、鱼鳞簟展，烟岫翠、龟甲屏开。 — 《宋词·玉蝴蝶》","star":4,"fenqi":false,"landajie":false,"tags":["自然"],"gender":"女","freq":1},{"c":"岩","s":8,"w":"土","p":"yán","m":"岩石；磊落如山","src":"节彼南山，维石岩岩。赫赫师尹，民具尔瞻。 — 《诗经·节南山》","star":2,"fenqi":false,"landajie":false,"tags":["自然","大气"],"gender":"男","freq":1},{"c":"泱","s":8,"w":"","p":"yāng","m":"","src":"瞻彼洛矣，维水泱泱。君子至止，福禄如茨。 — 《诗经·瞻彼洛矣》","star":3,"fenqi":false,"landajie":false,"tags":["清泠"],"gender":"女","freq":1},{"c":"咏","s":8,"w":"","p":"yǒng","m":"","src":"混并寰宇，休牛归马，销金偃革，蹈咏庆昌期 — 《宋词·六州》","star":2,"fenqi":false,"landajie":false,"tags":["雅韵"],"gender":"通","freq":1},{"c":"苑","s":8,"w":"","p":"yuàn","m":"","src":"俴驷孔群，厹矛鋈錞。蒙伐有苑，虎韔镂膺。 — 《诗经·小戎》","star":3,"fenqi":false,"landajie":false,"tags":["花草"],"gender":"女","freq":1},{"c":"岳","s":8,"w":"土","p":"yuè","m":"高山；五岳之尊（此字典列木）","src":"崧高维岳，骏极于天。维岳降神，生甫及申。 — 《诗经·崧高》","star":2,"fenqi":true,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"玥","s":8,"w":"土","p":"yuè","m":"神珠；掌上明珠","src":"","star":4,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"昀","s":8,"w":"","p":"yún","m":"","src":"","star":2,"fenqi":false,"landajie":false,"tags":["光影"],"gender":"通","freq":1},{"c":"宙","s":8,"w":"","p":"zhòu","m":"","src":"諸葛大名垂宇宙，宗臣遺像肅清高。 — 《唐诗·undefined》","star":2,"fenqi":false,"landajie":false,"tags":["天地"],"gender":"通","freq":1},{"c":"柏","s":9,"w":"木","p":"bǎi bó","m":"柏树；苍劲正直","src":"泛彼柏舟，亦泛其流。耿耿不寐，如有隐忧。 — 《诗经·柏舟》","star":2,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"炳","s":9,"w":"火","p":"bǐng","m":"光明；炳焕昭彰","src":"望太微兮穆穆，睨三阶兮炳分。 — 《楚辞·守志》","star":2,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"波","s":9,"w":"水","p":"bō","m":"波浪；波澜壮阔","src":"有豕白蹢，烝涉波矣。月离于毕，俾滂沱矣。 — 《诗经·渐渐之石》","star":2,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"昶","s":9,"w":"","p":"chǎng","m":"","src":"","star":2,"fenqi":false,"landajie":false,"tags":["光影"],"gender":"通","freq":1},{"c":"春","s":9,"w":"火","p":"chūn","m":"春季；春风化雨","src":"野有死麕，白茅包之。有女怀春，吉士诱之。 — 《诗经·野有死麕》","star":3,"fenqi":true,"landajie":false,"tags":["温婉","大气"],"gender":"通用","freq":1},{"c":"河","s":9,"w":"水","p":"hé","m":"河流；河清海晏","src":"关关雎鸠，在河之洲。窈窕淑女，君子好逑。 — 《诗经·关雎》","star":3,"fenqi":false,"landajie":false,"tags":["自然","大气"],"gender":"通用","freq":1},{"c":"洹","s":9,"w":"","p":"huán","m":"","src":"","star":3,"fenqi":false,"landajie":false,"tags":["清泠"],"gender":"女","freq":1},{"c":"姣","s":9,"w":"","p":"jiāo","m":"","src":"灵偃蹇兮姣服，芳菲菲兮满堂 — 《楚辞·东皇太一》","star":3,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"娇","s":9,"w":"","p":"jiāo","m":"","src":"慢舞萦回，娇鬟低亸，腰肢纤细困无力。 — 《宋词·多丽》","star":3,"fenqi":false,"landajie":false,"tags":["明丽"],"gender":"女","freq":1},{"c":"洁","s":9,"w":"","p":"jié","m":"","src":"屈原曰：“吾宁悃悃款款，朴以忠乎，将送往 — 《楚辞·卜居》","star":3,"fenqi":false,"landajie":false,"tags":["清泠"],"gender":"女","freq":1},{"c":"俊","s":9,"w":"火","p":"jùn","m":"才俊；俊才英杰","src":"非俊疑杰兮，固庸态也。 — 《楚辞·怀沙》","star":2,"fenqi":false,"landajie":false,"tags":["知性","大气"],"gender":"男","freq":1},{"c":"珂","s":9,"w":"","p":"kē","m":"","src":"不寢聽金鑰，因風想玉珂。 — 《唐诗·undefined》","star":2,"fenqi":false,"landajie":false,"tags":["宝玉"],"gender":"通","freq":1},{"c":"烂","s":9,"w":"","p":"làn","m":"","src":"女曰鸡鸣，士曰昧旦。子兴视夜，明星有烂。 — 《诗经·女曰鸡鸣》","star":3,"fenqi":false,"landajie":false,"tags":["明丽"],"gender":"女","freq":1},{"c":"亮","s":9,"w":"火","p":"liàng","m":"明亮；明亮爽朗","src":"昔皇考之嘉志兮，喜登能而亮贤。 — 《楚辞·愍命》","star":2,"fenqi":false,"landajie":false,"tags":["大气","现代"],"gender":"男","freq":1},{"c":"玲","s":9,"w":"","p":"líng","m":"","src":"青槐夾馳道，宮館何玲瓏。(館 一作：觀) — 《唐诗·undefined》","star":2,"fenqi":false,"landajie":false,"tags":["宝玉"],"gender":"通","freq":1},{"c":"柳","s":9,"w":"木","p":"liǔ","m":"柳树；婀娜柔美","src":"折柳樊圃，狂夫瞿瞿。不能辰夜，不夙则莫。 — 《诗经·东方未明》","star":4,"fenqi":false,"landajie":false,"tags":["温婉","自然"],"gender":"女","freq":1},{"c":"珑","s":9,"w":"","p":"lóng","m":"","src":"玲珑绣扇花藏语。 — 《宋词·木兰花・玉楼春》","star":2,"fenqi":false,"landajie":false,"tags":["宝玉"],"gender":"通","freq":1},{"c":"洛","s":9,"w":"","p":"luò","m":"","src":"瞻彼洛矣，维水泱泱。君子至止，福禄如茨。 — 《诗经·瞻彼洛矣》","star":3,"fenqi":false,"landajie":false,"tags":["清泠"],"gender":"女","freq":1},{"c":"茗","s":9,"w":"","p":"míng","m":"","src":"","star":3,"fenqi":false,"landajie":false,"tags":["花草"],"gender":"女","freq":1},{"c":"娜","s":9,"w":"","p":"nà","m":"","src":"见羞容敛翠，嫩脸匀红，素腰袅娜。 — 《宋词·醉蓬莱》","star":3,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"南","s":9,"w":"火","p":"nán","m":"南方；温暖如南（**易误判水！**）","src":"南有樛木，葛藟累之。乐只君子，福履绥之。 — 《诗经·樛木》","star":3,"fenqi":true,"landajie":false,"tags":["大气"],"gender":"通用","freq":1},{"c":"茜","s":9,"w":"","p":"qiàn","m":"","src":"茜罗揉出碎英繁，红蜡缕成香萼润。 — 《宋词·玉楼春》","star":3,"fenqi":false,"landajie":false,"tags":["花草"],"gender":"女","freq":1},{"c":"秋","s":9,"w":"金","p":"qiū","m":"秋天收获；秋高气爽","src":"氓之蚩蚩，抱布贸丝。匪来贸丝，来即我谋。 — 《诗经·氓》","star":3,"fenqi":false,"landajie":false,"tags":[],"gender":"通用","freq":1},{"c":"泉","s":9,"w":"水","p":"quán","m":"泉水；源头活水","src":"毖彼泉水，亦流于淇。有怀于卫，靡日不思。 — 《诗经·泉水》","star":3,"fenqi":false,"landajie":false,"tags":["温婉","自然"],"gender":"通用","freq":1},{"c":"娆","s":9,"w":"","p":"ráo","m":"","src":"陡顿今来，宫中第一妖娆，却道昭阳飞燕。 — 《宋词·斗百花》","star":3,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"茹","s":9,"w":"","p":"rú","m":"","src":"我心匪鉴，不可以茹。亦有兄弟，不可以据。 — 《诗经·柏舟》","star":3,"fenqi":false,"landajie":false,"tags":["花草"],"gender":"女","freq":1},{"c":"珊","s":9,"w":"","p":"shān","m":"","src":"鸞翔鳳翥衆仙下，珊瑚碧樹交枝柯。 — 《唐诗·undefined》","star":2,"fenqi":false,"landajie":false,"tags":["宝玉"],"gender":"通","freq":1},{"c":"姝","s":9,"w":"","p":"shū","m":"","src":"静女其姝，俟我于城隅。爱而不见，搔首踟蹰 — 《诗经·静女》","star":3,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"烁","s":9,"w":"","p":"shuò","m":"","src":"云蒙蒙兮电鯈烁，孤雌惊兮鸣呴呴。 — 《楚辞·悯上》","star":2,"fenqi":false,"landajie":false,"tags":["光影"],"gender":"通","freq":1},{"c":"思","s":9,"w":"金","p":"sī","m":"思考；深思明辨","src":"求之不得，寤寐思服。悠哉悠哉，辗转反侧。 — 《诗经·关雎》","star":3,"fenqi":true,"landajie":false,"tags":["知性"],"gender":"通用","freq":1},{"c":"恬","s":9,"w":"","p":"tián","m":"","src":"焉舒情而抽信兮，恬死亡而不聊。 — 《楚辞·惜往日》","star":2,"fenqi":false,"landajie":false,"tags":["祥和"],"gender":"通","freq":1},{"c":"信","s":9,"w":"金","p":"xìn","m":"诚信；言而有信","src":"于嗟阔兮，不我活兮。于嗟洵兮，不我信兮。 — 《诗经·击鼓》","star":2,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"星","s":9,"w":"","p":"xīng","m":"","src":"嘒彼小星，三五在东。肃肃宵征，夙夜在公。 — 《诗经·小星》","star":2,"fenqi":false,"landajie":false,"tags":["天地"],"gender":"通","freq":1},{"c":"宣","s":9,"w":"金","p":"xuān","m":"宣布；通达宣朗","src":"鸿雁于飞，哀鸣嗷嗷。维此哲人，谓我劬劳。 — 《诗经·鸿雁》","star":3,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"通用","freq":1},{"c":"炫","s":9,"w":"火","p":"xuàn","m":"光彩；炫目夺光","src":"妖夫曳炫，何号于市？ — 《楚辞·天问》","star":3,"fenqi":false,"landajie":false,"tags":["大气","现代"],"gender":"通用","freq":1},{"c":"绚","s":9,"w":"","p":"xuàn","m":"","src":"子夏问曰：“‘巧笑倩兮，美目盼兮，素以为 — 《论语》","star":2,"fenqi":false,"landajie":false,"tags":["光影"],"gender":"通","freq":1},{"c":"洵","s":9,"w":"","p":"xún","m":"","src":"于嗟阔兮，不我活兮。于嗟洵兮，不我信兮。 — 《诗经·击鼓》","star":3,"fenqi":false,"landajie":false,"tags":["清泠"],"gender":"女","freq":1},{"c":"妍","s":9,"w":"水","p":"yán","m":"美丽；妍丽动人（简7/康9）","src":"众芳摇落独鲜妍。 — 《宋词·瑞鹧鸪》","star":4,"fenqi":true,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"垚","s":9,"w":"土","p":"yáo","m":"山高；土厚德重","src":"","star":2,"fenqi":false,"landajie":false,"tags":["自然","大气"],"gender":"男","freq":1},{"c":"怡","s":9,"w":"土","p":"yí","m":"和悦；心旷神怡（五行各异）","src":"心不怡之长久兮，忧与愁其相接。 — 《楚辞·哀郢》","star":4,"fenqi":true,"landajie":true,"tags":["温婉"],"gender":"女","freq":1},{"c":"茵","s":9,"w":"","p":"yīn","m":"","src":"小戎俴收，五楘梁辀。游环胁驱，阴靷鋈续。 — 《诗经·小戎》","star":3,"fenqi":false,"landajie":false,"tags":["花草"],"gender":"女","freq":1},{"c":"宥","s":9,"w":"土","p":"yòu","m":"宽宥；宽厚包容","src":"昊天有成命，二后受之。成王不敢康，夙夜基 — 《诗经·昊天有成命》","star":2,"fenqi":true,"landajie":false,"tags":["知性","大气"],"gender":"男","freq":1},{"c":"昱","s":9,"w":"火","p":"yù","m":"日光；昱昱生辉","src":"","star":2,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"垣","s":9,"w":"土","p":"yuán","m":"墙垣；垣立稳固","src":"乘彼垝垣，以望复关。不见复关，泣涕涟涟。 — 《诗经·氓》","star":2,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"则","s":9,"w":"金","p":"zé","m":"法则；方正守则","src":"鲂鱼赪尾，王室如毁。虽则如毁，父母孔迩。 — 《诗经·汝坟》","star":2,"fenqi":false,"landajie":false,"tags":["知性"],"gender":"男","freq":1},{"c":"昭","s":9,"w":"火","p":"zhāo","m":"明亮；昭然日月","src":"呦呦鹿鸣，食野之蒿。我有嘉宾，德音孔昭。 — 《诗经·鹿鸣》","star":2,"fenqi":false,"landajie":false,"tags":["知性","大气"],"gender":"男","freq":1},{"c":"峥","s":9,"w":"","p":"zhēng","m":"","src":"下峥嵘而无地兮，上寥廓而无天。 — 《楚辞·远游》","star":2,"fenqi":false,"landajie":false,"tags":["天地"],"gender":"通","freq":1},{"c":"城","s":10,"w":"土","p":"chéng","m":"城池；众志成城（简9）","src":"肃肃兔罝，椓之丁丁。赳赳武夫，公侯干城。 — 《诗经·兔罝》","star":2,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"纯","s":10,"w":"金","p":"chún","m":"纯粹；纯净专注","src":"林有朴樕，野有死鹿。白茅纯束，有女如玉。 — 《诗经·野有死麕》","star":3,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"通用","freq":1},{"c":"珰","s":10,"w":"","p":"dāng","m":"","src":"玉珮玎珰，露滴寒如水。 — 《宋词·凤栖梧・蝶恋花》","star":2,"fenqi":false,"landajie":false,"tags":["宝玉"],"gender":"通","freq":1},{"c":"涤","s":10,"w":"","p":"dí","m":"","src":"二之日凿冰冲冲，三之日纳于凌阴。四之日其 — 《诗经·七月》","star":3,"fenqi":false,"landajie":false,"tags":["清泠"],"gender":"女","freq":1},{"c":"娥","s":10,"w":"","p":"é","m":"","src":"嫮目宜笑，娥眉曼只。 — 《楚辞·大招》","star":3,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"恩","s":10,"w":"土","p":"ēn","m":"恩惠；感恩载德","src":"鸱鸮鸱鸮，既取我子，无毁我室。恩斯勤斯， — 《诗经·鸱鸮》","star":2,"fenqi":false,"landajie":false,"tags":["知性","大气"],"gender":"男","freq":1},{"c":"芳","s":10,"w":"木","p":"fāng","m":"芬芳；芳华高洁","src":"昔三后之纯粹兮，固众芳之所在。 — 《楚辞·离骚》","star":4,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"峰","s":10,"w":"土","p":"fēng","m":"山峰；登峰造极","src":"终是欠峰峦。 — 《宋词·酒泉子》","star":2,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"刚","s":10,"w":"金","p":"gāng","m":"刚强；刚正不阿","src":"采薇采薇，薇亦刚止。曰归曰归，岁亦阳止。 — 《诗经·采薇》","star":2,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"桂","s":10,"w":"木","p":"guì","m":"桂树；蟾宫折桂","src":"杂申椒与菌桂兮，岂惟纫夫蕙茝！ — 《楚辞·离骚》","star":3,"fenqi":false,"landajie":false,"tags":["知性","大气"],"gender":"通用","freq":1},{"c":"珩","s":10,"w":"","p":"héng","m":"","src":"约軧错衡，八鸾玱玱。服其命服，朱芾斯皇， — 《诗经·采芑》","star":2,"fenqi":false,"landajie":false,"tags":["宝玉"],"gender":"通","freq":1},{"c":"洪","s":10,"w":"水","p":"hóng","m":"浩大；洪福齐天","src":"浚哲维商，长发其祥。洪水芒芒，禹敷下土方 — 《诗经·长发》","star":2,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"涣","s":10,"w":"","p":"huàn","m":"","src":"溱与洧，方涣涣兮。士与女，方秉蕳兮。女曰 — 《诗经·溱洧》","star":3,"fenqi":false,"landajie":false,"tags":["清泠"],"gender":"女","freq":1},{"c":"晖","s":10,"w":"","p":"huī","m":"","src":"对残晖、登临休叹，赏令节、酩酊方酬。 — 《宋词·玉蝴蝶》","star":2,"fenqi":false,"landajie":false,"tags":["光影"],"gender":"通","freq":1},{"c":"津","s":10,"w":"水","p":"jīn","m":"津润；津泽润物（简9）","src":"朝发轫于天津兮，夕余至乎西极。 — 《楚辞·离骚》","star":2,"fenqi":true,"landajie":false,"tags":["知性"],"gender":"男","freq":1},{"c":"晋","s":10,"w":"火","p":"jìn","m":"晋升；晋阶向上","src":"晋申生之孝子兮，父信谗而不好。 — 《楚辞·惜诵》","star":2,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"娟","s":10,"w":"","p":"juān","m":"","src":"雌蜺便娟以增挠兮，鸾鸟轩翥而翔飞。 — 《楚辞·远游》","star":3,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"峻","s":10,"w":"土","p":"jùn","m":"高峻；峻岭崇山（此字典列金）","src":"冀枝叶之峻茂兮，愿俟时乎吾将刈。 — 《楚辞·离骚》","star":2,"fenqi":true,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"涟","s":10,"w":"","p":"lián","m":"","src":"乘彼垝垣，以望复关。不见复关，泣涕涟涟。 — 《诗经·氓》","star":3,"fenqi":false,"landajie":false,"tags":["清泠"],"gender":"女","freq":1},{"c":"莲","s":10,"w":"","p":"lián","m":"","src":"严夜警，铜莲漏迟迟。 — 《宋词·六州》","star":3,"fenqi":false,"landajie":false,"tags":["花草"],"gender":"女","freq":1},{"c":"珞","s":10,"w":"","p":"luò","m":"","src":"","star":2,"fenqi":false,"landajie":false,"tags":["宝玉"],"gender":"通","freq":1},{"c":"娉","s":10,"w":"","p":"pīng","m":"","src":"娉娉嫋嫋十三餘，豆蔻梢頭二月初。 — 《唐诗·undefined》","star":3,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"芮","s":10,"w":"木","p":"ruì","m":"草木初生；稚嫩鲜活","src":"虞芮质厥成，文王蹶厥生。予曰有疏附，予曰 — 《诗经·绵》","star":4,"fenqi":true,"landajie":false,"tags":["温婉","自然"],"gender":"女","freq":1},{"c":"素","s":10,"w":"金","p":"sù","m":"白绢；纯洁素雅","src":"羔羊之皮，素丝五紽。退食自公，委蛇委蛇。 — 《诗经·羔羊》","star":4,"fenqi":false,"landajie":false,"tags":["温婉","知性"],"gender":"女","freq":1},{"c":"泰","s":10,"w":"","p":"tài","m":"","src":"泰山岩岩，鲁邦所詹。奄有龟蒙，遂荒大东。 — 《诗经·閟宫》","star":2,"fenqi":false,"landajie":false,"tags":["祥和"],"gender":"通","freq":1},{"c":"桃","s":10,"w":"","p":"táo","m":"","src":"桃之夭夭，灼灼其华。之子于归，宜其室家。 — 《诗经·桃夭》","star":3,"fenqi":false,"landajie":false,"tags":["花草"],"gender":"女","freq":1},{"c":"桐","s":10,"w":"木","p":"tóng","m":"梧桐；梧凤之鸣","src":"定之方中，作于楚宫。揆之以日，作于楚室。 — 《诗经·定之方中》","star":3,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"通用","freq":1},{"c":"娴","s":10,"w":"","p":"xián","m":"","src":"","star":3,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"祥","s":10,"w":"","p":"xiáng","m":"","src":"大人占之：维熊维罴，男子之祥；维虺维蛇， — 《诗经·斯干》","star":2,"fenqi":false,"landajie":false,"tags":["祥和"],"gender":"通","freq":1},{"c":"修","s":10,"w":"金","p":"xiū","m":"修养；修身养性","src":"中谷有蓷，暵其修矣。有女仳离，条其歗矣。 — 《诗经·中谷有蓷》","star":2,"fenqi":false,"landajie":false,"tags":["知性"],"gender":"男","freq":1},{"c":"晏","s":10,"w":"","p":"yàn","m":"","src":"及尔偕老，老使我怨。淇则有岸，隰则有泮。 — 《诗经·氓》","star":2,"fenqi":false,"landajie":false,"tags":["光影"],"gender":"通","freq":1},{"c":"艳","s":10,"w":"","p":"yàn","m":"","src":"长发曼鬋，艳陆离些。 — 《楚辞·招魂》","star":3,"fenqi":false,"landajie":false,"tags":["明丽"],"gender":"女","freq":1},{"c":"洋","s":10,"w":"水","p":"yáng","m":"海洋；广阔洋气","src":"河水洋洋，北流活活。施罛濊濊，鳣鲔发发。 — 《诗经·硕人》","star":3,"fenqi":false,"landajie":false,"tags":["大气","现代"],"gender":"通用","freq":1},{"c":"晔","s":10,"w":"","p":"yè","m":"","src":"恐天时之代序兮，耀灵晔而西征。 — 《楚辞·远游》","star":2,"fenqi":false,"landajie":false,"tags":["光影"],"gender":"通","freq":1},{"c":"烨","s":10,"w":"","p":"yè","m":"","src":"烨烨震电，不宁不令。百川沸腾，山冢崒崩。 — 《诗经·十月之交》","star":2,"fenqi":false,"landajie":false,"tags":["光影"],"gender":"通","freq":1},{"c":"莺","s":10,"w":"","p":"yīng","m":"","src":"交交桑扈，有莺其羽。君子乐胥，受天之祜。 — 《诗经·桑扈》","star":3,"fenqi":false,"landajie":false,"tags":["花草"],"gender":"女","freq":1},{"c":"悦","s":10,"w":"金","p":"yuè","m":"喜悦；心悦诚服","src":"心摇悦而日幸兮，然怊怅而无冀。 — 《楚辞·九辩》","star":4,"fenqi":true,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"钊","s":10,"w":"金","p":"zhāo","m":"勉励；自勉进取","src":"","star":2,"fenqi":false,"landajie":false,"tags":[],"gender":"男","freq":1},{"c":"哲","s":10,"w":"火","p":"zhé","m":"哲理；哲思睿智（有派列金）","src":"鸿雁于飞，哀鸣嗷嗷。维此哲人，谓我劬劳。 — 《诗经·鸿雁》","star":2,"fenqi":true,"landajie":false,"tags":["知性"],"gender":"男","freq":1},{"c":"芷","s":10,"w":"木","p":"zhǐ","m":"白芷；高洁清雅（屈原香草）","src":"扈江离与辟芷兮，纫秋兰以为佩。 — 《楚辞·离骚》","star":4,"fenqi":false,"landajie":false,"tags":["温婉","知性"],"gender":"女","freq":1},{"c":"珠","s":10,"w":"","p":"zhū","m":"","src":"鱼鳞屋兮龙堂，紫贝阙兮珠宫 — 《楚辞·河伯》","star":2,"fenqi":false,"landajie":false,"tags":["宝玉"],"gender":"通","freq":1},{"c":"彬","s":11,"w":"木","p":"bīn","m":"文质彬彬；文雅有礼","src":"子曰：“质胜文则野，文胜质则史。文质彬彬 — 《论语》","star":2,"fenqi":false,"landajie":false,"tags":["知性"],"gender":"男","freq":1},{"c":"彩","s":11,"w":"","p":"cǎi","m":"","src":"朝辭白帝彩雲間，千里江陵一日還。 — 《唐诗·undefined》","star":3,"fenqi":false,"landajie":false,"tags":["明丽"],"gender":"女","freq":1},{"c":"婵","s":11,"w":"","p":"chán","m":"","src":"女嬃之婵媛兮，申申其詈予，曰： — 《楚辞·离骚》","star":3,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"晟","s":11,"w":"火","p":"chéng","m":"光明；兴盛光明（简10）","src":"","star":2,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"崇","s":11,"w":"土","p":"chóng","m":"崇高；崇德尚善（此字典列金）","src":"朝隮于西，崇朝其雨。女子有行，远兄弟父母 — 《诗经·蝃蝀》","star":2,"fenqi":true,"landajie":false,"tags":["知性","大气"],"gender":"男","freq":1},{"c":"绸","s":11,"w":"","p":"chóu","m":"","src":"绸缪束薪，三星在天。今夕何夕，见此良人？ — 《诗经·绸缪》","star":2,"fenqi":false,"landajie":false,"tags":["光影"],"gender":"通","freq":1},{"c":"淙","s":11,"w":"","p":"cóng","m":"","src":"","star":3,"fenqi":false,"landajie":false,"tags":["清泠"],"gender":"女","freq":1},{"c":"淡","s":11,"w":"","p":"dàn","m":"","src":"卻嫌脂粉污顏色，淡掃蛾眉朝至尊。 — 《唐诗·undefined》","star":3,"fenqi":false,"landajie":false,"tags":["清泠"],"gender":"女","freq":1},{"c":"笛","s":11,"w":"","p":"dí","m":"","src":"豈無山歌與村笛？嘔啞嘲哳難爲聽。 — 《唐诗·undefined》","star":2,"fenqi":false,"landajie":false,"tags":["雅韵"],"gender":"通","freq":1},{"c":"海","s":11,"w":"水","p":"hǎi","m":"大海；海纳百川","src":"沔彼流水，朝宗于海。鴥彼飞隼，载飞载止。 — 《诗经·沔水》","star":2,"fenqi":false,"landajie":true,"tags":["大气"],"gender":"男","freq":1},{"c":"晗","s":11,"w":"火","p":"hán","m":"天将明；晗光初霁","src":"","star":2,"fenqi":false,"landajie":false,"tags":["温婉","大气"],"gender":"男","freq":1},{"c":"鸿","s":11,"w":"","p":"hóng","m":"","src":"鱼网之设，鸿则离之。燕婉之求，得此戚施。 — 《诗经·新台》","star":2,"fenqi":false,"landajie":false,"tags":["天地"],"gender":"通","freq":1},{"c":"焕","s":11,"w":"","p":"huàn","m":"","src":"嘉禾甘露登歌荐，云物焕祥经。 — 《宋词·导引》","star":2,"fenqi":false,"landajie":false,"tags":["光影"],"gender":"通","freq":1},{"c":"基","s":11,"w":"土","p":"jī","m":"基础；基业长青","src":"南山有台，北山有莱。乐只君子，邦家之基。 — 《诗经·南山有台》","star":2,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"婕","s":11,"w":"","p":"jié","m":"","src":"內府殷紅瑪瑙盤，婕妤傳詔才人索。 — 《唐诗·undefined》","star":3,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"婧","s":11,"w":"","p":"jìng","m":"","src":"","star":3,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"菊","s":11,"w":"","p":"jú","m":"","src":"朝饮木兰之坠露兮，夕餐秋菊之落英。 — 《楚辞·离骚》","star":3,"fenqi":false,"landajie":false,"tags":["花草"],"gender":"女","freq":1},{"c":"康","s":11,"w":"木","p":"kāng","m":"安康；健康安乐","src":"蟋蟀在堂，岁聿其莫。今我不乐，日月其除。 — 《诗经·蟋蟀》","star":2,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"琅","s":11,"w":"","p":"láng","m":"","src":"抚长剑兮玉珥，璆锵鸣兮琳琅 — 《楚辞·东皇太一》","star":2,"fenqi":false,"landajie":false,"tags":["宝玉"],"gender":"通","freq":1},{"c":"朗","s":11,"w":"火","p":"lǎng","m":"爽朗；开朗明亮（简10）","src":"昭明有融，高朗令终，令终有俶。公尸嘉告。 — 《诗经·既醉》","star":2,"fenqi":false,"landajie":false,"tags":["大气","现代"],"gender":"男","freq":1},{"c":"绫","s":11,"w":"","p":"líng","m":"","src":"红笺纸、小砑吴绫。 — 《宋词·愁倚阑令・春光好》","star":2,"fenqi":false,"landajie":false,"tags":["光影"],"gender":"通","freq":1},{"c":"琉","s":11,"w":"","p":"liú","m":"","src":"牙板数敲珠一串，梁尘暗落琉璃盏。 — 《宋词·凤栖梧・蝶恋花》","star":2,"fenqi":false,"landajie":false,"tags":["宝玉"],"gender":"通","freq":1},{"c":"梅","s":11,"w":"","p":"méi","m":"","src":"摽有梅，其实七兮。求我庶士，迨其吉兮。 — 《诗经·摽有梅》","star":3,"fenqi":false,"landajie":false,"tags":["花草"],"gender":"女","freq":1},{"c":"敏","s":11,"w":"","p":"mǐn","m":"","src":"尝其旨否。禾易长亩，终善且有。曾孙不怒， — 《诗经·甫田》","star":2,"fenqi":false,"landajie":false,"tags":["德慧"],"gender":"通","freq":1},{"c":"培","s":11,"w":"土","p":"péi","m":"培育；培育成材","src":"","star":2,"fenqi":false,"landajie":false,"tags":["知性","大气"],"gender":"男","freq":1},{"c":"淠","s":11,"w":"","p":"pì","m":"","src":"菀彼柳斯，鸣蜩嘒嘒，有漼者渊，萑苇淠淠。 — 《诗经·小弁》","star":3,"fenqi":false,"landajie":false,"tags":["清泠"],"gender":"女","freq":1},{"c":"萍","s":11,"w":"","p":"píng","m":"","src":"窃哀兮浮萍，汎淫兮无根。 — 《楚辞·尊嘉》","star":3,"fenqi":false,"landajie":false,"tags":["花草"],"gender":"女","freq":1},{"c":"绮","s":11,"w":"","p":"qǐ","m":"","src":"纂组绮缟，结琦璜些。 — 《楚辞·招魂》","star":2,"fenqi":false,"landajie":false,"tags":["光影"],"gender":"通","freq":1},{"c":"若","s":11,"w":"木","p":"ruò","m":"若木神木；灵气濯濯","src":"桑之未落，其叶沃若。于嗟鸠兮！无食桑葚。 — 《诗经·氓》","star":4,"fenqi":false,"landajie":false,"tags":["温婉","知性"],"gender":"女","freq":1},{"c":"绍","s":11,"w":"金","p":"shào","m":"继承；绍继先业","src":"月出照兮。佼人燎兮。舒夭绍兮。劳心惨兮。 — 《诗经·月出》","star":2,"fenqi":false,"landajie":false,"tags":["知性"],"gender":"男","freq":1},{"c":"笙","s":11,"w":"","p":"shēng","m":"","src":"呦呦鹿鸣，食野之苹。我有嘉宾，鼓瑟吹笙。 — 《诗经·鹿鸣》","star":2,"fenqi":false,"landajie":false,"tags":["雅韵"],"gender":"通","freq":1},{"c":"淞","s":11,"w":"","p":"sōng","m":"","src":"","star":3,"fenqi":false,"landajie":false,"tags":["清泠"],"gender":"女","freq":1},{"c":"婉","s":11,"w":"","p":"wǎn","m":"","src":"新台有泚，河水瀰瀰。燕婉之求，蘧篨不鲜。 — 《诗经·新台》","star":3,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"涴","s":11,"w":"","p":"wò","m":"","src":"素面翻嫌粉涴，洗妆不褪唇红。 — 《宋词·西江月》","star":3,"fenqi":false,"landajie":false,"tags":["清泠"],"gender":"女","freq":1},{"c":"晞","s":11,"w":"火","p":"xī","m":"破晓；晞发朝阳","src":"东方未晞，颠倒裳衣。倒之颠之，自公令之。 — 《诗经·东方未明》","star":3,"fenqi":false,"landajie":false,"tags":[],"gender":"通用","freq":1},{"c":"雪","s":11,"w":"水","p":"xuě","m":"白雪；冰清玉洁","src":"北风其凉，雨雪其雱。惠而好我，携手同行。 — 《诗经·北风》","star":4,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"逸","s":11,"w":"","p":"yì","m":"","src":"皎皎白驹，贲然来思。尔公尔侯，逸豫无期？ — 《诗经·白驹》","star":2,"fenqi":false,"landajie":false,"tags":["天地"],"gender":"通","freq":1},{"c":"莹","s":11,"w":"","p":"yíng","m":"","src":"瞻彼淇奥，绿竹青青。有匪君子，充耳秀莹， — 《诗经·淇奥》","star":2,"fenqi":false,"landajie":false,"tags":["宝玉"],"gender":"通","freq":1},{"c":"渊","s":11,"w":"","p":"yuān","m":"","src":"仲氏任只，其心塞渊。终温且惠，淑慎其身。 — 《诗经·燕燕》","star":3,"fenqi":false,"landajie":false,"tags":["清泠"],"gender":"女","freq":1},{"c":"章","s":11,"w":"","p":"zhāng","m":"","src":"玁狁匪茹，整居焦获。侵镐及方，至于泾阳。 — 《诗经·六月》","star":2,"fenqi":false,"landajie":false,"tags":["雅韵"],"gender":"通","freq":1},{"c":"梓","s":11,"w":"木","p":"zǐ","m":"梓树；故土深情（重名极高）","src":"定之方中，作于楚宫。揆之以日，作于楚室。 — 《诗经·定之方中》","star":3,"fenqi":false,"landajie":true,"tags":["大气"],"gender":"通用","freq":1},{"c":"博","s":12,"w":"水","p":"bó","m":"广博；博学多才","src":"角弓其觩。束矢其搜。戎车孔博。徒御无斁。 — 《诗经·泮水》","star":2,"fenqi":true,"landajie":true,"tags":["知性","大气"],"gender":"男","freq":1},{"c":"淳","s":12,"w":"水","p":"chún","m":"淳朴；淳厚质朴","src":"嗚呼聖王及聖相，相與烜赫流淳熙。 — 《唐诗·undefined》","star":2,"fenqi":false,"landajie":false,"tags":["知性","大气"],"gender":"男","freq":1},{"c":"琮","s":12,"w":"","p":"cóng","m":"","src":"重头歌韵响铮琮，入破舞腰红乱旋。 — 《宋词·木兰花・玉楼春》","star":2,"fenqi":false,"landajie":false,"tags":["宝玉"],"gender":"通","freq":1},{"c":"栋","s":12,"w":"木","p":"dòng","m":"栋梁；国之栋梁","src":"桂栋兮兰橑，辛夷楣兮药房 — 《楚辞·湘夫人》","star":2,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"赋","s":12,"w":"","p":"fù","m":"","src":"仲山甫之德，柔嘉维则。令仪令色。小心翼翼 — 《诗经·烝民》","star":2,"fenqi":false,"landajie":false,"tags":["雅韵"],"gender":"通","freq":1},{"c":"涵","s":12,"w":"水","p":"hán","m":"涵蓄；涵养深厚（重名极高）","src":"乱之初生，僭始既涵。乱之又生，君子信谗。 — 《诗经·巧言》","star":3,"fenqi":false,"landajie":true,"tags":["知性","大气"],"gender":"通用","freq":1},{"c":"惠","s":12,"w":"","p":"huì","m":"","src":"仲氏任只，其心塞渊。终温且惠，淑慎其身。 — 《诗经·燕燕》","star":2,"fenqi":false,"landajie":false,"tags":["德慧"],"gender":"通","freq":1},{"c":"湫","s":12,"w":"","p":"jiǎo","m":"","src":"风骚屑以摇木兮，云吸吸以湫戾。 — 《楚辞·思古》","star":3,"fenqi":false,"landajie":false,"tags":["清泠"],"gender":"女","freq":1},{"c":"琚","s":12,"w":"","p":"jū","m":"","src":"投我以木瓜，报之以琼琚。匪报也，永以为好 — 《诗经·木瓜》","star":2,"fenqi":false,"landajie":false,"tags":["宝玉"],"gender":"通","freq":1},{"c":"钧","s":12,"w":"金","p":"jūn","m":"三十斤；千钧沉稳","src":"尹氏大师，维周之氐；秉国之钧，四方是维。 — 《诗经·节南山》","star":2,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"葵","s":12,"w":"","p":"kuí","m":"","src":"六月食郁及薁，七月亨葵及菽。八月剥枣，十 — 《诗经·七月》","star":3,"fenqi":false,"landajie":false,"tags":["花草"],"gender":"女","freq":1},{"c":"岚","s":12,"w":"土","p":"lán","m":"山气；山岚氤氲（简7）","src":"岚影浮春，云容阁雨，澄泓碧展玻璃。 — 《宋词·满庭芳》","star":4,"fenqi":false,"landajie":false,"tags":["温婉","自然"],"gender":"女","freq":1},{"c":"琳","s":12,"w":"木","p":"lín","m":"美玉；琳琳如玉","src":"抚长剑兮玉珥，璆锵鸣兮琳琅 — 《楚辞·东皇太一》","star":4,"fenqi":true,"landajie":false,"tags":["温婉","大气"],"gender":"女","freq":1},{"c":"媚","s":12,"w":"","p":"mèi","m":"","src":"驷驖孔阜，六辔在手。公之媚子，从公于狩。 — 《诗经·驷驖》","star":3,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"淼","s":12,"w":"","p":"miǎo","m":"","src":"当陵阳之焉至兮，淼南渡之焉如？ — 《楚辞·哀郢》","star":3,"fenqi":false,"landajie":false,"tags":["清泠"],"gender":"女","freq":1},{"c":"淇","s":12,"w":"水","p":"qí","m":"淇水；淇奥绿竹","src":"毖彼泉水，亦流于淇。有怀于卫，靡日不思。 — 《诗经·泉水》","star":4,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"棋","s":12,"w":"木","p":"qí","m":"棋局；高瞻远瞩","src":"菎蔽象棋，有六簙些。 — 《楚辞·招魂》","star":2,"fenqi":false,"landajie":false,"tags":["知性"],"gender":"男","freq":1},{"c":"琦","s":12,"w":"","p":"qí","m":"","src":"纂组绮缟，结琦璜些。 — 《楚辞·招魂》","star":2,"fenqi":false,"landajie":false,"tags":["宝玉"],"gender":"通","freq":1},{"c":"琪","s":12,"w":"木","p":"qí","m":"美玉；琪树瑶花","src":"琪树罗三殿，金龙抱九关。 — 《宋词·巫山一段云》","star":4,"fenqi":true,"landajie":false,"tags":["温婉","大气"],"gender":"女","freq":1},{"c":"谦","s":12,"w":"","p":"qiān","m":"","src":"兢兢惕惕持谦德，未许禅云亭。 — 《宋词·导引》","star":2,"fenqi":false,"landajie":false,"tags":["德慧"],"gender":"通","freq":1},{"c":"钦","s":12,"w":"金","p":"qīn","m":"钦佩；受尊被敬","src":"鴥彼晨风，郁彼北林。未见君子，忧心钦钦。 — 《诗经·晨风》","star":2,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"琴","s":12,"w":"","p":"qín","m":"","src":"参差荇菜，左右采之。窈窕淑女，琴瑟友之。 — 《诗经·关雎》","star":2,"fenqi":false,"landajie":false,"tags":["雅韵"],"gender":"通","freq":1},{"c":"清","s":12,"w":"水","p":"qīng","m":"清澈；清正明朗","src":"瑳兮瑳兮，其之展也。蒙彼绉絺，是绁袢也。 — 《诗经·君子偕老》","star":3,"fenqi":false,"landajie":false,"tags":["知性","大气"],"gender":"通用","freq":1},{"c":"晴","s":12,"w":"火","p":"qíng","m":"晴空；云销雨霁","src":"分野中峯變，陰晴衆壑殊。 — 《唐诗·undefined》","star":4,"fenqi":false,"landajie":false,"tags":["温婉","大气"],"gender":"女","freq":1},{"c":"琼","s":12,"w":"","p":"qióng","m":"","src":"投我以木瓜，报之以琼琚。匪报也，永以为好 — 《诗经·木瓜》","star":2,"fenqi":false,"landajie":false,"tags":["宝玉"],"gender":"通","freq":1},{"c":"然","s":12,"w":"火","p":"rán","m":"\"燃\"本字；浩然正气（此字典列金！）","src":"终风且霾，惠然肯来，莫往莫来，悠悠我思。 — 《诗经·终风》","star":3,"fenqi":true,"landajie":true,"tags":["大气"],"gender":"通用","freq":1},{"c":"嵘","s":12,"w":"","p":"róng","m":"","src":"下峥嵘而无地兮，上寥廓而无天。 — 《楚辞·远游》","star":2,"fenqi":false,"landajie":false,"tags":["天地"],"gender":"通","freq":1},{"c":"森","s":12,"w":"木","p":"sēn","m":"森林；繁茂兴业","src":"丞相祠堂何處尋，錦官城外柏森森。 — 《唐诗·undefined》","star":2,"fenqi":false,"landajie":false,"tags":["自然","大气"],"gender":"男","freq":1},{"c":"善","s":12,"w":"","p":"shàn","m":"","src":"凯风自南，吹彼棘薪。母氏圣善，我无令人。 — 《诗经·凯风》","star":2,"fenqi":false,"landajie":false,"tags":["德慧"],"gender":"通","freq":1},{"c":"媞","s":12,"w":"","p":"shì","m":"","src":"西施媞媞而不得见兮，嫫母勃屑而日侍。 — 《楚辞·怨世》","star":3,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"淑","s":12,"w":"水","p":"shū","m":"善良；窈窕淑女","src":"关关雎鸠，在河之洲。窈窕淑女，君子好逑。 — 《诗经·关雎》","star":4,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"舒","s":12,"w":"金","p":"shū","m":"舒展；舒泰安逸","src":"舒而脱脱兮，无感我帨兮，无使尨也吠。 — 《诗经·野有死麕》","star":3,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"通用","freq":1},{"c":"斯","s":12,"w":"金","p":"sī","m":"斯文；斯文儒雅","src":"螽斯羽，诜诜兮。宜尔子孙，振振兮。 — 《诗经·螽斯》","star":3,"fenqi":false,"landajie":false,"tags":["知性"],"gender":"通用","freq":1},{"c":"棠","s":12,"w":"木","p":"táng","m":"海棠；海棠春睡","src":"蔽芾甘棠，勿翦勿伐，召伯所茇。 — 《诗经·甘棠》","star":4,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"缇","s":12,"w":"","p":"tí","m":"","src":"袭英衣兮缇[糹習]，披华裳兮芳芬。 — 《楚辞·昭世》","star":2,"fenqi":false,"landajie":false,"tags":["光影"],"gender":"通","freq":1},{"c":"婷","s":12,"w":"","p":"tíng","m":"","src":"好借月魂来，娉婷画烛旁。 — 《宋词·梅花曲》","star":3,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"琬","s":12,"w":"","p":"wǎn","m":"","src":"吸飞泉之微液兮，怀琬琰之华英。 — 《楚辞·远游》","star":2,"fenqi":false,"landajie":false,"tags":["宝玉"],"gender":"通","freq":1},{"c":"温","s":12,"w":"","p":"wēn","m":"","src":"仲氏任只，其心塞渊。终温且惠，淑慎其身。 — 《诗经·燕燕》","star":2,"fenqi":false,"landajie":false,"tags":["德慧"],"gender":"通","freq":1},{"c":"雯","s":12,"w":"水","p":"wén","m":"彩云；雯华云纹","src":"","star":4,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"湘","s":12,"w":"","p":"xiāng","m":"","src":"于以盛之？维筐及筥。于以湘之？维锜及釜。 — 《诗经·采蘋》","star":3,"fenqi":false,"landajie":false,"tags":["清泠"],"gender":"女","freq":1},{"c":"翔","s":12,"w":"","p":"xiáng","m":"","src":"清人在彭，驷介旁旁。二矛重英，河上乎翱翔 — 《诗经·清人》","star":2,"fenqi":false,"landajie":false,"tags":["天地"],"gender":"通","freq":1},{"c":"雅","s":12,"w":"","p":"yǎ","m":"","src":"鼓钟钦钦，鼓瑟鼓琴，笙磬同音。以雅以南， — 《诗经·鼓钟》","star":2,"fenqi":false,"landajie":false,"tags":["雅韵"],"gender":"通","freq":1},{"c":"琰","s":12,"w":"","p":"yǎn","m":"","src":"吸飞泉之微液兮，怀琬琰之华英。 — 《楚辞·远游》","star":2,"fenqi":false,"landajie":false,"tags":["宝玉"],"gender":"通","freq":1},{"c":"谣","s":12,"w":"","p":"yáo","m":"","src":"园有桃，其实之肴。心之忧矣，我歌且谣。不 — 《诗经·园有桃》","star":2,"fenqi":false,"landajie":false,"tags":["雅韵"],"gender":"通","freq":1},{"c":"瑛","s":12,"w":"","p":"yīng","m":"","src":"椒瑛兮湟汙，葈耳兮充房。 — 《楚辞·哀岁》","star":2,"fenqi":false,"landajie":false,"tags":["宝玉"],"gender":"通","freq":1},{"c":"愉","s":12,"w":"","p":"yú","m":"","src":"山有枢，隰有榆。子有衣裳，弗曳弗娄。子有 — 《诗经·山有枢》","star":2,"fenqi":false,"landajie":false,"tags":["祥和"],"gender":"通","freq":1},{"c":"媛","s":12,"w":"","p":"yuàn","m":"","src":"瑳兮瑳兮，其之展也。蒙彼绉絺，是绁袢也。 — 《诗经·君子偕老》","star":3,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"越","s":12,"w":"土","p":"yuè","m":"超越；卓越超群","src":"穀旦于逝，越以鬷迈。视尔如荍，贻我握椒。 — 《诗经·东门之枌》","star":2,"fenqi":false,"landajie":false,"tags":["大气","现代"],"gender":"男","freq":1},{"c":"湛","s":12,"w":"","p":"zhàn","m":"","src":"呦呦鹿鸣，食野之芩。我有嘉宾，鼓瑟鼓琴。 — 《诗经·鹿鸣》","star":3,"fenqi":false,"landajie":false,"tags":["清泠"],"gender":"女","freq":1},{"c":"筝","s":12,"w":"","p":"zhēng","m":"","src":"破伯牙之号钟兮，挟人筝而弹纬。 — 《楚辞·愍命》","star":2,"fenqi":false,"landajie":false,"tags":["雅韵"],"gender":"通","freq":1},{"c":"智","s":12,"w":"","p":"zhì","m":"","src":"詹尹乃释策而谢曰：“夫尺有所短，寸有所长 — 《楚辞·卜居》","star":2,"fenqi":false,"landajie":false,"tags":["德慧"],"gender":"通","freq":1},{"c":"嫒","s":13,"w":"","p":"ài","m":"","src":"","star":3,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"慈","s":13,"w":"","p":"cí","m":"","src":"众谗人之嫉妒兮，被以不慈之伪名。 — 《楚辞·哀郢》","star":2,"fenqi":false,"landajie":false,"tags":["德慧"],"gender":"通","freq":1},{"c":"辞","s":13,"w":"","p":"cí","m":"","src":"辞之辑矣，民之洽矣。辞之怿矣，民之莫矣。 — 《诗经·板》","star":2,"fenqi":false,"landajie":false,"tags":["雅韵"],"gender":"通","freq":1},{"c":"福","s":13,"w":"","p":"fú","m":"","src":"南有樛木，葛藟累之。乐只君子，福履绥之。 — 《诗经·樛木》","star":2,"fenqi":false,"landajie":false,"tags":["祥和"],"gender":"通","freq":1},{"c":"瑰","s":13,"w":"","p":"guī","m":"","src":"我送舅氏，悠悠我思。何以赠之？琼瑰玉佩。 — 《诗经·渭阳》","star":2,"fenqi":false,"landajie":false,"tags":["宝玉"],"gender":"通","freq":1},{"c":"荷","s":13,"w":"木","p":"hé","m":"荷花；出淤泥不染","src":"山有扶苏，隰有荷华。不见子都，乃见狂且。 — 《诗经·山有扶苏》","star":4,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"煌","s":13,"w":"火","p":"huáng","m":"明亮；辉煌璀璨","src":"东门之杨，其叶牂牂。昏以为期，明星煌煌。 — 《诗经·东门之杨》","star":2,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"靖","s":13,"w":"金","p":"jìng","m":"平安；靖宁四方","src":"嗟尔君子，无恒安处。靖共尔位，正直是与。 — 《诗经·小明》","star":2,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"楷","s":13,"w":"木","p":"kǎi","m":"楷模；方正楷模","src":"","star":2,"fenqi":false,"landajie":false,"tags":["知性"],"gender":"男","freq":1},{"c":"莉","s":13,"w":"木","p":"lì","m":"茉莉；茉莉清芬","src":"","star":4,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"铃","s":13,"w":"金","p":"líng","m":"铃铛；清脆悦耳","src":"载见辟王，曰求厥章。龙旂阳阳，和铃央央。 — 《诗经·载见》","star":4,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"溟","s":13,"w":"","p":"míng","m":"","src":"人在虚空，月生溟海，寒渔夜泛，游鳞可辨。 — 《宋词·倾杯・倾杯乐》","star":3,"fenqi":false,"landajie":false,"tags":["清泠"],"gender":"女","freq":1},{"c":"楠","s":13,"w":"木","p":"nán","m":"楠木；栋梁之材","src":"","star":2,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"瑟","s":13,"w":"","p":"sè","m":"","src":"参差荇菜，左右采之。窈窕淑女，琴瑟友之。 — 《诗经·关雎》","star":2,"fenqi":false,"landajie":false,"tags":["雅韵"],"gender":"通","freq":1},{"c":"莎","s":13,"w":"木","p":"shā","m":"莎草；轻柔飘逸","src":"五月斯螽动股，六月莎鸡振羽。七月在野，八 — 《诗经·七月》","star":4,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"诗","s":13,"w":"金","p":"shī","m":"诗歌；诗情画意","src":"杨园之道，猗于亩丘。寺人孟子，作为此诗。 — 《诗经·巷伯》","star":4,"fenqi":false,"landajie":true,"tags":["温婉","知性"],"gender":"女","freq":1},{"c":"嵩","s":13,"w":"土","p":"sōng","m":"嵩山；嵩岳崇高","src":"嵩雲秦樹久離居，雙鯉迢迢一紙書。 — 《唐诗·undefined》","star":2,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"炜","s":13,"w":"火","p":"wěi","m":"光明；炜烨生辉（简8）","src":"静女其娈，贻我彤管。彤管有炜，说怿女美。 — 《诗经·静女》","star":2,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"新","s":13,"w":"金","p":"xīn","m":"更新；日新其德","src":"行道迟迟，中心有违。不远伊迩，薄送我畿。 — 《诗经·谷风》","star":3,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"通用","freq":1},{"c":"钰","s":13,"w":"金","p":"yù","m":"珍宝；如金似玉","src":"","star":3,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"通用","freq":1},{"c":"煜","s":13,"w":"火","p":"yù","m":"照耀；煜煜生辉","src":"","star":2,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"瑗","s":13,"w":"","p":"yuàn","m":"","src":"","star":2,"fenqi":false,"landajie":false,"tags":["宝玉"],"gender":"通","freq":1},{"c":"韵","s":13,"w":"","p":"yùn","m":"","src":"少年风韵，自觉随春老。 — 《宋词·诉衷情近》","star":2,"fenqi":false,"landajie":false,"tags":["雅韵"],"gender":"通","freq":1},{"c":"照","s":13,"w":"火","p":"zhào","m":"照耀；光照四方","src":"日居月诸，照临下土。乃如之人兮，逝不古处 — 《诗经·日月》","star":2,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"碧","s":14,"w":"","p":"bì","m":"","src":"孤帆遠影碧空盡，唯見長江天際流。 (唯  — 《唐诗·undefined》","star":2,"fenqi":false,"landajie":false,"tags":["宝玉"],"gender":"通","freq":1},{"c":"嫦","s":14,"w":"","p":"cháng","m":"","src":"嫦娥應悔偷靈藥，碧海青天夜夜心。 — 《唐诗·undefined》","star":3,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"畅","s":14,"w":"火","p":"chàng","m":"畅通；顺畅通达（简8）","src":"小戎俴收，五楘梁辀。游环胁驱，阴靷鋈续。 — 《诗经·小戎》","star":3,"fenqi":false,"landajie":false,"tags":["大气","现代"],"gender":"通用","freq":1},{"c":"菲","s":14,"w":"木","p":"fēi","m":"芳菲；芳香馥郁","src":"习习谷风，以阴以雨。黾勉同心，不宜有怒。 — 《诗经·谷风》","star":4,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"歌","s":14,"w":"","p":"gē","m":"","src":"江有沱，之子归，不我过。不我过，其啸也歌 — 《诗经·江有汜》","star":2,"fenqi":false,"landajie":false,"tags":["雅韵"],"gender":"通","freq":1},{"c":"菡","s":14,"w":"木","p":"hàn","m":"荷花；淡雅高洁","src":"彼泽之陂，有蒲菡萏。有美一人，硕大且俨。 — 《诗经·泽陂》","star":4,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"华","s":14,"w":"木","p":"huá","m":"光华；才华横溢","src":"桃之夭夭，灼灼其华。之子于归，宜其室家。 — 《诗经·桃夭》","star":3,"fenqi":true,"landajie":false,"tags":["大气"],"gender":"通用","freq":1},{"c":"霁","s":14,"w":"","p":"jì","m":"","src":"春朝雨霁轻尘歇。 — 《宋词·阳关引》","star":2,"fenqi":false,"landajie":false,"tags":["天地"],"gender":"通","freq":1},{"c":"嘉","s":14,"w":"","p":"jiā","m":"","src":"既不我嘉，不能旋反。视尔不臧，我思不远。 — 《诗经·载驰》","star":2,"fenqi":false,"landajie":false,"tags":["祥和"],"gender":"通","freq":1},{"c":"菁","s":14,"w":"木","p":"jīng","m":"菁华；草木菁菁","src":"菁菁者莪，在彼中阿。既见君子，乐且有仪。 — 《诗经·菁菁者莪》","star":3,"fenqi":false,"landajie":false,"tags":["知性","自然"],"gender":"通用","freq":1},{"c":"静","s":14,"w":"","p":"jìng","m":"","src":"忧心悄悄，愠于群小。觏闵既多，受侮不少。 — 《诗经·柏舟》","star":2,"fenqi":false,"landajie":false,"tags":["祥和"],"gender":"通","freq":1},{"c":"潋","s":14,"w":"","p":"liàn","m":"","src":"金波银汉，潋滟无际。 — 《宋词·佳人醉》","star":3,"fenqi":false,"landajie":false,"tags":["清泠"],"gender":"女","freq":1},{"c":"缦","s":14,"w":"","p":"màn","m":"","src":"缦鬓小横波。 — 《宋词·菩萨蛮》","star":2,"fenqi":false,"landajie":false,"tags":["光影"],"gender":"通","freq":1},{"c":"萌","s":14,"w":"木","p":"méng","m":"萌芽；生机萌发","src":"厥萌在初，何所亿焉？ — 《楚辞·天问》","star":4,"fenqi":false,"landajie":false,"tags":["温婉","自然"],"gender":"女","freq":1},{"c":"铭","s":14,"w":"金","p":"míng","m":"铭刻；铭记声名","src":"","star":2,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"宁","s":14,"w":"火","p":"níng","m":"安宁；宁静致远（简5/繁14；金火分歧）","src":"言告师氏，言告言归。薄污我私，薄浣我衣。 — 《诗经·葛覃》","star":4,"fenqi":true,"landajie":false,"tags":["温婉","知性"],"gender":"女","freq":1},{"c":"蔷","s":14,"w":"","p":"qiáng","m":"","src":"衬琅玕锦院，竹外蔷薇。 — 《宋词·八声甘州》","star":3,"fenqi":false,"landajie":false,"tags":["花草"],"gender":"女","freq":1},{"c":"荣","s":14,"w":"木","p":"róng","m":"茂盛荣耀；荣光焕发（底部火勿判）","src":"及荣华之未落兮，相下女之可诒。 — 《楚辞·离骚》","star":3,"fenqi":true,"landajie":false,"tags":["大气"],"gender":"通用","freq":1},{"c":"瑞","s":14,"w":"金","p":"ruì","m":"祥瑞；瑞气盈门","src":"羡咎繇兮建典谟，懿风后兮受瑞图。 — 《楚辞·逢尤》","star":3,"fenqi":true,"landajie":false,"tags":["大气"],"gender":"通用","freq":1},{"c":"睿","s":14,"w":"金","p":"ruì","m":"睿智；睿智明达","src":"气和玉烛，睿化著鸿明。 — 《宋词·导引》","star":2,"fenqi":false,"landajie":true,"tags":["知性","大气"],"gender":"男","freq":1},{"c":"韶","s":14,"w":"","p":"sháo","m":"","src":"奏《九歌》而舞《韶》兮，聊假日以偷乐。 — 《楚辞·离骚》","star":2,"fenqi":false,"landajie":false,"tags":["雅韵"],"gender":"通","freq":1},{"c":"霆","s":14,"w":"","p":"tíng","m":"","src":"啴啴焞焞，如霆如雷。显允方叔，征伐玁狁， — 《诗经·采芑》","star":2,"fenqi":false,"landajie":false,"tags":["天地"],"gender":"通","freq":1},{"c":"溪","s":14,"w":"水","p":"xī","m":"溪流；溪水潺潺","src":"山气巄嵷兮石嵯峨，溪谷崭岩兮水曾波。 — 《楚辞·招隐士》","star":4,"fenqi":true,"landajie":false,"tags":["温婉","自然"],"gender":"女","freq":1},{"c":"潇","s":14,"w":"","p":"xiāo","m":"","src":"风雨潇潇，鸡鸣胶胶。既见君子，云胡不瘳？ — 《诗经·风雨》","star":3,"fenqi":false,"landajie":false,"tags":["清泠"],"gender":"女","freq":1},{"c":"箫","s":14,"w":"","p":"xiāo","m":"","src":"乃奏，箫管备举。喤喤厥声，肃雍和鸣，先祖 — 《诗经·有瞽》","star":2,"fenqi":false,"landajie":false,"tags":["雅韵"],"gender":"通","freq":1},{"c":"嫣","s":14,"w":"","p":"yān","m":"","src":"阳城下蔡困嫣然。 — 《宋词·浣溪沙》","star":3,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"漪","s":14,"w":"","p":"yī","m":"","src":"微动涟漪。 — 《宋词·采桑子》","star":3,"fenqi":false,"landajie":false,"tags":["清泠"],"gender":"女","freq":1},{"c":"银","s":14,"w":"金","p":"yín","m":"白银；银光素净","src":"真珠帘卷玉楼空，天淡银河垂地。 — 《宋词·御街行》","star":3,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"通用","freq":1},{"c":"瑜","s":14,"w":"土","p":"yú","m":"美玉；怀瑾握瑜","src":"怀瑾握瑜兮，穷不知所示。 — 《楚辞·怀沙》","star":3,"fenqi":true,"landajie":false,"tags":["温婉","大气"],"gender":"通用","freq":1},{"c":"源","s":14,"w":"水","p":"yuán","m":"源头；源远流长","src":"泉源在左，淇水在右。女子有行，远兄弟父母 — 《诗经·竹竿》","star":2,"fenqi":false,"landajie":false,"tags":["知性","大气"],"gender":"男","freq":1},{"c":"澈","s":15,"w":"","p":"chè","m":"","src":"君含怒而待臣兮，不清澈其然否。 — 《楚辞·惜往日》","star":3,"fenqi":false,"landajie":false,"tags":["清泠"],"gender":"女","freq":1},{"c":"聪","s":15,"w":"","p":"cōng","m":"","src":"有兔爰爰，雉离于罿。我生之初，尚无庸；我 — 《诗经·兔爰》","star":2,"fenqi":false,"landajie":false,"tags":["德慧"],"gender":"通","freq":1},{"c":"德","s":15,"w":"","p":"dé","m":"","src":"日居月诸，出自东方。乃如之人兮，德音无良 — 《诗经·日月》","star":2,"fenqi":false,"landajie":false,"tags":["德慧"],"gender":"通","freq":1},{"c":"锋","s":15,"w":"金","p":"fēng","m":"刀锋；锋芒锐气","src":"旦暮锋车命驾，重整济川舟。 — 《宋词·瑞鹧鸪》","star":2,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"篁","s":15,"w":"","p":"huáng","m":"","src":"余处幽篁兮终不见天，路险难兮独后来 — 《楚辞·山鬼》","star":2,"fenqi":false,"landajie":false,"tags":["雅韵"],"gender":"通","freq":1},{"c":"辉","s":15,"w":"火","p":"huī","m":"光辉；光辉灿烂（老一辈热门）","src":"夜如何其？夜乡晨，庭燎有辉。君子至止，言 — 《诗经·庭燎》","star":2,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"慧","s":15,"w":"水","p":"huì","m":"智慧；兰心蕙质","src":"揽慧星以为旍兮，举斗柄以为麾。 — 《楚辞·远游》","star":4,"fenqi":false,"landajie":false,"tags":["知性","大气"],"gender":"女","freq":1},{"c":"蕙","s":15,"w":"","p":"huì","m":"","src":"杂申椒与菌桂兮，岂惟纫夫蕙茝！ — 《楚辞·离骚》","star":3,"fenqi":false,"landajie":false,"tags":["花草"],"gender":"女","freq":1},{"c":"剑","s":15,"w":"金","p":"jiàn","m":"宝剑；剑气豪迈","src":"抚长剑兮玉珥，璆锵鸣兮琳琅 — 《楚辞·东皇太一》","star":2,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"槿","s":15,"w":"木","p":"jǐn","m":"木槿；坚韧柔美","src":"山中習靜觀朝槿，松下清齋折露葵。 — 《唐诗·undefined》","star":4,"fenqi":false,"landajie":false,"tags":["温婉","自然"],"gender":"女","freq":1},{"c":"澜","s":15,"w":"","p":"lán","m":"","src":"何青云之流澜兮，微霜降之蒙蒙。 — 《楚辞·自悲》","star":3,"fenqi":false,"landajie":false,"tags":["清泠"],"gender":"女","freq":1},{"c":"磊","s":15,"w":"土","p":"lěi","m":"众石；光明磊落","src":"采三秀兮于山间，石磊磊兮葛蔓蔓 — 《楚辞·山鬼》","star":2,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"漫","s":15,"w":"水","p":"màn","m":"烂漫；天真烂漫","src":"路漫漫其修远兮，吾将上下而求索。 — 《楚辞·离骚》","star":4,"fenqi":false,"landajie":false,"tags":["温婉","自然"],"gender":"女","freq":1},{"c":"墨","s":15,"w":"","p":"mò","m":"","src":"背绳墨以追曲兮，竞周容以为度。 — 《楚辞·离骚》","star":2,"fenqi":false,"landajie":false,"tags":["雅韵"],"gender":"通","freq":1},{"c":"磐","s":15,"w":"土","p":"pán","m":"磐石；坚如磐石","src":"請留磐石上，垂釣將已矣。(磐石 一作：盤 — 《唐诗·undefined》","star":2,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"蕊","s":15,"w":"","p":"ruǐ","m":"","src":"掔木根以结茞兮，贯薜荔之落蕊。 — 《楚辞·离骚》","star":3,"fenqi":false,"landajie":false,"tags":["花草"],"gender":"女","freq":1},{"c":"锐","s":15,"w":"金","p":"ruì","m":"锐利；锐意进取","src":"留思北顾涕渐渐兮，折锐摧矜凝氾滥兮， — 《楚辞·忧苦》","star":2,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"霄","s":15,"w":"","p":"xiāo","m":"","src":"譬若王侨之乘云兮，载赤霄而凌太清。 — 《楚辞·远游》","star":2,"fenqi":false,"landajie":false,"tags":["天地"],"gender":"通","freq":1},{"c":"萱","s":15,"w":"木","p":"xuān","m":"萱草；忘忧快乐（重名极高）","src":"碧砌红萱草。 — 《宋词·清平乐》","star":4,"fenqi":false,"landajie":true,"tags":["温婉"],"gender":"女","freq":1},{"c":"璇","s":15,"w":"","p":"xuán","m":"","src":"谣吟兮中野，上察兮璇玑。 — 《楚辞·怨上》","star":2,"fenqi":false,"landajie":false,"tags":["宝玉"],"gender":"通","freq":1},{"c":"瑶","s":15,"w":"土","p":"yáo","m":"美玉；瑶池仙品（重名极高）","src":"投我以木桃，报之以琼瑶。匪报也，永以为好 — 《诗经·木瓜》","star":4,"fenqi":true,"landajie":true,"tags":["温婉"],"gender":"女","freq":1},{"c":"熠","s":15,"w":"","p":"yì","m":"","src":"伊威在室，蠨蛸在户。町畽鹿场，熠耀宵行。 — 《诗经·东山》","star":2,"fenqi":false,"landajie":false,"tags":["光影"],"gender":"通","freq":1},{"c":"璠","s":16,"w":"","p":"fán","m":"","src":"","star":2,"fenqi":false,"landajie":false,"tags":["宝玉"],"gender":"通","freq":1},{"c":"霏","s":16,"w":"","p":"fēi","m":"","src":"北风其喈，雨雪其霏。惠而好我，携手同归。 — 《诗经·北风》","star":2,"fenqi":false,"landajie":false,"tags":["天地"],"gender":"通","freq":1},{"c":"翰","s":16,"w":"","p":"hàn","m":"","src":"宛彼鸣鸠，翰飞戾天。我心忧伤，念昔先人。 — 《诗经·小宛》","star":2,"fenqi":false,"landajie":false,"tags":["雅韵"],"gender":"通","freq":1},{"c":"寰","s":16,"w":"","p":"huán","m":"","src":"回頭下望人寰處，不見長安見塵霧。惟將舊物 — 《唐诗·undefined》","star":2,"fenqi":false,"landajie":false,"tags":["天地"],"gender":"通","freq":1},{"c":"锦","s":16,"w":"金","p":"jǐn","m":"锦绣；前程似锦","src":"硕人其颀，衣锦褧衣。齐侯之子，卫侯之妻。 — 《诗经·硕人》","star":3,"fenqi":false,"landajie":false,"tags":["温婉","大气"],"gender":"通用","freq":1},{"c":"瑾","s":16,"w":"土","p":"jǐn","m":"美玉；怀瑾握玉","src":"怀瑾握瑜兮，穷不知所示。 — 《楚辞·怀沙》","star":3,"fenqi":true,"landajie":false,"tags":["大气"],"gender":"通用","freq":1},{"c":"璟","s":16,"w":"","p":"jǐng","m":"","src":"","star":2,"fenqi":false,"landajie":false,"tags":["宝玉"],"gender":"通","freq":1},{"c":"霖","s":16,"w":"水","p":"lín","m":"甘霖；恩泽万物（升温中）","src":"皇天淫溢而秋霖兮，后土何时而得漧？ — 《楚辞·九辩》","star":2,"fenqi":false,"landajie":true,"tags":["自然","大气"],"gender":"男","freq":1},{"c":"霓","s":16,"w":"水","p":"ní","m":"霓虹；霓裳羽衣","src":"飘风屯其相离兮，帅云霓而来御。 — 《楚辞·离骚》","star":4,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"桥","s":16,"w":"木","p":"qiáo","m":"桥梁；通达开阔","src":"芰荷浦溆，杨柳汀洲，映虹桥倒影，兰舟飞棹 — 《宋词·早梅芳・喜迁莺》","star":2,"fenqi":false,"landajie":false,"tags":["大气","现代"],"gender":"男","freq":1},{"c":"蓉","s":16,"w":"木","p":"róng","m":"芙蓉；出水芙蓉","src":"制芰荷以为衣兮，集芙蓉以为裳。 — 《楚辞·离骚》","star":4,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"润","s":16,"w":"水","p":"rùn","m":"滋润；温润如玉","src":"迟迟淑景，烟和露润，偏绕长堤芳草。 — 《宋词·古倾杯・倾杯乐》","star":3,"fenqi":false,"landajie":false,"tags":["温婉","知性"],"gender":"通用","freq":1},{"c":"晓","s":16,"w":"火","p":"xiǎo","m":"拂晓；晓光聪慧（简10）","src":"意晓阳兮燎寤，乃自诊兮在兹。 — 《楚辞·陶壅》","star":3,"fenqi":false,"landajie":false,"tags":["温婉","大气"],"gender":"通用","freq":1},{"c":"燕","s":16,"w":"土","p":"yàn","m":"燕子；燕语莺声","src":"燕燕于飞，差池其羽。之子于归，远送于野。 — 《诗经·燕燕》","star":4,"fenqi":false,"landajie":false,"tags":["温婉","自然"],"gender":"女","freq":1},{"c":"铮","s":16,"w":"金","p":"zhēng","m":"金属声；铮铮铁骨","src":"重头歌韵响铮琮，入破舞腰红乱旋。 — 《宋词·木兰花・玉楼春》","star":2,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"簧","s":17,"w":"","p":"huáng","m":"","src":"君子阳阳，左执簧，右招我由房，其乐只且！ — 《诗经·君子阳阳》","star":2,"fenqi":false,"landajie":false,"tags":["雅韵"],"gender":"通","freq":1},{"c":"璐","s":17,"w":"土","p":"lù","m":"美玉；琼璐琳华","src":"带长铗之陆离兮，冠切云之崔嵬，被明月兮佩 — 《楚辞·涉江》","star":4,"fenqi":true,"landajie":false,"tags":["温婉","大气"],"gender":"女","freq":1},{"c":"霜","s":17,"w":"水","p":"shuāng","m":"霜雪；霜华清冽","src":"纠纠葛屦，可以履霜？掺掺女手，可以缝裳？ — 《诗经·葛屦》","star":4,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"檀","s":17,"w":"木","p":"tán","m":"檀香；沉静高雅","src":"将仲子兮，无逾我园，无折我树檀。岂敢爱之 — 《诗经·将仲子》","star":2,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"蔚","s":17,"w":"木","p":"wèi","m":"蔚然；文采蔚然","src":"荟兮蔚兮，南山朝隮。婉兮娈兮，季女斯饥。 — 《诗经·候人》","star":3,"fenqi":false,"landajie":false,"tags":["知性"],"gender":"通用","freq":1},{"c":"霞","s":17,"w":"","p":"xiá","m":"","src":"餐六气而饮沆瀣兮，漱正阳而含朝霞。 — 《楚辞·远游》","star":2,"fenqi":false,"landajie":false,"tags":["天地"],"gender":"通","freq":1},{"c":"泽","s":17,"w":"水","p":"zé","m":"恩泽；泽被苍生（重名极高；简8/康17）","src":"岂曰无衣？与子同泽。王于兴师，修我矛戟。 — 《诗经·无衣》","star":2,"fenqi":true,"landajie":true,"tags":["大气"],"gender":"男","freq":1},{"c":"璧","s":18,"w":"","p":"bì","m":"","src":"瞻彼淇奥，绿竹如箦。有匪君子，如金如锡， — 《诗经·淇奥》","star":2,"fenqi":false,"landajie":false,"tags":["宝玉"],"gender":"通","freq":1},{"c":"铠","s":18,"w":"金","p":"kǎi","m":"铠甲；坚毅护佑","src":"","star":2,"fenqi":true,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"涛","s":18,"w":"水","p":"tāo","m":"波涛；波涛汹涌（老一辈热门）","src":"庙前江水怒为涛。 — 《宋词·酒泉子》","star":2,"fenqi":false,"landajie":true,"tags":["大气"],"gender":"男","freq":1},{"c":"曜","s":18,"w":"","p":"yào","m":"","src":"羔裘如膏，日出有曜。岂不尔思？中心是悼。 — 《诗经·羔裘》","star":2,"fenqi":false,"landajie":false,"tags":["光影"],"gender":"通","freq":1},{"c":"蕾","s":19,"w":"木","p":"lěi","m":"花蕾；含苞待放（放宽）","src":"杏子梢头香蕾破。 — 《宋词·蝶恋花》","star":4,"fenqi":false,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"薇","s":19,"w":"木","p":"wēi","m":"蔷薇；婉约柔美（放宽）","src":"陟彼南山，言采其薇。未见君子，我心伤悲。 — 《诗经·草虫》","star":4,"fenqi":true,"landajie":false,"tags":["温婉"],"gender":"女","freq":1},{"c":"瀚","s":20,"w":"水","p":"hàn","m":"瀚海；浩瀚无垠（放宽）","src":"瀚海闌干百丈冰，愁雲慘淡萬里凝。 — 《唐诗·undefined》","star":2,"fenqi":false,"landajie":false,"tags":["大气"],"gender":"男","freq":1},{"c":"巍","s":20,"w":"","p":"wēi","m":"","src":"高山崔巍兮，水流汤汤。 — 《楚辞·初放》","star":2,"fenqi":false,"landajie":false,"tags":["天地"],"gender":"通","freq":1},{"c":"曦","s":20,"w":"火","p":"xī","m":"晨曦；晨曦微光（放宽，女名热门）","src":"与女沐兮咸池，曦女发兮阳之阿 — 《楚辞·少司命》","star":4,"fenqi":false,"landajie":false,"tags":["温婉","大气"],"gender":"女","freq":1},{"c":"露","s":21,"w":"水","p":"lù","m":"露珠；清露润泽（放宽，女名经典）","src":"厌浥行露，岂不夙夜，谓行多露。 — 《诗经·行露》","star":4,"fenqi":false,"landajie":false,"tags":["温婉","自然"],"gender":"女","freq":1},{"c":"鑫","s":24,"w":"金","p":"xīn","m":"金多旺；财源广进（笔画重放宽）","src":"","star":2,"fenqi":false,"landajie":true,"tags":["大气"],"gender":"男","freq":1}];
@@ -388,16 +259,12 @@ const GAN = ['甲','乙','丙','丁','戊','己','庚','辛','壬','癸'];
 const ZHI = ['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'];
 const WX_GAN = {甲:'木',乙:'木',丙:'火',丁:'火',戊:'土',己:'土',庚:'金',辛:'金',壬:'水',癸:'水'};
 const WX_ZHI = {子:'水',丑:'土',寅:'木',卯:'木',辰:'土',巳:'火',午:'火',未:'土',申:'金',酉:'金',戌:'土',亥:'水'};
-
-// 月支 index: 子=0 丑=1 寅=2 ... 亥=11 (与ZHI数组一致)
-const JIEQI = [
-  {d:'2026-12-07', z:0},   // 大雪→子月
-  {d:'2027-01-05', z:1},   // 小寒→丑月
-  {d:'2027-02-04', z:2},   // 立春→寅月(新年)
-];
+const JIEQI = [{d:'2026-12-07',z:0},{d:'2027-01-05',z:1},{d:'2027-02-04',z:2}];
+const COMBOS = [[10,14],[8,16],[9,15],[10,7],[8,10],[10,6],[6,12]];
 
 let fil = {s:[],w:[],st:[],g:[],xF:false,xL:false};
 let nA='',nB='',sel=null;
+let currentXi=[]; // 当前喜用五行数组
 
 document.getElementById('totalCount').textContent = DATA.length;
 buildChips();render();
@@ -451,7 +318,7 @@ function render(){
     g.appendChild(e);
   });
   if(!a.length)g.innerHTML='<div class="empty">无匹配字，请调整筛选</div>';
-  updWuge();updNameCard();
+  updWuge();updInterpret();
 }
 
 function showDetail(c){
@@ -492,93 +359,158 @@ function clrName(){nA='';nB='';updSlots();render();}
 document.getElementById('slotA').onclick=()=>{nA='';updSlots();render()};
 document.getElementById('slotB').onclick=()=>{nB='';updSlots();render()};
 
-function gs(c){const f=DATA.find(x=>x.c===c);return f?f.s:0}
+function findChar(c){return DATA.find(x=>x.c===c)}
 function updWuge(){
-  const a=gs(nA),b=gs(nB);
-  const v=[S+1,S+a,a+b,b+1,S+a+b];
+  const A=findChar(nA),B=findChar(nB);
+  const sa=A?A.s:0, sb=B?B.s:0;
+  const v=[S+1,S+sa,sa+sb,sb+1,S+sa+sb];
   ['g1','g2','g3','g4','g5'].forEach((id,i)=>{
-    const e=document.getElementById(id);
-    const wg=e.parentElement;
+    const e=document.getElementById(id);const wg=e.parentElement;
     if(v[i]>0){e.textContent=v[i];e.className='v '+(JI.has(v[i])?'ji':'xiong');wg.className='wg '+(JI.has(v[i])?'ji-bg':'xiong-bg')}
     else{e.textContent='—';e.className='v idle';wg.className='wg'}
   });
 }
-function updNameCard(){
-  const c=document.getElementById('nameResult');
-  if(!nA&&!nB){c.innerHTML='';return}
-  const a=gs(nA),b=gs(nB),t=S+a+b;
-  const name='刘'+(nA||'')+(nB||'');
-  let sum='天'+(S+1)+' · 人'+(S+a)+' · 地'+(a+b)+' · 外'+(b+1)+' · 总'+t;
-  const allJi=JI.has(S+1)&&JI.has(S+a)&&JI.has(a+b)&&JI.has(b+1)&&JI.has(t);
-  c.innerHTML='<div class="name-card"><span class="full-name">'+name+'</span><span class="wuge-sum">'+sum+(allJi?' <span class="all-ji">五格全吉</span>':'')+'</span></div>';
+
+// ===== 名字解读面板 ======
+function updInterpret(){
+  const box=document.getElementById('interpretBox');
+  if(!nA&&!nB){box.innerHTML='';return}
+  const A=findChar(nA),B=findChar(nB);
+  const sa=A?A.s:0,sb=B?B.s:0;
+  const vals=[S+1,S+sa,sa+sb,sb+1,S+sa+sb];
+  const allJi=vals.every(v=>JI.has(v));
+  const name='刘'+(nA||'')+ (nB||'');
+  const py=(A&&A.p?A.p:'')+(B&&B.p?' '+(B.p):'');
+  let html='<div class="interpret"><div class="ip-top"><div class="ip-name">'+name+'</div>';
+  if(py)html+='<div class="ip-py">'+py+'</div>';
+  if(allJi)html+='<div class="ip-tag">五格全吉</div>';
+  html+='</div><div class="ip-body">';
+  // 字A
+  if(A){
+    html+='<div class="ip-char"><div class="ic-big">'+A.c+'</div><div class="ic-info>';
+    html+='<div class="ic-line1"><b>'+A.c+'</b> · '+A.s+'画'+(A.w?' · 五行'+A.w:'')+(A.gender?' · '+A.gender:'')+'</div>';
+    if(A.m)html+='<div class="ic-mean">'+A.m+'</div>';
+    if(A.src)html+='<div class="ic-src">出处：'+A.src+'</div>';
+    html+='</div></div>';
+  }
+  if(B){
+    html+='<div class="ip-char"><div class="ic-big">'+B.c+'</div><div class="ic-info">';
+    html+='<div class="ic-line1"><b>'+B.c+'</b> · '+B.s+'画'+(B.w?' · 五行'+B.w:'')+(B.gender?' · '+B.gender:'')+'</div>';
+    if(B.m)html+='<div class="ic-mean">'+B.m+'</div>';
+    if(B.src)html+='<div class="ic-src">出处：'+B.src+'</div>';
+    html+='</div></div>';
+  }
+  // 五格
+  html+='<div class="ip-wuge">五格：天<b>'+vals[0]+'</b> '+(JI.has(vals[0])?'<span class="ji-tag">吉</span>':'凶')+' · 人<b>'+vals[1]+'</b> '+(JI.has(vals[1])?'<span class="ji-tag">吉</span>':'凶')+' · 地<b>'+vals[2]+'</b> '+(JI.has(vals[2])?'<span class="ji-tag">吉</span>':'凶')+' · 外<b>'+vals[3]+'</b> '+(JI.has(vals[3])?'<span class="ji-tag">吉</span>':'凶')+' · 总<b>'+vals[4]+'</b> '+(JI.has(vals[4])?'<span class="ji-tag">吉</span>':'凶')+'</div>';
+  // 综合寓意
+  if(A&&B&&(A.m||B.m)){
+    let zy='';
+    if(A.m&&B.m)zy='「'+nA+'」'+A.m.replace(/[；;].*$/,'').slice(0,12)+'，配「'+nB+'」'+B.m.replace(/[；;].*$/,'').slice(0,12)+'，'+(allJi?'五格俱吉，':'')+'寓意相得益彰。';
+    else zy=(A.m||B.m);
+    html+='<div class="ip-zongyi"><span class="zl">综合寓意</span>'+zy+'</div>';
+  }
+  html+='</div></div>';
+  box.innerHTML=html;
 }
+
+// ===== 根据八字推荐名字 ======
+function charScore(c, xiList){
+  let sc=0;
+  if(xiList.includes(c.w)) sc+=3;
+  if(c.gender==='女') sc+=2; else if(c.gender==='通用') sc+=1;
+  if(c.m) sc+=1;
+  if(c.src) sc+=1.5;
+  if(c.landajie) sc-=3;
+  if(c.fenqi) sc-=2;
+  if(c.tags.includes('温婉')) sc+=0.5;
+  return sc;
+}
+function isAllJi(sa,sb){
+  const v=[S+1,S+sa,sa+sb,sb+1,S+sa+sb];
+  return v.every(x=>JI.has(x));
+}
+function recommend(){
+  const box=document.getElementById('recommendBox');
+  if(currentXi.length===0){box.innerHTML='<div class="empty">请先选择出生日期与时辰</div>';return}
+  // 按笔画建索引
+  const byStroke={};
+  DATA.forEach(c=>{if(!byStroke[c.s])byStroke[c.s]=[];byStroke[c.s].push(c)});
+  const results=[];
+  for(const [sa,sb] of COMBOS){
+    if(!isAllJi(sa,sb)) continue;
+    const listA=(byStroke[sa]||[]).filter(c=>currentXi.includes(c.w));
+    const listB=(byStroke[sb]||[]).filter(c=>currentXi.includes(c.w));
+    // 每个组合限制枚举量
+    const A=listA.sort((x,y)=>charScore(y,currentXi)-charScore(x,currentXi)).slice(0,20);
+    const B=listB.sort((x,y)=>charScore(y,currentXi)-charScore(x,currentXi)).slice(0,20);
+    for(const a of A){
+      for(const b of B){
+        if(a.c===b.c) continue;
+        results.push({a,b,sa,sb,score:charScore(a,currentXi)+charScore(b,currentXi)});
+      }
+    }
+  }
+  results.sort((x,y)=>y.score-x.score);
+  const top=results.slice(0,12);
+  if(top.length===0){box.innerHTML='<div class="empty">未找到符合喜用神五行的全吉组合，请放宽时辰或换字</div>';return}
+  let html='<div class="rec-section"><div class="rec-head">根据八字推荐 <span class="hint">喜用「'+currentXi.join('·')+'」· 五格全吉 · 共 '+top.length+' 个</span></div><div class="rec-grid">';
+  for(const r of top){
+    const name='刘'+r.a.c+r.b.c;
+    const v=[S+1,S+r.sa,r.sa+r.sb,r.sb+1,S+r.sa+r.sb];
+    let mean='';
+    if(r.a.m)mean+=r.a.c+':'+r.a.m.replace(/[；;].*$/,'').slice(0,10)+'　';
+    if(r.b.m)mean+=r.b.c+':'+r.b.m.replace(/[；;].*$/,'').slice(0,10);
+    let src='';
+    if(r.a.src)src+=r.a.src.split('—')[0].trim()+'　';
+    if(r.b.src)src+=r.b.src.split('—')[0].trim();
+    html+='<div class="rec-card" data-a="'+r.a.c+'" data-b="'+r.b.c+'">';
+    html+='<div class="rc-name">'+name+'</div>';
+    html+='<div class="rc-wuge">天'+v[0]+' 人'+v[1]+' 地'+v[2]+' 外'+v[3]+' 总'+v[4]+' <span class="rc-ji">全吉</span></div>';
+    if(mean)html+='<div class="rc-mean">'+mean+'</div>';
+    if(src)html+='<div class="rc-src">📖 '+src+'</div>';
+    html+='</div>';
+  }
+  html+='</div></div>';
+  box.innerHTML=html;
+  box.querySelectorAll('.rec-card').forEach(el=>el.onclick=()=>pickRec(el.dataset.a,el.dataset.b));
+}
+function pickRec(a,b){nA=a;nB=b;updSlots();render();document.getElementById('interpretBox').scrollIntoView({behavior:'smooth',block:'nearest'});}
 
 // ===== 八字计算 ======
-function jdn(y,m,d){
-  const a=Math.floor((14-m)/12);
-  const yy=y+4800-a;
-  const mm=m+12*a-3;
-  return d+Math.floor((153*mm+2)/5)+365*yy+Math.floor(yy/4)-Math.floor(yy/100)+Math.floor(yy/400)-32045;
-}
+function jdn(y,m,d){const a=Math.floor((14-m)/12);const yy=y+4800-a;const mm=m+12*a-3;return d+Math.floor((153*mm+2)/5)+365*yy+Math.floor(yy/4)-Math.floor(yy/100)+Math.floor(yy/400)-32045}
 function gzOf(seq){return GAN[seq%10]+ZHI[seq%12]}
-
 function calcBazi(){
   const dateStr=document.getElementById('bzDate').value;
   const hour=parseInt(document.getElementById('bzHour').value);
   const xy=document.getElementById('xiyongDisplay');
+  const recBtn=document.getElementById('recBtn');
   if(!dateStr){xy.innerHTML='请选择日期';return;}
   const [y,mo,d]=dateStr.split('-').map(Number);
-
-  // 年柱: 当年立春(≈02-04)后用当年，之前用上一年
   const lichun=y+'-02-04';
   const yearBase=dateStr>=lichun?y:y-1;
   let yearGanIdx=((yearBase-4)%10+10)%10;
   let yearZhiIdx=((yearBase-4)%12+12)%12;
   const yearPillar=GAN[yearGanIdx]+ZHI[yearZhiIdx];
-
-  // 月柱: 找当前日期落在哪个节之后
   let monthZhi=2;
-  for(let i=JIEQI.length-1;i>=0;i--){
-    if(dateStr>=JIEQI[i].d){monthZhi=JIEQI[i].z;break;}
-  }
+  for(let i=JIEQI.length-1;i>=0;i--){if(dateStr>=JIEQI[i].d){monthZhi=JIEQI[i].z;break;}}
   const yinGan=((yearGanIdx%5)*2+2)%10;
   const monthOffset=((monthZhi-2)%12+12)%12;
   const monthGanIdx=(yinGan+monthOffset)%10;
   const monthPillar=GAN[monthGanIdx]+ZHI[monthZhi];
-
-  // 日柱
   const jd=jdn(y,mo,d);
   const daySeq=(jd+49)%60;
   const dayPillar=gzOf(daySeq);
   const dayGanIdx=daySeq%10;
-
-  // 时柱: 五鼠遁
   let hourPillar='——';
-  if(hour>=0){
-    const ziGan=((dayGanIdx%5)*2)%10;
-    const hourGanIdx=(ziGan+hour)%10;
-    hourPillar=GAN[hourGanIdx]+ZHI[hour];
-  }
-
-  // 显示四柱
+  if(hour>=0){const ziGan=((dayGanIdx%5)*2)%10;const hourGanIdx=(ziGan+hour)%10;hourPillar=GAN[hourGanIdx]+ZHI[hour];}
   document.getElementById('pYear').textContent=yearPillar;
   document.getElementById('pMonth').textContent=monthPillar;
   document.getElementById('pDay').textContent=dayPillar;
   document.getElementById('pHour').textContent=hourPillar;
   const pzs=document.querySelectorAll('#bzPillars .pz');
-  pzs.forEach((p,i)=>{
-    const hasVal = (i<3) || (i===3 && hour>=0);
-    p.className='pz'+(hasVal?' has-val':' empty');
-  });
-
-  // 五行统计 + 喜用神
+  pzs.forEach((p,i)=>{const hasVal=(i<3)||(i===3&&hour>=0);p.className='pz'+(hasVal?' has-val':' empty');});
   const el={金:0,木:0,水:0,火:0,土:0};
-  [yearPillar,monthPillar,dayPillar,hourPillar].forEach(pz=>{
-    if(pz==='——')return;
-    const g=pz[0],z=pz[1];
-    if(WX_GAN[g])el[WX_GAN[g]]++;
-    if(WX_ZHI[z])el[WX_ZHI[z]]++;
-  });
+  [yearPillar,monthPillar,dayPillar,hourPillar].forEach(pz=>{if(pz==='——')return;const g=pz[0],z=pz[1];if(WX_GAN[g])el[WX_GAN[g]]++;if(WX_ZHI[z])el[WX_ZHI[z]]++;});
   const dayGan=dayPillar[0];
   const dayWx=WX_GAN[dayGan];
   const monthZhiStr=ZHI[monthZhi];
@@ -586,28 +518,20 @@ function calcBazi(){
   const sheng={木:{生我:水,我生:火,克我:金,我克:土},火:{生我:木,我生:土,克我:水,我克:金},土:{生我:火,我生:金,克我:木,我克:水},金:{生我:土,我生:水,克我:火,我克:木},水:{生我:金,我生:木,克我:土,我克:火}};
   const rel=sheng[dayWx];
   let strength;
-  if(monthWx===dayWx)strength='旺';
-  else if(monthWx===rel['生我'])strength='相';
-  else if(monthWx===rel['我生'])strength='休';
-  else if(monthWx===rel['克我'])strength='囚';
-  else if(monthWx===rel['我克'])strength='死';
-
+  if(monthWx===dayWx)strength='旺';else if(monthWx===rel['生我'])strength='相';else if(monthWx===rel['我生'])strength='休';else if(monthWx===rel['克我'])strength='囚';else if(monthWx===rel['我克'])strength='死';
   let xi='',ji='';
-  if(strength==='旺'||strength==='相'){
-    xi=rel['克我']+' '+rel['我克']+' '+rel['我生'];
-    ji=dayWx+' '+rel['生我'];
-  }else{
-    xi=rel['生我']+' '+dayWx;
-    ji=rel['我克']+' '+rel['我生']+' '+rel['克我'];
-  }
-
+  if(strength==='旺'||strength==='相'){xi=rel['克我']+' '+rel['我克']+' '+rel['我生'];ji=dayWx+' '+rel['生我'];}
+  else{xi=rel['生我']+' '+dayWx;ji=rel['我克']+' '+rel['我生']+' '+rel['克我'];}
+  // 保存喜用五行供推荐用
+  currentXi=xi.split(/\s+/).filter(Boolean);
   const order=['金','木','水','火','土'];
   const wxc=order.map(k=>'<span class="'+k+'">'+k+el[k]+'</span>').join('');
-  xy.innerHTML='日主 <b>'+dayGan+'('+dayWx+')</b> 生于'+monthZhiStr+'月，<b>'+strength+'</b><br>'+
-    '五行：'+wxc+'<br>'+
-    '喜用：<b>'+xi+'</b> · 忌：<b style="color:var(--cinnabar)">'+ji+'</b><br>'+
-    '<span style="color:var(--ink3);font-size:.66rem">※ 喜用为程序粗判，精确需命理师综合四柱</span>';
+  xy.innerHTML='日主 <b>'+dayGan+'('+dayWx+')</b> 生于'+monthZhiStr+'月，<b>'+strength+'</b><br>五行：'+wxc+'<br>喜用：<b>'+xi+'</b> · 忌：<b style="color:var(--cinnabar)">'+ji+'</b><br><span style="color:var(--ink3);font-size:.66rem">※ 喜用为程序粗判，精确需命理师综合四柱</span>';
   document.querySelector('.hero .meta').textContent=dayGan+dayWx+' · 喜 '+xi.replace(/\s/g,'');
+  recBtn.disabled=false;
+  recBtn.textContent='根据八字推荐名字（喜'+currentXi.join('·')+'）→';
+  // 自动推荐一次
+  recommend();
 }
 </script>
 </body>

@@ -63,9 +63,6 @@ body{font-family:var(--sans);background:var(--paper);color:var(--ink);min-height
 .bz-input{width:100%;font-family:var(--serif);font-size:.92rem;padding:.42rem .55rem;border:1px solid var(--line);border-radius:var(--rs);background:var(--paper);color:var(--ink);transition:all .18s}
 .bz-input:focus{outline:none;border-color:var(--gold2);background:var(--card);box-shadow:0 0 0 3px rgba(156,122,53,.1)}
 select.bz-input{cursor:pointer;appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--ink3) 50%),linear-gradient(135deg,var(--ink3) 50%,transparent 50%);background-position:calc(100% - 12px) calc(50% - 2px),calc(100% - 8px) calc(50% - 2px);background-size:4px 4px,4px 4px;background-repeat:no-repeat;padding-right:1.6rem}
-.recommend-btn{width:100%;margin-top:.7rem;padding:.5rem;border-radius:var(--rs);border:none;background:linear-gradient(135deg,var(--cinnabar),var(--cinnabar2));color:#fff;cursor:pointer;font-size:.82rem;font-family:var(--sans);letter-spacing:.08rem;transition:all .18s;box-shadow:0 2px 8px rgba(168,54,44,.25)}
-.recommend-btn:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(168,54,44,.35)}
-.recommend-btn:disabled{background:var(--ink4);box-shadow:none;cursor:not-allowed;opacity:.6}
 
 .bz-pillars{display:flex;gap:.35rem;margin-top:.7rem;justify-content:space-between}
 .bz-pillars .pz{flex:1;font-family:var(--serif);font-weight:500;font-size:.92rem;padding:.28rem .2rem;border-radius:6px;background:var(--card2);color:var(--ink);text-align:center;border:1px solid var(--line2);transition:all .2s}
@@ -111,20 +108,6 @@ select.bz-input{cursor:pointer;appearance:none;background-image:linear-gradient(
 .wg .v.idle{color:var(--ink4)}
 .wg.ji-bg{background:rgba(85,122,106,.1);border-color:rgba(85,122,106,.3)}
 .wg.xiong-bg{background:rgba(168,54,44,.08);border-color:rgba(168,54,44,.25)}
-
-/* 推荐结果 */
-.rec-section{margin-bottom:1rem}
-.rec-section .rec-head{font-family:var(--serif);font-weight:600;font-size:.9rem;color:var(--ink);margin-bottom:.6rem;display:flex;align-items:center;gap:.5rem}
-.rec-section .rec-head::before{content:'';width:3px;height:13px;background:var(--gold2);border-radius:1px}
-.rec-section .rec-head .hint{font-weight:400;font-size:.72rem;color:var(--ink3)}
-.rec-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:.6rem}
-.rec-card{background:var(--card);border:1px solid var(--line2);border-radius:var(--rs);padding:.7rem .85rem;cursor:pointer;transition:all .18s;box-shadow:var(--sh1)}
-.rec-card:hover{transform:translateY(-2px);box-shadow:var(--sh3);border-color:var(--gold2)}
-.rec-card .rc-name{font-family:var(--serif);font-weight:600;font-size:1.25rem;letter-spacing:.12rem;color:var(--ink)}
-.rec-card .rc-wuge{font-size:.66rem;color:var(--ink3);margin-top:.15rem}
-.rec-card .rc-ji{color:var(--jade);font-weight:600}
-.rec-card .rc-mean{font-size:.7rem;color:var(--ink2);margin-top:.35rem;line-height:1.5;font-family:var(--serif)}
-.rec-card .rc-src{font-size:.64rem;color:var(--ink3);margin-top:.2rem}
 
 /* 名字解读面板 */
 .interpret{margin-bottom:1rem;background:linear-gradient(135deg,var(--card),var(--card2));border:1px solid var(--gold3);border-radius:var(--r);box-shadow:var(--sh2);overflow:hidden}
@@ -221,7 +204,6 @@ select.bz-input{cursor:pointer;appearance:none;background-image:linear-gradient(
       <div class="pz empty"><span class="lb">时</span><span id="pHour">——</span></div>
     </div>
     <div class="xiyong" id="xiyongDisplay">选择日期与时辰后自动推算</div>
-    <button class="recommend-btn" id="recBtn" onclick="recommend()">根据八字推荐名字 →</button>
   </div>
   <div class="card"><h3>笔画 <span class="en">strokes</span></h3><div class="chips" id="strokeChips"></div></div>
   <div class="card"><h3>五行 <span class="en">wuxing</span></h3><div class="chips" id="wxChips"></div></div>
@@ -244,7 +226,6 @@ select.bz-input{cursor:pointer;appearance:none;background-image:linear-gradient(
     <button class="btn" onclick="clrName()">清空</button>
   </div>
 
-  <div id="recommendBox"></div>
   <div id="interpretBox"></div>
 
   <div class="toolbar"><span class="tool-count">显示 <b id="showCount">0</b> 字 · 共 <b id="totalCount">0</b></span></div>
@@ -263,11 +244,8 @@ const ZHI = ['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','
 const WX_GAN = {甲:'木',乙:'木',丙:'火',丁:'火',戊:'土',己:'土',庚:'金',辛:'金',壬:'水',癸:'水'};
 const WX_ZHI = {子:'水',丑:'土',寅:'木',卯:'木',辰:'土',巳:'火',午:'火',未:'土',申:'金',酉:'金',戌:'土',亥:'水'};
 const JIEQI = [{d:'2026-12-07',z:0},{d:'2027-01-05',z:1},{d:'2027-02-04',z:2}];
-const COMBOS = [[10,14],[8,16],[9,15],[10,7],[8,10],[10,6],[6,12]];
-
 let fil = {s:[],w:[],st:[],g:[],xF:false,xL:false};
 let nA='',nB='',sel=null;
-let currentXi=[],currentBazi='',currentWx={}; // 八字相关全局
 
 document.getElementById('totalCount').textContent = DATA.length;
 buildChips();render();
@@ -416,70 +394,6 @@ function updInterpret(){
   box.innerHTML=html;
 }
 
-// ===== 根据八字推荐名字 ======
-function charScore(c, xiList, wxCount){
-  let sc=0;
-  if(xiList.includes(c.w)) sc+=3;
-  // 补缺：八字里该五行越少，选该五行字越加分
-  if(c.w && wxCount[c.w]!==undefined) sc+=(3-wxCount[c.w])*0.5;
-  if(c.gender==='女') sc+=2; else if(c.gender==='通用') sc+=1;
-  if(c.m) sc+=1;
-  if(c.src) sc+=1.5;
-  if(c.landajie) sc-=3;
-  if(c.fenqi) sc-=2;
-  if(c.tags.includes('温婉')) sc+=0.5;
-  return sc;
-}
-function isAllJi(sa,sb){
-  const v=[S+1,S+sa,sa+sb,sb+1,S+sa+sb];
-  return v.every(x=>JI.has(x));
-}
-function recommend(){
-  const box=document.getElementById('recommendBox');
-  if(currentXi.length===0){box.innerHTML='<div class="empty">请先选择出生日期与时辰</div>';return}
-  // 按笔画建索引
-  const byStroke={};
-  DATA.forEach(c=>{if(!byStroke[c.s])byStroke[c.s]=[];byStroke[c.s].push(c)});
-  const results=[];
-  for(const [sa,sb] of COMBOS){
-    if(!isAllJi(sa,sb)) continue;
-    const listA=(byStroke[sa]||[]).filter(c=>currentXi.includes(c.w));
-    const listB=(byStroke[sb]||[]).filter(c=>currentXi.includes(c.w));
-    // 每个组合限制枚举量
-    const A=listA.sort((x,y)=>charScore(y,currentXi,currentWx)-charScore(x,currentXi,currentWx)).slice(0,20);
-    const B=listB.sort((x,y)=>charScore(y,currentXi,currentWx)-charScore(x,currentXi,currentWx)).slice(0,20);
-    for(const a of A){
-      for(const b of B){
-        if(a.c===b.c) continue;
-        results.push({a,b,sa,sb,score:charScore(a,currentXi,currentWx)+charScore(b,currentXi,currentWx)});
-      }
-    }
-  }
-  results.sort((x,y)=>y.score-x.score);
-  const top=results.slice(0,12);
-  if(top.length===0){box.innerHTML='<div class="empty">未找到符合喜用神五行的全吉组合，请放宽时辰或换字</div>';return}
-  let html='<div class="rec-section"><div class="rec-head">根据八字推荐 <span class="hint">八字 '+currentBazi+' · 喜用「'+currentXi.join('·')+'」· 五格全吉 · 共 '+top.length+' 个</span></div><div class="rec-grid">';
-  for(const r of top){
-    const name='刘'+r.a.c+r.b.c;
-    const v=[S+1,S+r.sa,r.sa+r.sb,r.sb+1,S+r.sa+r.sb];
-    let mean='';
-    if(r.a.m)mean+=r.a.c+':'+r.a.m.replace(/[；;].*$/,'').slice(0,10)+'　';
-    if(r.b.m)mean+=r.b.c+':'+r.b.m.replace(/[；;].*$/,'').slice(0,10);
-    let src='';
-    if(r.a.src)src+=r.a.src.split('—')[0].trim()+'　';
-    if(r.b.src)src+=r.b.src.split('—')[0].trim();
-    html+='<div class="rec-card" data-a="'+r.a.c+'" data-b="'+r.b.c+'">';
-    html+='<div class="rc-name">'+name+'</div>';
-    html+='<div class="rc-wuge">天'+v[0]+' 人'+v[1]+' 地'+v[2]+' 外'+v[3]+' 总'+v[4]+' <span class="rc-ji">全吉</span></div>';
-    if(mean)html+='<div class="rc-mean">'+mean+'</div>';
-    if(src)html+='<div class="rc-src">📖 '+src+'</div>';
-    html+='</div>';
-  }
-  html+='</div></div>';
-  box.innerHTML=html;
-  box.querySelectorAll('.rec-card').forEach(el=>el.onclick=()=>pickRec(el.dataset.a,el.dataset.b));
-}
-function pickRec(a,b){nA=a;nB=b;updSlots();render();document.getElementById('interpretBox').scrollIntoView({behavior:'smooth',block:'nearest'});}
 
 // ===== 八字计算 ======
 function jdn(y,m,d){const a=Math.floor((14-m)/12);const yy=y+4800-a;const mm=m+12*a-3;return d+Math.floor((153*mm+2)/5)+365*yy+Math.floor(yy/4)-Math.floor(yy/100)+Math.floor(yy/400)-32045}
@@ -488,7 +402,6 @@ function calcBazi(){
   const dateStr=document.getElementById('bzDate').value;
   const hour=parseInt(document.getElementById('bzHour').value);
   const xy=document.getElementById('xiyongDisplay');
-  const recBtn=document.getElementById('recBtn');
   if(!dateStr){xy.innerHTML='请选择日期';return;}
   const [y,mo,d]=dateStr.split('-').map(Number);
   const lichun=y+'-02-04';
@@ -527,18 +440,10 @@ function calcBazi(){
   let xi='',ji='';
   if(strength==='旺'||strength==='相'){xi=rel['克我']+' '+rel['我克']+' '+rel['我生'];ji=dayWx+' '+rel['生我'];}
   else{xi=rel['生我']+' '+dayWx;ji=rel['我克']+' '+rel['我生']+' '+rel['克我'];}
-  // 保存喜用五行供推荐用
-  currentBazi=yearPillar+' '+monthPillar+' '+dayPillar+' '+hourPillar;
-  currentWx={金:el['金'],木:el['木'],水:el['水'],火:el['火'],土:el['土']};
-  currentXi=xi.split(/\\s+/).filter(Boolean);
   const order=['金','木','水','火','土'];
   const wxc=order.map(k=>'<span class="'+k+'">'+k+el[k]+'</span>').join('');
   xy.innerHTML='日主 <b>'+dayGan+'('+dayWx+')</b> 生于'+monthZhiStr+'月，<b>'+strength+'</b><br>五行：'+wxc+'<br>喜用：<b>'+xi+'</b> · 忌：<b style="color:var(--cinnabar)">'+ji+'</b><br><span style="color:var(--ink3);font-size:.66rem">※ 喜用为程序粗判，精确需命理师综合四柱</span>';
   document.querySelector('.hero .meta').textContent=dayGan+dayWx+' · 喜 '+xi.replace(/\\s/g,'');
-  recBtn.disabled=false;
-  recBtn.textContent='根据八字推荐名字（喜'+currentXi.join('·')+'）→';
-  // 自动推荐一次
-  recommend();
 }
 </script>
 </body>

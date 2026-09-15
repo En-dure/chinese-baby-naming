@@ -518,7 +518,7 @@ function calcBazi(){
   const dayWx=WX_GAN[dayGan];
   const monthZhiStr=ZHI[monthZhi];
   const monthWx=WX_ZHI[monthZhiStr];
-  const sheng={木:{生我:水,我生:火,克我:金,我克:土},火:{生我:木,我生:土,克我:水,我克:金},土:{生我:火,我生:金,克我:木,我克:水},金:{生我:土,我生:水,克我:火,我克:木},水:{生我:金,我生:木,克我:土,我克:火}};
+  const sheng={木:{生我:'水',我生:'火',克我:'金',我克:'土'},火:{生我:'木',我生:'土',克我:'水',我克:'金'},土:{生我:'火',我生:'金',克我:'木',我克:'水'},金:{生我:'土',我生:'水',克我:'火',我克:'木'},水:{生我:'金',我生:'木',克我:'土',我克:'火'}};
   const rel=sheng[dayWx];
   let strength;
   if(monthWx===dayWx)strength='旺';else if(monthWx===rel['生我'])strength='相';else if(monthWx===rel['我生'])strength='休';else if(monthWx===rel['克我'])strength='囚';else if(monthWx===rel['我克'])strength='死';

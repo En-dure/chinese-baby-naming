@@ -188,7 +188,7 @@ select.bz-input{cursor:pointer}
   <div class="card">
     <h3>性别</h3>
     <div class="chips" id="genderChips">
-      <span class="chip active" data-g="女" onclick="gndr('女',this)">女</span>
+      <span class="chip" data-g="女" onclick="gndr('女',this)">女</span>
       <span class="chip" data-g="通用" onclick="gndr('通用',this)">通用</span>
       <span class="chip" data-g="男" onclick="gndr('男',this)">男</span>
     </div>
@@ -251,7 +251,7 @@ const JIEQI = [
   {d:'2027-02-04', z:2},   // 立春→寅月(新年)
 ];
 
-let fil = {s:[],w:[],st:[],g:['女'],xF:false,xL:false};
+let fil = {s:[],w:[],st:[],g:[],xF:false,xL:false};
 let nA='',nB='',sel=null;
 
 document.getElementById('totalCount').textContent = DATA.length;
@@ -278,7 +278,7 @@ function buildChips(){
   });
 }
 function tgl(g,v,e){const a=fil[g];const i=a.indexOf(v);i>=0?a.splice(i,1):a.push(v);e.classList.toggle('active');}
-function gndr(v,e){document.querySelectorAll('#genderChips .chip').forEach(c=>c.classList.remove('active'));e.classList.add('active');fil.g=[v];render();}
+function gndr(v,e){const i=fil.g.indexOf(v);if(i>=0)fil.g.splice(i,1);else fil.g.push(v);e.classList.toggle('active');render();}
 
 function fdata(){
   let r=[...DATA];

@@ -1,5 +1,6 @@
 const fs = require('fs');
 const json = fs.readFileSync('references/chars-data.json', 'utf8');
+const cn = fs.readFileSync('references/curated-names.json', 'utf8');
 
 const html = `<!DOCTYPE html>
 <html lang="zh-CN">
@@ -130,6 +131,26 @@ select.bz-input{cursor:pointer;appearance:none;background-image:linear-gradient(
 .interpret .ip-wuge .ji-tag{color:var(--jade);font-weight:600}
 .interpret .ip-zongyi{margin-top:.6rem;padding:.7rem .9rem;background:linear-gradient(135deg,var(--paper),var(--paper2));border-radius:var(--rs);border-left:3px solid var(--cinnabar);font-family:var(--serif);font-size:.82rem;line-height:1.8;color:var(--ink2)}
 .interpret .ip-zongyi .zl{font-weight:600;color:var(--ink);font-size:.74rem;letter-spacing:.1rem;display:block;margin-bottom:.2rem}
+.insp-section{margin-bottom:1.3rem}
+.insp-head{font-family:var(--serif);font-weight:600;font-size:.95rem;color:var(--ink);margin-bottom:.65rem;display:flex;align-items:center;gap:.5rem;padding:0 .2rem}
+.insp-head::before{content:'';width:3px;height:14px;background:var(--gold2);border-radius:1px}
+.insp-cnt{font-weight:400;font-size:.68rem;color:var(--ink3);margin-left:.15rem}
+.insp-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(228px,1fr));gap:.65rem}
+.insp-card{background:var(--card);border:1px solid var(--line2);border-radius:var(--rs);padding:.75rem .95rem;cursor:pointer;transition:all .18s;box-shadow:var(--sh1)}
+.insp-card:hover{transform:translateY(-2px);box-shadow:var(--sh3);border-color:var(--gold2)}
+.insp-card .ic-top{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:.35rem}
+.insp-card .ic-name{font-family:var(--serif);font-weight:600;font-size:1.25rem;letter-spacing:.12rem;color:var(--ink)}
+.insp-card .ic-py{font-size:.66rem;color:var(--ink3);letter-spacing:.08rem}
+.insp-card .ic-zy{font-family:var(--serif);font-size:.8rem;color:var(--ink2);line-height:1.55;margin-bottom:.4rem}
+.insp-card .ic-meta{display:flex;gap:.28rem;flex-wrap:wrap;align-items:center}
+.insp-card .ic-meta span{font-size:.62rem;padding:.12rem .38rem;border-radius:4px;font-family:var(--serif)}
+.insp-card .ic-meta .金{background:rgba(156,122,53,.16);color:var(--gold)}
+.insp-card .ic-meta .木{background:rgba(85,122,106,.16);color:var(--jade)}
+.insp-card .ic-meta .水{background:rgba(58,90,122,.16);color:var(--indigo)}
+.insp-card .ic-meta .火{background:rgba(168,54,44,.16);color:var(--cinnabar)}
+.insp-card .ic-meta .土{background:rgba(139,90,43,.16);color:#8b5a2b}
+.insp-card .ic-ji{background:rgba(85,122,106,.12);color:var(--jade);font-weight:600}
+.insp-card .ic-src{font-size:.62rem;color:var(--ink3);margin-top:.35rem;font-family:var(--serif)}
 
 .toolbar{display:flex;align-items:center;gap:.8rem;margin-bottom:.75rem;flex-wrap:wrap;padding:0 .2rem}
 .tool-count{font-size:.78rem;color:var(--ink3)}
@@ -228,6 +249,8 @@ select.bz-input{cursor:pointer;appearance:none;background-image:linear-gradient(
 
   <div id="interpretBox"></div>
 
+  <div id="inspirationBox"></div>
+
   <div class="toolbar"><span class="tool-count">显示 <b id="showCount">0</b> 字 · 共 <b id="totalCount">0</b></span></div>
   <div class="grid" id="grid"></div>
 </main>
@@ -237,6 +260,7 @@ select.bz-input{cursor:pointer;appearance:none;background-image:linear-gradient(
 
 <script>
 const DATA = ${json};
+const INSPIRATION = ${cn};
 const S = 15;
 const JI = new Set([1,3,5,6,7,8,11,13,15,16,17,18,21,23,24,25,29,31,32,33,35,37,39,41,45,47,48,52,55,57,61,63,65,67,68,81]);
 const GAN = ['甲','乙','丙','丁','戊','己','庚','辛','壬','癸'];
@@ -248,7 +272,7 @@ let fil = {s:[],w:[],st:[],g:[],xF:false,xL:false};
 let nA='',nB='',sel=null;
 
 document.getElementById('totalCount').textContent = DATA.length;
-buildChips();render();
+buildChips();render();renderInspiration();
 document.getElementById('bzDate').addEventListener('change',calcBazi);
 document.getElementById('bzHour').addEventListener('change',calcBazi);
 calcBazi();
@@ -393,6 +417,30 @@ function updInterpret(){
   html+='</div></div>';
   box.innerHTML=html;
 }
+
+// ===== 名字灵感库 ======
+function renderInspiration(){
+  const box=document.getElementById('inspirationBox');
+  if(!INSPIRATION.length){box.innerHTML='';return}
+  const groups={};
+  INSPIRATION.forEach(n=>{if(!groups[n.group])groups[n.group]=[];groups[n.group].push(n)});
+  let html='';
+  Object.entries(groups).forEach(([g,items])=>{
+    html+='<div class="insp-section"><div class="insp-head">'+g+' <span class="insp-cnt">'+items.length+'个</span></div><div class="insp-grid">';
+    items.forEach(n=>{
+      html+='<div class="insp-card" data-a="'+n.c1+'" data-b="'+n.c2+'">';
+      html+='<div class="ic-top"><span class="ic-name">刘'+n.name+'</span><span class="ic-py">'+n.p+'</span></div>';
+      html+='<div class="ic-zy">'+n.zy+'</div>';
+      html+='<div class="ic-meta"><span class="'+n.w1+'">'+n.c1+'·'+n.w1+'</span><span class="'+n.w2+'">'+n.c2+'·'+n.w2+'</span><span class="ic-ji">五格全吉</span></div>';
+      if(n.srcBook1||n.srcBook2)html+='<div class="ic-src">📖 '+(n.srcBook1||n.srcBook2)+'</div>';
+      html+='</div>';
+    });
+    html+='</div></div>';
+  });
+  box.innerHTML=html;
+  box.querySelectorAll('.insp-card').forEach(el=>el.onclick=()=>pickInsp(el.dataset.a,el.dataset.b));
+}
+function pickInsp(a,b){nA=a;nB=b;updSlots();render();document.getElementById('interpretBox').scrollIntoView({behavior:'smooth',block:'nearest'});}
 
 
 // ===== 八字计算 ======

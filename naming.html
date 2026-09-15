@@ -264,7 +264,7 @@ const COMBOS = [[10,14],[8,16],[9,15],[10,7],[8,10],[10,6],[6,12]];
 
 let fil = {s:[],w:[],st:[],g:[],xF:false,xL:false};
 let nA='',nB='',sel=null;
-let currentXi=[]; // 当前喜用五行数组
+let currentXi=[],currentBazi='',currentWx={}; // 八字相关全局
 
 document.getElementById('totalCount').textContent = DATA.length;
 buildChips();render();
@@ -414,9 +414,11 @@ function updInterpret(){
 }
 
 // ===== 根据八字推荐名字 ======
-function charScore(c, xiList){
+function charScore(c, xiList, wxCount){
   let sc=0;
   if(xiList.includes(c.w)) sc+=3;
+  // 补缺：八字里该五行越少，选该五行字越加分
+  if(c.w && wxCount[c.w]!==undefined) sc+=(3-wxCount[c.w])*0.5;
   if(c.gender==='女') sc+=2; else if(c.gender==='通用') sc+=1;
   if(c.m) sc+=1;
   if(c.src) sc+=1.5;
@@ -441,19 +443,19 @@ function recommend(){
     const listA=(byStroke[sa]||[]).filter(c=>currentXi.includes(c.w));
     const listB=(byStroke[sb]||[]).filter(c=>currentXi.includes(c.w));
     // 每个组合限制枚举量
-    const A=listA.sort((x,y)=>charScore(y,currentXi)-charScore(x,currentXi)).slice(0,20);
-    const B=listB.sort((x,y)=>charScore(y,currentXi)-charScore(x,currentXi)).slice(0,20);
+    const A=listA.sort((x,y)=>charScore(y,currentXi,currentWx)-charScore(x,currentXi,currentWx)).slice(0,20);
+    const B=listB.sort((x,y)=>charScore(y,currentXi,currentWx)-charScore(x,currentXi,currentWx)).slice(0,20);
     for(const a of A){
       for(const b of B){
         if(a.c===b.c) continue;
-        results.push({a,b,sa,sb,score:charScore(a,currentXi)+charScore(b,currentXi)});
+        results.push({a,b,sa,sb,score:charScore(a,currentXi,currentWx)+charScore(b,currentXi,currentWx)});
       }
     }
   }
   results.sort((x,y)=>y.score-x.score);
   const top=results.slice(0,12);
   if(top.length===0){box.innerHTML='<div class="empty">未找到符合喜用神五行的全吉组合，请放宽时辰或换字</div>';return}
-  let html='<div class="rec-section"><div class="rec-head">根据八字推荐 <span class="hint">喜用「'+currentXi.join('·')+'」· 五格全吉 · 共 '+top.length+' 个</span></div><div class="rec-grid">';
+  let html='<div class="rec-section"><div class="rec-head">根据八字推荐 <span class="hint">八字 '+currentBazi+' · 喜用「'+currentXi.join('·')+'」· 五格全吉 · 共 '+top.length+' 个</span></div><div class="rec-grid">';
   for(const r of top){
     const name='刘'+r.a.c+r.b.c;
     const v=[S+1,S+r.sa,r.sa+r.sb,r.sb+1,S+r.sa+r.sb];
@@ -523,6 +525,8 @@ function calcBazi(){
   if(strength==='旺'||strength==='相'){xi=rel['克我']+' '+rel['我克']+' '+rel['我生'];ji=dayWx+' '+rel['生我'];}
   else{xi=rel['生我']+' '+dayWx;ji=rel['我克']+' '+rel['我生']+' '+rel['克我'];}
   // 保存喜用五行供推荐用
+  currentBazi=yearPillar+' '+monthPillar+' '+dayPillar+' '+hourPillar;
+  currentWx={金:el['金'],木:el['木'],水:el['水'],火:el['火'],土:el['土']};
   currentXi=xi.split(/\s+/).filter(Boolean);
   const order=['金','木','水','火','土'];
   const wxc=order.map(k=>'<span class="'+k+'">'+k+el[k]+'</span>').join('');

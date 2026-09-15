@@ -1,4 +1,5 @@
 # Sensitive
 .env
 *.token
-*secret*temp_dl/
+*secret*
+temp_dl/

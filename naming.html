@@ -147,6 +147,17 @@ select.bz-input{cursor:pointer;appearance:none;background-image:linear-gradient(
 .insp-card .ic-meta .土{background:rgba(139,90,43,.16);color:#8b5a2b}
 .insp-card .ic-ji{background:rgba(85,122,106,.12);color:var(--jade);font-weight:600}
 .insp-card .ic-src{font-size:.62rem;color:var(--ink3);margin-top:.35rem;font-family:var(--serif)}
+.insp-overview{margin-bottom:1.1rem;padding:.7rem .9rem;background:linear-gradient(135deg,var(--paper),var(--paper2));border-radius:var(--rs);border-left:3px solid var(--gold2);font-family:var(--serif);font-size:.83rem;color:var(--ink2);text-align:center;line-height:1.7}
+.insp-overview b{color:var(--gold);font-weight:600}
+.insp-card.match2{border-color:var(--gold2);box-shadow:0 0 0 1px var(--gold2),var(--sh2);position:relative;overflow:hidden}
+.insp-card.match2::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold2))}
+.insp-card.match1{border-color:var(--line3)}
+.insp-card.match0{opacity:.45}
+.insp-card.match0:hover{opacity:.85}
+.ic-tagrow{margin-bottom:.3rem}
+.ic-tag{display:inline-block;font-size:.6rem;padding:.1rem .36rem;border-radius:3px;font-family:var(--serif);letter-spacing:.05rem}
+.ic-tag.tag2{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#fff;font-weight:600}
+.ic-tag.tag1{background:rgba(156,122,53,.16);color:var(--gold)}
 
 .toolbar{display:flex;align-items:center;gap:.8rem;margin-bottom:.75rem;flex-wrap:wrap;padding:0 .2rem}
 .tool-count{font-size:.78rem;color:var(--ink3)}
@@ -969,6 +980,7 @@ const WX_ZHI = {子:'水',丑:'土',寅:'木',卯:'木',辰:'土',巳:'火',午:
 const JIEQI = [{d:'2026-12-07',z:0},{d:'2027-01-05',z:1},{d:'2027-02-04',z:2}];
 let fil = {s:[],w:[],st:[],g:[],xF:false,xL:false};
 let nA='',nB='',sel=null;
+let currentXi=[]; // 当前八字喜用五行
 
 document.getElementById('totalCount').textContent = DATA.length;
 buildChips();render();renderInspiration();
@@ -1121,14 +1133,26 @@ function updInterpret(){
 function renderInspiration(){
   const box=document.getElementById('inspirationBox');
   if(!INSPIRATION.length){box.innerHTML='';return}
-  const groups={};
-  INSPIRATION.forEach(n=>{if(!groups[n.group])groups[n.group]=[];groups[n.group].push(n)});
+  const xi=currentXi;
+  // 名字匹配度：双字五行是否补喜用（0/1/2）
+  const scored=INSPIRATION.map(n=>{const m=(xi.includes(n.w1)?1:0)+(xi.includes(n.w2)?1:0);return Object.assign({},n,{m:m})});
   let html='';
+  if(xi.length){
+    const c2=scored.filter(n=>n.m===2).length;
+    const c1=scored.filter(n=>n.m===1).length;
+    html+='<div class="insp-overview">喜用「'+xi.join(' · ')+'」 · 双补喜用 <b>'+c2+'</b> 个 · 单补 <b>'+c1+'</b> 个 · 组内已按贴合度排序</div>';
+  }
+  const groups={};
+  scored.forEach(n=>{if(!groups[n.group])groups[n.group]=[];groups[n.group].push(n)});
   Object.entries(groups).forEach(([g,items])=>{
+    items.sort((a,b)=>b.m-a.m);
     html+='<div class="insp-section"><div class="insp-head">'+g+' <span class="insp-cnt">'+items.length+'个</span></div><div class="insp-grid">';
     items.forEach(n=>{
-      html+='<div class="insp-card" data-a="'+n.c1+'" data-b="'+n.c2+'">';
+      const mc=n.m===2?'match2':(n.m===1?'match1':'match0');
+      const tag=n.m===2?'<span class="ic-tag tag2">双补喜用</span>':(n.m===1?'<span class="ic-tag tag1">补喜用</span>':'');
+      html+='<div class="insp-card '+mc+'" data-a="'+n.c1+'" data-b="'+n.c2+'">';
       html+='<div class="ic-top"><span class="ic-name">刘'+n.name+'</span><span class="ic-py">'+n.p+'</span></div>';
+      if(tag)html+='<div class="ic-tagrow">'+tag+'</div>';
       html+='<div class="ic-zy">'+n.zy+'</div>';
       html+='<div class="ic-meta"><span class="'+n.w1+'">'+n.c1+'·'+n.w1+'</span><span class="'+n.w2+'">'+n.c2+'·'+n.w2+'</span><span class="ic-ji">五格全吉</span></div>';
       if(n.srcBook1||n.srcBook2)html+='<div class="ic-src">📖 '+(n.srcBook1||n.srcBook2)+'</div>';
@@ -1191,6 +1215,8 @@ function calcBazi(){
   const wxc=order.map(k=>'<span class="'+k+'">'+k+el[k]+'</span>').join('');
   xy.innerHTML='日主 <b>'+dayGan+'('+dayWx+')</b> 生于'+monthZhiStr+'月，<b>'+strength+'</b><br>五行：'+wxc+'<br>喜用：<b>'+xi+'</b> · 忌：<b style="color:var(--cinnabar)">'+ji+'</b><br><span style="color:var(--ink3);font-size:.66rem">※ 喜用为程序粗判，精确需命理师综合四柱</span>';
   document.querySelector('.hero .meta').textContent=dayGan+dayWx+' · 喜 '+xi.replace(/\s/g,'');
+  currentXi=xi.split(/\s+/).filter(Boolean);
+  renderInspiration();
 }
 </script>
 </body>

@@ -187,7 +187,7 @@ Use `references/zodiac-radicals.md` reference:
 
 ##### 5.0.4 字库校准参考
 
-`references/wuxing-char-lib.md` 收录了188个起名常用字作为**校准参考**（五行归属、繁体笔画、分歧标注、烂大街标注）。**选字不限于此188字** — 不在字库里的字按以下方法判断：
+`references/wuxing-char-lib.md` 收录了188个起名常用字作为**校准参考**（五行归属、繁体笔画、分歧标注、烂大街标注）。同时可配合 `references/classical/wuxing-classics.md`（经典高频86字五行归类）交叉验证。**选字不限于此188字** — 不在字库里的字按以下方法判断：
 
 | 判定法 | 规则 | 示例 |
 |--------|------|------|
